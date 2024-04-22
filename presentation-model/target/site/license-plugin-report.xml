@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268988660">
+    <module artifactId="presentation" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="ADDED"/>
+        <file path="etc/presentation-model.urm.puml" result="UNKNOWN"/>
+        <file path="etc/presentation.urm.puml" result="UNKNOWN"/>
+        <file path="evosuite-report/statistics.csv" result="UNKNOWN"/>
+        <file path="evosuite-tests/com/iluwatar/presentationmodel/Album_ESTest_scaffolding.java" result="ADDED"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/presentationmodel/Album.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/presentationmodel/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/presentationmodel/DisplayedAlbums.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/presentationmodel/PresentationModel.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/presentationmodel/View.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/presentationmodel/AlbumTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/presentationmodel/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/presentationmodel/DisplayedAlbumsTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/presentationmodel/PresentationTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/presentationmodel/ViewTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268764284">
+    <module artifactId="half-sync-half-async" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/half-sync-half-async.ucls" result="UNKNOWN"/>
+        <file path="etc/half-sync-half-async.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/halfsynchalfasync/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/halfsynchalfasync/AsyncTask.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/halfsynchalfasync/AsynchronousService.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/halfsynchalfasync/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/halfsynchalfasync/AsynchronousServiceTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

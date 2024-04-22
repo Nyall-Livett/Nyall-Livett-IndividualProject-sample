@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268956152">
+    <module artifactId="combinator" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="ADDED"/>
+        <file path="etc/combinator.urm.puml" result="UNKNOWN"/>
+        <file path="evosuite-report/statistics.csv" result="UNKNOWN"/>
+        <file path="evosuite-tests/com/iluwatar/combinator/CombinatorApp_ESTest_scaffolding.java" result="ADDED"/>
+        <file path="evosuite-tests/com/iluwatar/combinator/Finders_ESTest_scaffolding.java" result="ADDED"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/combinator/CombinatorApp.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/combinator/Finder.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/combinator/Finders.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/combinator/CombinatorAppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/combinator/FinderTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/combinator/FindersTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

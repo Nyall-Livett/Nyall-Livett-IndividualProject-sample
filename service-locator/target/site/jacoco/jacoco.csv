@@ -1,0 +1,6 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+service-locator,com.iluwatar.servicelocator,ServiceLocator,0,29,0,4,0,9,0,4,0,2
+service-locator,com.iluwatar.servicelocator,App,3,21,0,0,1,9,1,1,1,1
+service-locator,com.iluwatar.servicelocator,ServiceCache,0,47,0,2,0,13,0,5,0,4
+service-locator,com.iluwatar.servicelocator,InitContext,0,33,0,4,0,9,0,5,0,3
+service-locator,com.iluwatar.servicelocator,ServiceImpl,0,34,0,0,0,9,0,5,0,5

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LotteryNumbers.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">hexagonal</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.hexagonal.domain</a> &gt; <span class="el_source">LotteryNumbers.java</span></div><h1>LotteryNumbers.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.hexagonal.domain;
+
+import com.google.common.base.Joiner;
+import java.security.SecureRandom;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.PrimitiveIterator;
+import java.util.Set;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+/**
+ * Value object representing lottery numbers. This lottery uses sets of 4 numbers. The numbers must
+ * be unique and between 1 and 20.
+ */
+@EqualsAndHashCode
+@ToString
+public class LotteryNumbers {
+
+  private final Set&lt;Integer&gt; numbers;
+
+  public static final int MIN_NUMBER = 1;
+  public static final int MAX_NUMBER = 20;
+  public static final int NUM_NUMBERS = 4;
+
+  /**
+   * Constructor. Creates random lottery numbers.
+   */
+<span class="fc" id="L53">  private LotteryNumbers() {</span>
+<span class="fc" id="L54">    numbers = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L55">    generateRandomNumbers();</span>
+<span class="fc" id="L56">  }</span>
+
+  /**
+   * Constructor. Uses given numbers.
+   */
+<span class="fc" id="L61">  private LotteryNumbers(Set&lt;Integer&gt; givenNumbers) {</span>
+<span class="fc" id="L62">    numbers = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L63">    numbers.addAll(givenNumbers);</span>
+<span class="fc" id="L64">  }</span>
+
+  /**
+   * Creates a random lottery number.
+   *
+   * @return random LotteryNumbers
+   */
+  public static LotteryNumbers createRandom() {
+<span class="fc" id="L72">    return new LotteryNumbers();</span>
+  }
+
+  /**
+   * Creates lottery number from given set of numbers.
+   *
+   * @return given LotteryNumbers
+   */
+  public static LotteryNumbers create(Set&lt;Integer&gt; givenNumbers) {
+<span class="fc" id="L81">    return new LotteryNumbers(givenNumbers);</span>
+  }
+
+  /**
+   * Get numbers.
+   *
+   * @return lottery numbers
+   */
+  public Set&lt;Integer&gt; getNumbers() {
+<span class="fc" id="L90">    return Collections.unmodifiableSet(numbers);</span>
+  }
+
+  /**
+   * Get numbers as string.
+   *
+   * @return numbers as comma separated string
+   */
+  public String getNumbersAsString() {
+<span class="nc" id="L99">    return Joiner.on(',').join(numbers);</span>
+  }
+
+  /**
+   * Generates 4 unique random numbers between 1-20 into numbers set.
+   */
+  private void generateRandomNumbers() {
+<span class="fc" id="L106">    numbers.clear();</span>
+<span class="fc" id="L107">    var generator = new RandomNumberGenerator(MIN_NUMBER, MAX_NUMBER);</span>
+<span class="fc bfc" id="L108" title="All 2 branches covered.">    while (numbers.size() &lt; NUM_NUMBERS) {</span>
+<span class="fc" id="L109">      var num = generator.nextInt();</span>
+<span class="fc" id="L110">      numbers.add(num);</span>
+<span class="fc" id="L111">    }</span>
+<span class="fc" id="L112">  }</span>
+
+  /**
+   * Helper class for generating random numbers.
+   */
+  private static class RandomNumberGenerator {
+
+    private final PrimitiveIterator.OfInt randomIterator;
+
+    /**
+     * Initialize a new random number generator that generates random numbers in the range [min,
+     * max].
+     *
+     * @param min the min value (inclusive)
+     * @param max the max value (inclusive)
+     */
+<span class="fc" id="L128">    public RandomNumberGenerator(int min, int max) {</span>
+<span class="fc" id="L129">      randomIterator = new SecureRandom().ints(min, max + 1).iterator();</span>
+<span class="fc" id="L130">    }</span>
+
+    /**
+     * Gets next random integer in [min, max] range.
+     *
+     * @return a random number in the range (min, max)
+     */
+    public int nextInt() {
+<span class="fc" id="L138">      return randomIterator.nextInt();</span>
+    }
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

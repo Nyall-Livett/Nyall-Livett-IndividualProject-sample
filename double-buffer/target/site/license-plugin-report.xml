@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268946354">
+    <module artifactId="double-buffer" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="ADDED"/>
+        <file path="etc/double-buffer.urm.puml" result="UNKNOWN"/>
+        <file path="evosuite-report/statistics.csv" result="UNKNOWN"/>
+        <file path="evosuite-tests/com/iluwatar/doublebuffer/FrameBuffer_ESTest_scaffolding.java" result="ADDED"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/doublebuffer/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/doublebuffer/Buffer.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/doublebuffer/FrameBuffer.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/doublebuffer/Pixel.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/doublebuffer/Scene.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/doublebuffer/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/doublebuffer/FrameBufferTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/doublebuffer/SceneTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

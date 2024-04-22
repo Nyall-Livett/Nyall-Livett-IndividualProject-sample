@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConsoleLoggerModule.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">module</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.module</a> &gt; <span class="el_source">ConsoleLoggerModule.java</span></div><h1>ConsoleLoggerModule.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.module;
+
+import java.io.PrintStream;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * The ConsoleLoggerModule is responsible for showing logs on System Console.
+ *
+ * &lt;p&gt;The below example demonstrates a Console logger module, which can print simple and error
+ * messages in two designated formats
+ */
+<span class="fc" id="L36">@Slf4j</span>
+public final class ConsoleLoggerModule {
+
+<span class="fc" id="L39">  private static ConsoleLoggerModule singleton = null;</span>
+
+<span class="fc" id="L41">  public PrintStream output = null;</span>
+<span class="fc" id="L42">  public PrintStream error = null;</span>
+
+<span class="fc" id="L44">  private ConsoleLoggerModule() {</span>
+<span class="fc" id="L45">  }</span>
+
+  /**
+   * Static method to get single instance of class.
+   *
+   * @return singleton instance of ConsoleLoggerModule
+   */
+  public static ConsoleLoggerModule getSingleton() {
+
+<span class="pc bpc" id="L54" title="1 of 2 branches missed.">    if (ConsoleLoggerModule.singleton == null) {</span>
+<span class="fc" id="L55">      ConsoleLoggerModule.singleton = new ConsoleLoggerModule();</span>
+    }
+
+<span class="fc" id="L58">    return ConsoleLoggerModule.singleton;</span>
+  }
+
+  /**
+   * Following method performs the initialization.
+   */
+  public ConsoleLoggerModule prepare() {
+
+<span class="fc" id="L66">    LOGGER.debug(&quot;ConsoleLoggerModule::prepare();&quot;);</span>
+
+<span class="fc" id="L68">    this.output = new PrintStream(System.out);</span>
+<span class="fc" id="L69">    this.error = new PrintStream(System.err);</span>
+
+<span class="fc" id="L71">    return this;</span>
+  }
+
+  /**
+   * Following method performs the finalization.
+   */
+  public void unprepare() {
+
+<span class="pc bpc" id="L79" title="1 of 2 branches missed.">    if (this.output != null) {</span>
+
+<span class="fc" id="L81">      this.output.flush();</span>
+<span class="fc" id="L82">      this.output.close();</span>
+    }
+
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">    if (this.error != null) {</span>
+
+<span class="fc" id="L87">      this.error.flush();</span>
+<span class="fc" id="L88">      this.error.close();</span>
+    }
+
+<span class="fc" id="L91">    LOGGER.debug(&quot;ConsoleLoggerModule::unprepare();&quot;);</span>
+<span class="fc" id="L92">  }</span>
+
+  /**
+   * Used to print a message.
+   *
+   * @param value will be printed on console
+   */
+  public void printString(final String value) {
+<span class="fc" id="L100">    this.output.println(value);</span>
+<span class="fc" id="L101">  }</span>
+
+  /**
+   * Used to print a error message.
+   *
+   * @param value will be printed on error console
+   */
+  public void printErrorString(final String value) {
+<span class="fc" id="L109">    this.error.println(value);</span>
+<span class="fc" id="L110">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

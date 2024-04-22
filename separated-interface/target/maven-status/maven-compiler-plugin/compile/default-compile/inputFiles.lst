@@ -1,0 +1,5 @@
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/separated-interface/src/main/java/com/iluwatar/separatedinterface/App.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/separated-interface/src/main/java/com/iluwatar/separatedinterface/invoice/InvoiceGenerator.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/separated-interface/src/main/java/com/iluwatar/separatedinterface/taxes/DomesticTaxCalculator.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/separated-interface/src/main/java/com/iluwatar/separatedinterface/invoice/TaxCalculator.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/separated-interface/src/main/java/com/iluwatar/separatedinterface/taxes/ForeignTaxCalculator.java

@@ -1,0 +1,10 @@
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/health-check/src/main/java/com/iluwatar/health/check/MemoryHealthIndicator.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/health-check/src/main/java/com/iluwatar/health/check/HealthCheckRepository.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/health-check/src/main/java/com/iluwatar/health/check/RetryConfig.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/health-check/src/main/java/com/iluwatar/health/check/HealthCheck.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/health-check/src/main/java/com/iluwatar/health/check/App.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/health-check/src/main/java/com/iluwatar/health/check/CustomHealthIndicator.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/health-check/src/main/java/com/iluwatar/health/check/GarbageCollectionHealthIndicator.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/health-check/src/main/java/com/iluwatar/health/check/DatabaseTransactionHealthIndicator.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/health-check/src/main/java/com/iluwatar/health/check/AsynchronousHealthChecker.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/health-check/src/main/java/com/iluwatar/health/check/HealthCheckInterruptedException.java

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CountrySchemaSql.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">serialized-entity</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.serializedentity</a> &gt; <span class="el_source">CountrySchemaSql.java</span></div><h1>CountrySchemaSql.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.serializedentity;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.sql.Blob;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.sql.DataSource;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * Country Schema SQL Class.
+ */
+<span class="fc" id="L41">@Slf4j</span>
+public class CountrySchemaSql implements CountryDao {
+  public static final String CREATE_SCHEMA_SQL = &quot;CREATE TABLE IF NOT EXISTS WORLD (ID INT PRIMARY KEY, COUNTRY BLOB)&quot;;
+
+  public static final String DELETE_SCHEMA_SQL = &quot;DROP TABLE WORLD IF EXISTS&quot;;
+
+  private Country country;
+  private DataSource dataSource;
+
+  /**
+   * Public constructor.
+   *
+   * @param dataSource datasource
+   * @param country country
+   */
+<span class="fc" id="L56">  public CountrySchemaSql(Country country, DataSource dataSource) {</span>
+<span class="fc" id="L57">    this.country = new Country(</span>
+<span class="fc" id="L58">            country.getCode(),</span>
+<span class="fc" id="L59">            country.getName(),</span>
+<span class="fc" id="L60">            country.getContinents(),</span>
+<span class="fc" id="L61">            country.getLanguage()</span>
+    );
+<span class="fc" id="L63">    this.dataSource = dataSource;</span>
+<span class="fc" id="L64">  }</span>
+
+  /**
+   * This method will serialize a Country object and store it to database.
+   * @return int type, if successfully insert a serialized object to database then return country code, else return -1.
+   * @throws IOException if any.
+   */
+  @Override
+  public int insertCountry() throws IOException {
+<span class="fc" id="L73">    var sql = &quot;INSERT INTO WORLD (ID, COUNTRY) VALUES (?, ?)&quot;;</span>
+<span class="fc" id="L74">    try (var connection = dataSource.getConnection();</span>
+<span class="nc" id="L75">         var preparedStatement = connection.prepareStatement(sql);</span>
+<span class="nc" id="L76">         ByteArrayOutputStream baos = new ByteArrayOutputStream();</span>
+<span class="nc" id="L77">         ObjectOutputStream oss = new ObjectOutputStream(baos)) {</span>
+
+<span class="nc" id="L79">      oss.writeObject(country);</span>
+<span class="nc" id="L80">      oss.flush();</span>
+
+<span class="nc" id="L82">      preparedStatement.setInt(1, country.getCode());</span>
+<span class="nc" id="L83">      preparedStatement.setBlob(2, new ByteArrayInputStream(baos.toByteArray()));</span>
+<span class="nc" id="L84">      preparedStatement.execute();</span>
+<span class="nc" id="L85">      return country.getCode();</span>
+<span class="fc" id="L86">    } catch (SQLException e) {</span>
+<span class="fc" id="L87">      LOGGER.info(&quot;Exception thrown &quot; + e.getMessage());</span>
+    }
+<span class="fc" id="L89">    return -1;</span>
+  }
+
+  /**
+   * This method will select a data item from database and deserialize it.
+   * @return int type, if successfully select and deserialized object from database then return country code,
+   *     else return -1.
+   * @throws IOException if any.
+   * @throws ClassNotFoundException if any.
+   */
+  @Override
+  public int selectCountry() throws IOException, ClassNotFoundException {
+<span class="fc" id="L101">    var sql = &quot;SELECT ID, COUNTRY FROM WORLD WHERE ID = ?&quot;;</span>
+<span class="fc" id="L102">    try (var connection = dataSource.getConnection();</span>
+<span class="nc" id="L103">         var preparedStatement = connection.prepareStatement(sql)) {</span>
+
+<span class="nc" id="L105">      preparedStatement.setInt(1, country.getCode());</span>
+
+<span class="nc" id="L107">      try (ResultSet rs = preparedStatement.executeQuery()) {</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">        if (rs.next()) {</span>
+<span class="nc" id="L109">          Blob countryBlob = rs.getBlob(&quot;country&quot;);</span>
+<span class="nc" id="L110">          ByteArrayInputStream baos = new ByteArrayInputStream(countryBlob.getBytes(1, (int) countryBlob.length()));</span>
+<span class="nc" id="L111">          ObjectInputStream ois = new ObjectInputStream(baos);</span>
+<span class="nc" id="L112">          country = (Country) ois.readObject();</span>
+<span class="nc" id="L113">          LOGGER.info(&quot;Country: &quot; + country);</span>
+        }
+<span class="nc" id="L115">        return rs.getInt(&quot;id&quot;);</span>
+      }
+<span class="fc" id="L117">    } catch (SQLException e) {</span>
+<span class="fc" id="L118">      LOGGER.info(&quot;Exception thrown &quot; + e.getMessage());</span>
+    }
+<span class="fc" id="L120">    return -1;</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

@@ -1,0 +1,4 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+resource-acquisition-is-initialization,com.iluwatar.resource.acquisition.is.initialization,SlidingDoor,0,14,0,0,0,6,0,3,0,3
+resource-acquisition-is-initialization,com.iluwatar.resource.acquisition.is.initialization,App,3,19,0,0,1,6,1,2,1,2
+resource-acquisition-is-initialization,com.iluwatar.resource.acquisition.is.initialization,TreasureChest,0,14,0,0,0,6,0,3,0,3

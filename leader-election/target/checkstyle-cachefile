@@ -1,0 +1,16 @@
+#Mon Apr 01 12:00:09 BST 2024
+configuration*?=3147E37F1B7F85EC2D5BEDD6217FA65449894553
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/ring/RingApp.java=1707917841753
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/AbstractInstance.java=1707917841752
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/bully/BullyApp.java=1707917841753
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/bully/BullyInstance.java=1707917841753
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/ring/RingInstance.java=1707917841753
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/MessageManager.java=1707917841753
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/Message.java=1707917841753
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/Instance.java=1707917841753
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/MessageType.java=1707917841753
+module-resource*?\:checkstyle-xpath-suppressions.xml=25A35774496ABC46AE1B2A96E2CBC2A2B7C95F2E
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/AbstractMessageManager.java=1707917841753
+module-resource*?\:checkstyle-suppressions.xml=AB1603421545C185EF55E0D81D55EE3881AE9CFE
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/bully/BullyMessageManager.java=1707917841753
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/ring/RingMessageManager.java=1707917841754

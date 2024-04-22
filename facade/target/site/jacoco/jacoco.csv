@@ -1,0 +1,8 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+facade,com.iluwatar.facade,DwarvenGoldmineFacade,0,62,0,0,0,11,0,6,0,6
+facade,com.iluwatar.facade,DwarvenGoldDigger,0,15,0,0,0,5,0,4,0,4
+facade,com.iluwatar.facade,DwarvenTunnelDigger,0,15,0,0,0,5,0,4,0,4
+facade,com.iluwatar.facade,DwarvenCartOperator,0,15,0,0,0,5,0,4,0,4
+facade,com.iluwatar.facade,DwarvenMineWorker.Action,0,54,0,0,0,2,0,1,0,1
+facade,com.iluwatar.facade,App,3,11,0,0,1,5,1,1,1,1
+facade,com.iluwatar.facade,DwarvenMineWorker,3,58,1,5,1,24,1,12,0,8

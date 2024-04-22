@@ -1,0 +1,7 @@
+com/iluwatar/servicetoworker/Dispatcher.class
+com/iluwatar/servicetoworker/Action.class
+com/iluwatar/servicetoworker/GiantModel.class
+com/iluwatar/servicetoworker/GiantView.class
+com/iluwatar/servicetoworker/Command.class
+com/iluwatar/servicetoworker/App.class
+com/iluwatar/servicetoworker/GiantController.class

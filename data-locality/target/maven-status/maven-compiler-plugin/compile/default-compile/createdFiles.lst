@@ -1,0 +1,9 @@
+com/iluwatar/data/locality/game/component/manager/PhysicsComponentManager.class
+com/iluwatar/data/locality/game/component/PhysicsComponent.class
+com/iluwatar/data/locality/game/component/AiComponent.class
+com/iluwatar/data/locality/game/component/manager/RenderComponentManager.class
+com/iluwatar/data/locality/game/component/RenderComponent.class
+com/iluwatar/data/locality/game/GameEntity.class
+com/iluwatar/data/locality/game/component/manager/AiComponentManager.class
+com/iluwatar/data/locality/Application.class
+com/iluwatar/data/locality/game/component/Component.class

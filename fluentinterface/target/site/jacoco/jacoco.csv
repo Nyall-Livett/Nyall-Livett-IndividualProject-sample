@@ -1,0 +1,15 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+fluentinterface,com.iluwatar.fluentinterface.app,App,3,228,0,6,1,50,1,18,1,15
+fluentinterface,com.iluwatar.fluentinterface.fluentiterable,FluentIterable,0,13,0,0,0,3,0,1,0,1
+fluentinterface,com.iluwatar.fluentinterface.fluentiterable.lazy,LazyFluentIterable.new LazyFluentIterable() {...},0,18,0,0,0,2,0,2,0,2
+fluentinterface,com.iluwatar.fluentinterface.fluentiterable.lazy,LazyFluentIterable,0,75,0,4,0,14,0,12,0,10
+fluentinterface,com.iluwatar.fluentinterface.fluentiterable.lazy,LazyFluentIterable.new DecoratingIterator() {...},0,17,0,2,0,2,0,3,0,2
+fluentinterface,com.iluwatar.fluentinterface.fluentiterable.lazy,LazyFluentIterable.new LazyFluentIterable() {...},0,15,0,0,0,2,0,2,0,2
+fluentinterface,com.iluwatar.fluentinterface.fluentiterable.lazy,LazyFluentIterable.new LazyFluentIterable() {...},0,18,0,0,0,2,0,2,0,2
+fluentinterface,com.iluwatar.fluentinterface.fluentiterable.lazy,LazyFluentIterable.new LazyFluentIterable() {...},0,18,0,0,0,2,0,2,0,2
+fluentinterface,com.iluwatar.fluentinterface.fluentiterable.lazy,DecoratingIterator,4,28,1,3,1,9,1,4,0,3
+fluentinterface,com.iluwatar.fluentinterface.fluentiterable.lazy,LazyFluentIterable.4.new DecoratingIterator() {...},0,30,0,2,0,6,0,3,0,2
+fluentinterface,com.iluwatar.fluentinterface.fluentiterable.lazy,LazyFluentIterable.3.new DecoratingIterator() {...},0,77,2,8,0,14,2,6,0,3
+fluentinterface,com.iluwatar.fluentinterface.fluentiterable.lazy,LazyFluentIterable.2.new DecoratingIterator() {...},0,31,0,4,0,6,0,4,0,2
+fluentinterface,com.iluwatar.fluentinterface.fluentiterable.lazy,LazyFluentIterable.1.new DecoratingIterator() {...},0,26,0,4,0,7,0,4,0,2
+fluentinterface,com.iluwatar.fluentinterface.fluentiterable.simple,SimpleFluentIterable,0,170,0,18,0,49,0,24,0,15

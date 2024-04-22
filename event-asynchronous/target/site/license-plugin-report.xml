@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268830490">
+    <module artifactId="event-asynchronous" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/event-asynchronous.ucls" result="UNKNOWN"/>
+        <file path="etc/event-asynchronous.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/event/asynchronous/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/event/asynchronous/AsyncEvent.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/event/asynchronous/Event.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/event/asynchronous/EventDoesNotExistException.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/event/asynchronous/EventManager.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/event/asynchronous/InvalidOperationException.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/event/asynchronous/LongRunningEventException.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/event/asynchronous/MaxNumOfEventsAllowedException.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/event/asynchronous/ThreadCompleteListener.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/event/asynchronous/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/event/asynchronous/EventAsynchronousTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

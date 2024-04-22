@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268921583">
+    <module artifactId="master-worker-pattern" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/master-worker-pattern.urm.puml" result="UNKNOWN"/>
+        <file path="evosuite-report/statistics.csv" result="UNKNOWN"/>
+        <file path="evosuite-tests/com/iluwatar/masterworker/ArrayUtilityMethods_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="evosuite-tests/com/iluwatar/masterworker/system/ArrayTransposeMasterWorker_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/masterworker/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/masterworker/ArrayInput.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/masterworker/ArrayResult.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/masterworker/ArrayUtilityMethods.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/masterworker/Input.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/masterworker/Result.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/masterworker/system/ArrayTransposeMasterWorker.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/masterworker/system/MasterWorker.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/masterworker/system/systemmaster/ArrayTransposeMaster.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/masterworker/system/systemmaster/Master.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/masterworker/system/systemworkers/ArrayTransposeWorker.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/masterworker/system/systemworkers/Worker.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/masterworker/ArrayInputTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/masterworker/ArrayUtilityMethodsTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/masterworker/system/ArrayTransposeMasterWorkerTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/masterworker/system/systemworkers/ArrayTransposeWorkerTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

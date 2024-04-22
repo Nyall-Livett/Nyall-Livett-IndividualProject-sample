@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268716565">
+    <module artifactId="multiton" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/multiton.ucls" result="UNKNOWN"/>
+        <file path="etc/multiton.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/multiton/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/multiton/Nazgul.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/multiton/NazgulEnum.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/multiton/NazgulName.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/multiton/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/multiton/NazgulEnumTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/multiton/NazgulTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268656705">
+    <module artifactId="event-aggregator" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/classes.ucls" result="UNKNOWN"/>
+        <file path="etc/event-aggregator.urm.puml" result="UNKNOWN"/>
+        <file path="evosuite-report/statistics.csv" result="UNKNOWN"/>
+        <file path="evosuite-tests/com/iluwatar/event/aggregator/EventEmitter_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="evosuite-tests/com/iluwatar/event/aggregator/KingJoffrey_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="evosuite-tests/com/iluwatar/event/aggregator/Scout_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/event/aggregator/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/event/aggregator/Event.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/event/aggregator/EventEmitter.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/event/aggregator/EventObserver.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/event/aggregator/KingJoffrey.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/event/aggregator/KingsHand.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/event/aggregator/LordBaelish.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/event/aggregator/LordVarys.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/event/aggregator/Scout.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/event/aggregator/Weekday.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/event/aggregator/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/event/aggregator/EventEmitterTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/event/aggregator/EventTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/event/aggregator/KingJoffreyTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/event/aggregator/KingsHandTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/event/aggregator/LordBaelishTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/event/aggregator/LordVarysTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/event/aggregator/ScoutTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/event/aggregator/WeekdayTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

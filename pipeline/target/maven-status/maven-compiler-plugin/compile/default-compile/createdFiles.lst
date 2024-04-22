@@ -1,0 +1,6 @@
+com/iluwatar/pipeline/Pipeline.class
+com/iluwatar/pipeline/Handler.class
+com/iluwatar/pipeline/RemoveAlphabetsHandler.class
+com/iluwatar/pipeline/App.class
+com/iluwatar/pipeline/RemoveDigitsHandler.class
+com/iluwatar/pipeline/ConvertToCharArrayHandler.class

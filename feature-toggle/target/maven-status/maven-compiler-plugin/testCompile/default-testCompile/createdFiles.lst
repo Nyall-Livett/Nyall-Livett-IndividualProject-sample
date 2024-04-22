@@ -1,0 +1,7 @@
+com/iluwatar/featuretoggle/pattern/propertiesversion/PropertiesFeatureToggleVersionTest.class
+com/iluwatar/featuretoggle/pattern/tieredversion/TieredFeatureToggleVersionTest.class
+com/iluwatar/featuretoggle/pattern/propertiesversion/PropertiesFeatureToggleVersion_ESTest.class
+com/iluwatar/featuretoggle/user/UserGroup_ESTest_scaffolding.class
+com/iluwatar/featuretoggle/user/UserGroupTest.class
+com/iluwatar/featuretoggle/user/UserGroup_ESTest.class
+com/iluwatar/featuretoggle/pattern/propertiesversion/PropertiesFeatureToggleVersion_ESTest_scaffolding.class

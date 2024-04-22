@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.iluwatar.hexagonal.database.MongoTicketRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 0.001 s -- in com.iluwatar.hexagonal.database.MongoTicketRepositoryTest

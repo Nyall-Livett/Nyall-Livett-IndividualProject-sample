@@ -1,0 +1,9 @@
+com/iluwatar/leaderelection/bully/BullyAppTest.class
+com/iluwatar/leaderelection/MessageTest.class
+com/iluwatar/leaderelection/ring/RingMessageManagerTest.class
+com/iluwatar/leaderelection/ring/RingInstanceTest.class
+com/iluwatar/leaderelection/bully/BullyApp_ESTest.class
+com/iluwatar/leaderelection/bully/BullyApp_ESTest_scaffolding.class
+com/iluwatar/leaderelection/ring/RingAppTest.class
+com/iluwatar/leaderelection/bully/BullyinstanceTest.class
+com/iluwatar/leaderelection/bully/BullyMessageManagerTest.class

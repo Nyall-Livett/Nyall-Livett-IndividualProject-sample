@@ -1,0 +1,6 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+ambassador,com.iluwatar.ambassador,RemoteService,7,47,0,4,3,15,0,7,0,5
+ambassador,com.iluwatar.ambassador,RemoteServiceStatus,0,26,0,0,0,6,0,3,0,3
+ambassador,com.iluwatar.ambassador,ServiceAmbassador,10,65,1,5,4,19,1,7,0,5
+ambassador,com.iluwatar.ambassador,Client,0,24,0,0,0,6,0,3,0,3
+ambassador,com.iluwatar.ambassador,App,3,17,0,0,1,5,1,1,1,1

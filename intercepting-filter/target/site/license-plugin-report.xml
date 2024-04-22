@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268664283">
+    <module artifactId="intercepting-filter" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/intercepting-filter.ucls" result="UNKNOWN"/>
+        <file path="etc/intercepting-filter.urm.puml" result="UNKNOWN"/>
+        <file path="evosuite-report/statistics.csv" result="UNKNOWN"/>
+        <file path="evosuite-tests/com/iluwatar/intercepting/filter/FilterManager_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/intercepting/filter/AbstractFilter.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/intercepting/filter/AddressFilter.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/intercepting/filter/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/intercepting/filter/Client.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/intercepting/filter/ContactFilter.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/intercepting/filter/DepositFilter.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/intercepting/filter/Filter.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/intercepting/filter/FilterChain.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/intercepting/filter/FilterManager.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/intercepting/filter/NameFilter.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/intercepting/filter/Order.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/intercepting/filter/OrderFilter.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/intercepting/filter/Target.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/intercepting/filter/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/intercepting/filter/FilterManagerTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/intercepting/filter/FilterTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/intercepting/filter/OrderTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/intercepting/filter/TargetTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

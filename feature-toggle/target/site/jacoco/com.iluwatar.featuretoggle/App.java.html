@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">feature-toggle</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.featuretoggle</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.featuretoggle;
+
+import com.iluwatar.featuretoggle.pattern.Service;
+import com.iluwatar.featuretoggle.pattern.propertiesversion.PropertiesFeatureToggleVersion;
+import com.iluwatar.featuretoggle.pattern.tieredversion.TieredFeatureToggleVersion;
+import com.iluwatar.featuretoggle.user.User;
+import com.iluwatar.featuretoggle.user.UserGroup;
+import java.util.Properties;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * The Feature Toggle pattern allows for complete code executions to be turned on or off with ease.
+ * This allows features to be controlled by either dynamic methods just as {@link User} information
+ * or by {@link Properties}. In the App below there are two examples. Firstly the {@link Properties}
+ * version of the feature toggle, where the enhanced version of the welcome message which is
+ * personalised is turned either on or off at instance creation. This method is not as dynamic as
+ * the {@link User} driven version where the feature of the personalised welcome message is
+ * dependent on the {@link UserGroup} the {@link User} is in. So if the user is a member of the
+ * {@link UserGroup#isPaid(User)} then they get an enhanced version of the welcome message.
+ *
+ * &lt;p&gt;Note that this pattern can easily introduce code complexity, and if not kept in check can
+ * result in redundant unmaintained code within the codebase.
+ */
+<span class="nc" id="L48">@Slf4j</span>
+<span class="nc" id="L49">public class App {</span>
+
+  /**
+   * Block 1 shows the {@link PropertiesFeatureToggleVersion} being run with {@link Properties}
+   * setting the feature toggle to enabled.
+   *
+   * &lt;p&gt;Block 2 shows the {@link PropertiesFeatureToggleVersion} being run with {@link Properties}
+   * setting the feature toggle to disabled. Notice the difference with the printed welcome message
+   * the username is not included.
+   *
+   * &lt;p&gt;Block 3 shows the {@link
+   * com.iluwatar.featuretoggle.pattern.tieredversion.TieredFeatureToggleVersion} being set up with
+   * two users on who is on the free level, while the other is on the paid level. When the {@link
+   * Service#getWelcomeMessage(User)} is called with the paid {@link User} note that the welcome
+   * message contains their username, while the same service call with the free tier user is more
+   * generic. No username is printed.
+   *
+   * @see User
+   * @see UserGroup
+   * @see Service
+   * @see PropertiesFeatureToggleVersion
+   * @see com.iluwatar.featuretoggle.pattern.tieredversion.TieredFeatureToggleVersion
+   */
+  public static void main(String[] args) {
+
+<span class="nc" id="L74">    final var properties = new Properties();</span>
+<span class="nc" id="L75">    properties.put(&quot;enhancedWelcome&quot;, true);</span>
+<span class="nc" id="L76">    var service = new PropertiesFeatureToggleVersion(properties);</span>
+<span class="nc" id="L77">    final var welcomeMessage = service.getWelcomeMessage(new User(&quot;Jamie No Code&quot;));</span>
+<span class="nc" id="L78">    LOGGER.info(welcomeMessage);</span>
+
+    // ---------------------------------------------
+
+<span class="nc" id="L82">    final var turnedOff = new Properties();</span>
+<span class="nc" id="L83">    turnedOff.put(&quot;enhancedWelcome&quot;, false);</span>
+<span class="nc" id="L84">    var turnedOffService = new PropertiesFeatureToggleVersion(turnedOff);</span>
+<span class="nc" id="L85">    final var welcomeMessageturnedOff =</span>
+<span class="nc" id="L86">        turnedOffService.getWelcomeMessage(new User(&quot;Jamie No Code&quot;));</span>
+<span class="nc" id="L87">    LOGGER.info(welcomeMessageturnedOff);</span>
+
+    // --------------------------------------------
+
+<span class="nc" id="L91">    var service2 = new TieredFeatureToggleVersion();</span>
+
+<span class="nc" id="L93">    final var paidUser = new User(&quot;Jamie Coder&quot;);</span>
+<span class="nc" id="L94">    final var freeUser = new User(&quot;Alan Defect&quot;);</span>
+
+<span class="nc" id="L96">    UserGroup.addUserToPaidGroup(paidUser);</span>
+<span class="nc" id="L97">    UserGroup.addUserToFreeGroup(freeUser);</span>
+
+<span class="nc" id="L99">    final var welcomeMessagePaidUser = service2.getWelcomeMessage(paidUser);</span>
+<span class="nc" id="L100">    final var welcomeMessageFreeUser = service2.getWelcomeMessage(freeUser);</span>
+<span class="nc" id="L101">    LOGGER.info(welcomeMessageFreeUser);</span>
+<span class="nc" id="L102">    LOGGER.info(welcomeMessagePaidUser);</span>
+<span class="nc" id="L103">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

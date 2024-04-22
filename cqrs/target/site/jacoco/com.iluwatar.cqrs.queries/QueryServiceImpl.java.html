@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>QueryServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cqrs</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.cqrs.queries</a> &gt; <span class="el_source">QueryServiceImpl.java</span></div><h1>QueryServiceImpl.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.cqrs.queries;
+
+import com.iluwatar.cqrs.constants.AppConstants;
+import com.iluwatar.cqrs.dto.Author;
+import com.iluwatar.cqrs.dto.Book;
+import com.iluwatar.cqrs.util.HibernateUtil;
+import java.math.BigInteger;
+import java.util.List;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+
+/**
+ * This class is an implementation of {@link QueryService}. It uses Hibernate native queries to
+ * return DTOs from the database.
+ */
+<span class="fc" id="L40">public class QueryServiceImpl implements QueryService {</span>
+
+<span class="fc" id="L42">  private final SessionFactory sessionFactory = HibernateUtil.getSessionFactory();</span>
+
+  @Override
+  public Author getAuthorByUsername(String username) {
+    Author authorDto;
+<span class="fc" id="L47">    try (var session = sessionFactory.openSession()) {</span>
+<span class="fc" id="L48">      Query&lt;Author&gt; sqlQuery = session.createQuery(</span>
+              &quot;select new com.iluwatar.cqrs.dto.Author(a.name, a.email, a.username)&quot;
+                      + &quot; from com.iluwatar.cqrs.domain.model.Author a where a.username=:username&quot;);
+<span class="fc" id="L51">      sqlQuery.setParameter(AppConstants.USER_NAME, username);</span>
+<span class="fc" id="L52">      authorDto = sqlQuery.uniqueResult();</span>
+    }
+<span class="fc" id="L54">    return authorDto;</span>
+  }
+
+  @Override
+  public Book getBook(String title) {
+    Book bookDto;
+<span class="fc" id="L60">    try (var session = sessionFactory.openSession()) {</span>
+<span class="fc" id="L61">      Query&lt;Book&gt; sqlQuery = session.createQuery(</span>
+              &quot;select new com.iluwatar.cqrs.dto.Book(b.title, b.price)&quot;
+                      + &quot; from com.iluwatar.cqrs.domain.model.Book b where b.title=:title&quot;);
+<span class="fc" id="L64">      sqlQuery.setParameter(&quot;title&quot;, title);</span>
+<span class="fc" id="L65">      bookDto = sqlQuery.uniqueResult();</span>
+    }
+<span class="fc" id="L67">    return bookDto;</span>
+  }
+
+  @Override
+  public List&lt;Book&gt; getAuthorBooks(String username) {
+    List&lt;Book&gt; bookDtos;
+<span class="fc" id="L73">    try (var session = sessionFactory.openSession()) {</span>
+<span class="fc" id="L74">      Query&lt;Book&gt; sqlQuery = session.createQuery(</span>
+              &quot;select new com.iluwatar.cqrs.dto.Book(b.title, b.price)&quot;
+                      + &quot; from com.iluwatar.cqrs.domain.model.Author a, com.iluwatar.cqrs.domain.model.Book b &quot;
+                      + &quot;where b.author.id = a.id and a.username=:username&quot;);
+<span class="fc" id="L78">      sqlQuery.setParameter(AppConstants.USER_NAME, username);</span>
+<span class="fc" id="L79">      bookDtos = sqlQuery.list();</span>
+    }
+<span class="fc" id="L81">    return bookDtos;</span>
+  }
+
+  @Override
+  public BigInteger getAuthorBooksCount(String username) {
+    BigInteger bookcount;
+<span class="fc" id="L87">    try (var session = sessionFactory.openSession()) {</span>
+<span class="fc" id="L88">      var sqlQuery = session.createNativeQuery(</span>
+              &quot;SELECT count(b.title)&quot; + &quot; FROM  Book b, Author a&quot;
+                      + &quot; where b.author_id = a.id and a.username=:username&quot;);
+<span class="fc" id="L91">      sqlQuery.setParameter(AppConstants.USER_NAME, username);</span>
+<span class="fc" id="L92">      bookcount = (BigInteger) sqlQuery.uniqueResult();</span>
+    }
+<span class="fc" id="L94">    return bookcount;</span>
+  }
+
+  @Override
+  public BigInteger getAuthorsCount() {
+    BigInteger authorcount;
+<span class="fc" id="L100">    try (var session = sessionFactory.openSession()) {</span>
+<span class="fc" id="L101">      var sqlQuery = session.createNativeQuery(&quot;SELECT count(id) from Author&quot;);</span>
+<span class="fc" id="L102">      authorcount = (BigInteger) sqlQuery.uniqueResult();</span>
+    }
+<span class="fc" id="L104">    return authorcount;</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268944972">
+    <module artifactId="saga" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="ADDED"/>
+        <file path="etc/saga.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/saga/choreography/ChoreographyChapter.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/saga/choreography/FlyBookingService.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/saga/choreography/HotelBookingService.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/saga/choreography/OrderService.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/saga/choreography/Saga.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/saga/choreography/SagaApplication.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/saga/choreography/Service.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/saga/choreography/ServiceDiscoveryService.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/saga/choreography/WithdrawMoneyService.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/saga/orchestration/ChapterResult.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/saga/orchestration/FlyBookingService.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/saga/orchestration/HotelBookingService.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/saga/orchestration/OrchestrationChapter.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/saga/orchestration/OrderService.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/saga/orchestration/Saga.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/saga/orchestration/SagaApplication.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/saga/orchestration/SagaOrchestrator.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/saga/orchestration/Service.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/saga/orchestration/ServiceDiscoveryService.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/saga/orchestration/WithdrawMoneyService.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/saga/choreography/SagaApplicationTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/saga/choreography/SagaChoreographyTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/saga/orchestration/SagaApplicationTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/saga/orchestration/SagaOrchestratorInternallyTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/saga/orchestration/SagaOrchestratorTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

@@ -1,0 +1,6 @@
+com/iluwatar/repository/JpaRepository.class
+com/iluwatar/model/Card.class
+com/iluwatar/service/CardUpdateService.class
+com/iluwatar/exception/ApplicationException.class
+com/iluwatar/api/UpdateService.class
+com/iluwatar/model/Card$CardBuilder.class

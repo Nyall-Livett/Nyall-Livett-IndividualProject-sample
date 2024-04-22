@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LotteryAdministration.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">hexagonal</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.hexagonal.domain</a> &gt; <span class="el_source">LotteryAdministration.java</span></div><h1>LotteryAdministration.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.hexagonal.domain;
+
+import static com.iluwatar.hexagonal.domain.LotteryConstants.PRIZE_AMOUNT;
+import static com.iluwatar.hexagonal.domain.LotteryConstants.SERVICE_BANK_ACCOUNT;
+
+import com.google.inject.Inject;
+import com.iluwatar.hexagonal.banking.WireTransfers;
+import com.iluwatar.hexagonal.database.LotteryTicketRepository;
+import com.iluwatar.hexagonal.eventlog.LotteryEventLog;
+import java.util.Map;
+
+/**
+ * Lottery administration implementation.
+ */
+public class LotteryAdministration {
+
+  private final LotteryTicketRepository repository;
+  private final LotteryEventLog notifications;
+  private final WireTransfers wireTransfers;
+
+  /**
+   * Constructor.
+   */
+  @Inject
+  public LotteryAdministration(LotteryTicketRepository repository, LotteryEventLog notifications,
+<span class="fc" id="L50">                               WireTransfers wireTransfers) {</span>
+<span class="fc" id="L51">    this.repository = repository;</span>
+<span class="fc" id="L52">    this.notifications = notifications;</span>
+<span class="fc" id="L53">    this.wireTransfers = wireTransfers;</span>
+<span class="fc" id="L54">  }</span>
+
+  /**
+   * Get all the lottery tickets submitted for lottery.
+   */
+  public Map&lt;LotteryTicketId, LotteryTicket&gt; getAllSubmittedTickets() {
+<span class="fc" id="L60">    return repository.findAll();</span>
+  }
+
+  /**
+   * Draw lottery numbers.
+   */
+  public LotteryNumbers performLottery() {
+<span class="fc" id="L67">    var numbers = LotteryNumbers.createRandom();</span>
+<span class="fc" id="L68">    var tickets = getAllSubmittedTickets();</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">    for (var id : tickets.keySet()) {</span>
+<span class="fc" id="L70">      var lotteryTicket = tickets.get(id);</span>
+<span class="fc" id="L71">      var playerDetails = lotteryTicket.getPlayerDetails();</span>
+<span class="fc" id="L72">      var playerAccount = playerDetails.getBankAccount();</span>
+<span class="fc" id="L73">      var result = LotteryUtils.checkTicketForPrize(repository, id, numbers).getResult();</span>
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">      if (result == LotteryTicketCheckResult.CheckResult.WIN_PRIZE) {</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">        if (wireTransfers.transferFunds(PRIZE_AMOUNT, SERVICE_BANK_ACCOUNT, playerAccount)) {</span>
+<span class="nc" id="L76">          notifications.ticketWon(playerDetails, PRIZE_AMOUNT);</span>
+        } else {
+<span class="nc" id="L78">          notifications.prizeError(playerDetails, PRIZE_AMOUNT);</span>
+        }
+<span class="pc bpc" id="L80" title="1 of 2 branches missed.">      } else if (result == LotteryTicketCheckResult.CheckResult.NO_PRIZE) {</span>
+<span class="fc" id="L81">        notifications.ticketDidNotWin(playerDetails);</span>
+      }
+<span class="fc" id="L83">    }</span>
+<span class="fc" id="L84">    return numbers;</span>
+  }
+
+  /**
+   * Begin new lottery round.
+   */
+  public void resetLottery() {
+<span class="fc" id="L91">    repository.deleteAll();</span>
+<span class="fc" id="L92">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

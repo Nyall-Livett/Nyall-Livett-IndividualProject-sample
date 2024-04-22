@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268918878">
+    <module artifactId="acyclic-visitor" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/acyclic-visitor.urm.puml" result="UNKNOWN"/>
+        <file path="evosuite-report/statistics.csv" result="UNKNOWN"/>
+        <file path="evosuite-tests/com/iluwatar/acyclicvisitor/Zoom_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/acyclicvisitor/AllModemVisitor.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/acyclicvisitor/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/acyclicvisitor/ConfigureForDosVisitor.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/acyclicvisitor/ConfigureForUnixVisitor.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/acyclicvisitor/Hayes.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/acyclicvisitor/HayesVisitor.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/acyclicvisitor/Modem.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/acyclicvisitor/ModemVisitor.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/acyclicvisitor/Zoom.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/acyclicvisitor/ZoomVisitor.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/acyclicvisitor/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/acyclicvisitor/HayesTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/acyclicvisitor/ZoomTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

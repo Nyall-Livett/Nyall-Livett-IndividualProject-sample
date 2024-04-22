@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AppClient.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">reactor</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.reactor.app</a> &gt; <span class="el_source">AppClient.java</span></div><h1>AppClient.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.reactor.app;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * Represents the clients of Reactor pattern. Multiple clients are run concurrently and send logging
+ * requests to Reactor.
+ */
+<span class="fc" id="L45">@Slf4j</span>
+<span class="fc" id="L46">public class AppClient {</span>
+
+<span class="fc" id="L48">  private final ExecutorService service = Executors.newFixedThreadPool(4);</span>
+
+  /**
+   * App client entry.
+   *
+   * @throws IOException if any I/O error occurs.
+   */
+  public static void main(String[] args) throws IOException {
+<span class="nc" id="L56">    var appClient = new AppClient();</span>
+<span class="nc" id="L57">    appClient.start();</span>
+<span class="nc" id="L58">  }</span>
+
+  /**
+   * Starts the logging clients.
+   *
+   * @throws IOException if any I/O error occurs.
+   */
+  public void start() throws IOException {
+<span class="fc" id="L66">    LOGGER.info(&quot;Starting logging clients&quot;);</span>
+<span class="fc" id="L67">    service.execute(new TcpLoggingClient(&quot;Client 1&quot;, 16666));</span>
+<span class="fc" id="L68">    service.execute(new TcpLoggingClient(&quot;Client 2&quot;, 16667));</span>
+<span class="fc" id="L69">    service.execute(new UdpLoggingClient(&quot;Client 3&quot;, 16668));</span>
+<span class="fc" id="L70">    service.execute(new UdpLoggingClient(&quot;Client 4&quot;, 16669));</span>
+<span class="fc" id="L71">  }</span>
+
+  /**
+   * Stops logging clients. This is a blocking call.
+   */
+  public void stop() {
+<span class="fc" id="L77">    service.shutdown();</span>
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">    if (!service.isTerminated()) {</span>
+<span class="fc" id="L79">      service.shutdownNow();</span>
+      try {
+<span class="fc" id="L81">        service.awaitTermination(1000, TimeUnit.SECONDS);</span>
+<span class="nc" id="L82">      } catch (InterruptedException e) {</span>
+<span class="nc" id="L83">        LOGGER.error(&quot;exception awaiting termination&quot;, e);</span>
+<span class="fc" id="L84">      }</span>
+    }
+<span class="fc" id="L86">    LOGGER.info(&quot;Logging clients stopped&quot;);</span>
+<span class="fc" id="L87">  }</span>
+
+  private static void artificialDelayOf(long millis) {
+    try {
+<span class="fc" id="L91">      Thread.sleep(millis);</span>
+<span class="nc" id="L92">    } catch (InterruptedException e) {</span>
+<span class="nc" id="L93">      LOGGER.error(&quot;sleep interrupted&quot;, e);</span>
+<span class="fc" id="L94">    }</span>
+<span class="fc" id="L95">  }</span>
+
+  /**
+   * A logging client that sends requests to Reactor on TCP socket.
+   */
+  static class TcpLoggingClient implements Runnable {
+
+    private final int serverPort;
+    private final String clientName;
+
+    /**
+     * Creates a new TCP logging client.
+     *
+     * @param clientName the name of the client to be sent in logging requests.
+     * @param serverPort the port on which client will send logging requests.
+     */
+<span class="fc" id="L111">    public TcpLoggingClient(String clientName, int serverPort) {</span>
+<span class="fc" id="L112">      this.clientName = clientName;</span>
+<span class="fc" id="L113">      this.serverPort = serverPort;</span>
+<span class="fc" id="L114">    }</span>
+
+    @Override
+    public void run() {
+<span class="fc" id="L118">      try (var socket = new Socket(InetAddress.getLocalHost(), serverPort)) {</span>
+<span class="fc" id="L119">        var outputStream = socket.getOutputStream();</span>
+<span class="fc" id="L120">        var writer = new PrintWriter(outputStream);</span>
+<span class="fc" id="L121">        sendLogRequests(writer, socket.getInputStream());</span>
+<span class="nc" id="L122">      } catch (IOException e) {</span>
+<span class="nc" id="L123">        LOGGER.error(&quot;error sending requests&quot;, e);</span>
+<span class="nc" id="L124">        throw new RuntimeException(e);</span>
+<span class="fc" id="L125">      }</span>
+<span class="fc" id="L126">    }</span>
+
+    private void sendLogRequests(PrintWriter writer, InputStream inputStream) throws IOException {
+<span class="fc bfc" id="L129" title="All 2 branches covered.">      for (var i = 0; i &lt; 4; i++) {</span>
+<span class="fc" id="L130">        writer.println(clientName + &quot; - Log request: &quot; + i);</span>
+<span class="fc" id="L131">        writer.flush();</span>
+
+<span class="fc" id="L133">        var data = new byte[1024];</span>
+<span class="fc" id="L134">        var read = inputStream.read(data, 0, data.length);</span>
+<span class="pc bpc" id="L135" title="1 of 2 branches missed.">        if (read == 0) {</span>
+<span class="nc" id="L136">          LOGGER.info(&quot;Read zero bytes&quot;);</span>
+        } else {
+<span class="fc" id="L138">          LOGGER.info(new String(data, 0, read));</span>
+        }
+
+<span class="fc" id="L141">        artificialDelayOf(100);</span>
+      }
+<span class="fc" id="L143">    }</span>
+
+  }
+
+  /**
+   * A logging client that sends requests to Reactor on UDP socket.
+   */
+  static class UdpLoggingClient implements Runnable {
+    private final String clientName;
+    private final InetSocketAddress remoteAddress;
+
+    /**
+     * Creates a new UDP logging client.
+     *
+     * @param clientName the name of the client to be sent in logging requests.
+     * @param port       the port on which client will send logging requests.
+     * @throws UnknownHostException if localhost is unknown
+     */
+<span class="fc" id="L161">    public UdpLoggingClient(String clientName, int port) throws UnknownHostException {</span>
+<span class="fc" id="L162">      this.clientName = clientName;</span>
+<span class="fc" id="L163">      this.remoteAddress = new InetSocketAddress(InetAddress.getLocalHost(), port);</span>
+<span class="fc" id="L164">    }</span>
+
+    @Override
+    public void run() {
+<span class="fc" id="L168">      try (var socket = new DatagramSocket()) {</span>
+<span class="fc bfc" id="L169" title="All 2 branches covered.">        for (var i = 0; i &lt; 4; i++) {</span>
+
+<span class="fc" id="L171">          var message = clientName + &quot; - Log request: &quot; + i;</span>
+<span class="fc" id="L172">          var bytes = message.getBytes();</span>
+<span class="fc" id="L173">          var request = new DatagramPacket(bytes, bytes.length, remoteAddress);</span>
+
+<span class="fc" id="L175">          socket.send(request);</span>
+
+<span class="fc" id="L177">          var data = new byte[1024];</span>
+<span class="fc" id="L178">          var reply = new DatagramPacket(data, data.length);</span>
+<span class="fc" id="L179">          socket.receive(reply);</span>
+<span class="pc bpc" id="L180" title="1 of 2 branches missed.">          if (reply.getLength() == 0) {</span>
+<span class="nc" id="L181">            LOGGER.info(&quot;Read zero bytes&quot;);</span>
+          } else {
+<span class="fc" id="L183">            LOGGER.info(new String(reply.getData(), 0, reply.getLength()));</span>
+          }
+
+<span class="fc" id="L186">          artificialDelayOf(100);</span>
+        }
+<span class="nc" id="L188">      } catch (IOException e1) {</span>
+<span class="nc" id="L189">        LOGGER.error(&quot;error sending packets&quot;, e1);</span>
+<span class="fc" id="L190">      }</span>
+<span class="fc" id="L191">    }</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

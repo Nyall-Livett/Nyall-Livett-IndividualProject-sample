@@ -1,0 +1,6 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+domain-model,com.iluwatar.domainmodel,Product,5,47,0,4,2,11,0,6,0,4
+domain-model,com.iluwatar.domainmodel,Customer,20,229,0,8,7,47,0,14,0,10
+domain-model,com.iluwatar.domainmodel,CustomerDaoImpl,0,154,2,4,0,45,2,7,0,6
+domain-model,com.iluwatar.domainmodel,ProductDaoImpl,0,123,2,4,0,34,2,5,0,4
+domain-model,com.iluwatar.domainmodel,App,3,145,0,0,1,58,1,4,1,4

@@ -1,0 +1,4 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+tolerant-reader,com.iluwatar.tolerantreader,RainbowFishSerializer,0,153,0,0,0,29,0,3,0,3
+tolerant-reader,com.iluwatar.tolerantreader,RainbowFishV2,0,23,0,0,0,7,0,2,0,2
+tolerant-reader,com.iluwatar.tolerantreader,App,3,166,0,0,1,19,1,2,1,2

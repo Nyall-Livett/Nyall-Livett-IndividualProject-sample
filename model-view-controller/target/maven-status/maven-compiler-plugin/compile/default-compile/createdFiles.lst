@@ -1,0 +1,8 @@
+com/iluwatar/model/view/controller/App.class
+com/iluwatar/model/view/controller/Nourishment.class
+com/iluwatar/model/view/controller/Fatigue.class
+com/iluwatar/model/view/controller/GiantModel.class
+com/iluwatar/model/view/controller/GiantView.class
+com/iluwatar/model/view/controller/Health.class
+com/iluwatar/model/view/controller/GiantModel$GiantModelBuilder.class
+com/iluwatar/model/view/controller/GiantController.class

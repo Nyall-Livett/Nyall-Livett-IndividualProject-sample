@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VirtualMachine.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bytecode</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.bytecode</a> &gt; <span class="el_source">VirtualMachine.java</span></div><h1>VirtualMachine.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.bytecode;
+
+import java.util.Stack;
+import java.util.concurrent.ThreadLocalRandom;
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * Implementation of virtual machine.
+ */
+@Getter
+<span class="fc" id="L36">@Slf4j</span>
+public class VirtualMachine {
+
+<span class="fc" id="L39">  private final Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();</span>
+
+<span class="fc" id="L41">  private final Wizard[] wizards = new Wizard[2];</span>
+
+  /**
+   * No-args constructor.
+   */
+<span class="fc" id="L46">  public VirtualMachine() {</span>
+<span class="fc" id="L47">    wizards[0] = new Wizard(randomInt(3, 32), randomInt(3, 32), randomInt(3, 32),</span>
+        0, 0);
+<span class="fc" id="L49">    wizards[1] = new Wizard(randomInt(3, 32), randomInt(3, 32), randomInt(3, 32),</span>
+        0, 0);
+<span class="fc" id="L51">  }</span>
+
+  /**
+   * Constructor taking the wizards as arguments.
+   */
+<span class="fc" id="L56">  public VirtualMachine(Wizard wizard1, Wizard wizard2) {</span>
+<span class="fc" id="L57">    wizards[0] = wizard1;</span>
+<span class="fc" id="L58">    wizards[1] = wizard2;</span>
+<span class="fc" id="L59">  }</span>
+
+  /**
+   * Executes provided bytecode.
+   *
+   * @param bytecode to execute
+   */
+  public void execute(int[] bytecode) {
+<span class="fc bfc" id="L67" title="All 2 branches covered.">    for (var i = 0; i &lt; bytecode.length; i++) {</span>
+<span class="fc" id="L68">      Instruction instruction = Instruction.getInstruction(bytecode[i]);</span>
+<span class="pc bpc" id="L69" title="1 of 12 branches missed.">      switch (instruction) {</span>
+        case LITERAL:
+          // Read the next byte from the bytecode.
+<span class="fc" id="L72">          int value = bytecode[++i];</span>
+          // Push the next value to stack
+<span class="fc" id="L74">          stack.push(value);</span>
+<span class="fc" id="L75">          break;</span>
+        case SET_AGILITY:
+<span class="fc" id="L77">          var amount = stack.pop();</span>
+<span class="fc" id="L78">          var wizard = stack.pop();</span>
+<span class="fc" id="L79">          setAgility(wizard, amount);</span>
+<span class="fc" id="L80">          break;</span>
+        case SET_WISDOM:
+<span class="fc" id="L82">          amount = stack.pop();</span>
+<span class="fc" id="L83">          wizard = stack.pop();</span>
+<span class="fc" id="L84">          setWisdom(wizard, amount);</span>
+<span class="fc" id="L85">          break;</span>
+        case SET_HEALTH:
+<span class="fc" id="L87">          amount = stack.pop();</span>
+<span class="fc" id="L88">          wizard = stack.pop();</span>
+<span class="fc" id="L89">          setHealth(wizard, amount);</span>
+<span class="fc" id="L90">          break;</span>
+        case GET_HEALTH:
+<span class="fc" id="L92">          wizard = stack.pop();</span>
+<span class="fc" id="L93">          stack.push(getHealth(wizard));</span>
+<span class="fc" id="L94">          break;</span>
+        case GET_AGILITY:
+<span class="fc" id="L96">          wizard = stack.pop();</span>
+<span class="fc" id="L97">          stack.push(getAgility(wizard));</span>
+<span class="fc" id="L98">          break;</span>
+        case GET_WISDOM:
+<span class="fc" id="L100">          wizard = stack.pop();</span>
+<span class="fc" id="L101">          stack.push(getWisdom(wizard));</span>
+<span class="fc" id="L102">          break;</span>
+        case ADD:
+<span class="fc" id="L104">          var a = stack.pop();</span>
+<span class="fc" id="L105">          var b = stack.pop();</span>
+<span class="fc" id="L106">          stack.push(a + b);</span>
+<span class="fc" id="L107">          break;</span>
+        case DIVIDE:
+<span class="fc" id="L109">          a = stack.pop();</span>
+<span class="fc" id="L110">          b = stack.pop();</span>
+<span class="fc" id="L111">          stack.push(b / a);</span>
+<span class="fc" id="L112">          break;</span>
+        case PLAY_SOUND:
+<span class="fc" id="L114">          wizard = stack.pop();</span>
+<span class="fc" id="L115">          getWizards()[wizard].playSound();</span>
+<span class="fc" id="L116">          break;</span>
+        case SPAWN_PARTICLES:
+<span class="fc" id="L118">          wizard = stack.pop();</span>
+<span class="fc" id="L119">          getWizards()[wizard].spawnParticles();</span>
+<span class="fc" id="L120">          break;</span>
+        default:
+<span class="nc" id="L122">          throw new IllegalArgumentException(&quot;Invalid instruction value&quot;);</span>
+      }
+<span class="fc" id="L124">      LOGGER.info(&quot;Executed &quot; + instruction.name() + &quot;, Stack contains &quot; + getStack());</span>
+    }
+<span class="fc" id="L126">  }</span>
+
+  public void setHealth(int wizard, int amount) {
+<span class="fc" id="L129">    wizards[wizard].setHealth(amount);</span>
+<span class="fc" id="L130">  }</span>
+
+  public void setWisdom(int wizard, int amount) {
+<span class="fc" id="L133">    wizards[wizard].setWisdom(amount);</span>
+<span class="fc" id="L134">  }</span>
+
+  public void setAgility(int wizard, int amount) {
+<span class="fc" id="L137">    wizards[wizard].setAgility(amount);</span>
+<span class="fc" id="L138">  }</span>
+
+  public int getHealth(int wizard) {
+<span class="fc" id="L141">    return wizards[wizard].getHealth();</span>
+  }
+
+  public int getWisdom(int wizard) {
+<span class="fc" id="L145">    return wizards[wizard].getWisdom();</span>
+  }
+
+  public int getAgility(int wizard) {
+<span class="fc" id="L149">    return wizards[wizard].getAgility();</span>
+  }
+
+  private int randomInt(int min, int max) {
+<span class="fc" id="L153">    return ThreadLocalRandom.current().nextInt(min, max + 1);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

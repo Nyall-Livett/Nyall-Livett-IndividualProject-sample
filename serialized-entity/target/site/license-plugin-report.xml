@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713269033560">
+    <module artifactId="serialized-entity" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="ADDED"/>
+        <file path="etc/serialize-entity.urm.puml" result="UNKNOWN"/>
+        <file path="etc/serialized-entity.urm.puml" result="UNKNOWN"/>
+        <file path="output.txt" result="ADDED"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/serializedentity/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/serializedentity/Country.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/serializedentity/CountryDao.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/serializedentity/CountrySchemaSql.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/serializedentity/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/serializedentity/CountryTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

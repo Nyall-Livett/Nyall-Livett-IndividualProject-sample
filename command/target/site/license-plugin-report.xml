@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268629299">
+    <module artifactId="command" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/command.ucls" result="UNKNOWN"/>
+        <file path="etc/command.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/command/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/command/Goblin.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/command/Size.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/command/Target.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/command/Visibility.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/command/Wizard.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/command/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/command/CommandTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

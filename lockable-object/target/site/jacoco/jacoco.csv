@@ -1,0 +1,11 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+lockable-object,com.iluwatar.lockableobject,LockingException,0,4,0,0,0,2,0,1,0,1
+lockable-object,com.iluwatar.lockableobject,App,7,140,1,5,3,21,1,6,0,4
+lockable-object,com.iluwatar.lockableobject,SwordOfAragorn,10,104,4,12,3,24,4,11,0,7
+lockable-object,com.iluwatar.lockableobject.domain,CreatureStats,0,81,0,0,0,11,0,3,0,3
+lockable-object,com.iluwatar.lockableobject.domain,Elf,0,15,0,0,0,5,0,1,0,1
+lockable-object,com.iluwatar.lockableobject.domain,CreatureType,0,34,0,0,0,4,0,1,0,1
+lockable-object,com.iluwatar.lockableobject.domain,Orc,0,15,0,0,0,5,0,1,0,1
+lockable-object,com.iluwatar.lockableobject.domain,Creature,0,109,0,18,0,27,0,16,0,7
+lockable-object,com.iluwatar.lockableobject.domain,Human,0,15,0,0,0,5,0,1,0,1
+lockable-object,com.iluwatar.lockableobject.domain,Feind,13,110,1,19,3,23,1,13,0,4

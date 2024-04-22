@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PrinterQueue.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">collecting-parameter</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.collectingparameter</a> &gt; <span class="el_source">PrinterQueue.java</span></div><h1>PrinterQueue.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.collectingparameter;
+
+import java.util.LinkedList;
+import java.util.Objects;
+import java.util.Queue;
+
+/**
+ * This class represents a singleton Printer Queue. It contains a queue that can be filled up with {@link PrinterItem}.
+ **/
+public class PrinterQueue {
+
+<span class="fc" id="L36">  static PrinterQueue currentInstance = null;</span>
+  private final Queue&lt;PrinterItem&gt; printerItemQueue;
+
+  /**
+   * This class is a singleton. The getInstance method will ensure that only one instance exists at a time.
+   */
+  public static PrinterQueue getInstance() {
+<span class="fc bfc" id="L43" title="All 2 branches covered.">    if (Objects.isNull(currentInstance)) {</span>
+<span class="fc" id="L44">      currentInstance = new PrinterQueue();</span>
+    }
+<span class="fc" id="L46">    return currentInstance;</span>
+  }
+
+  /**
+   * Empty the printer queue.
+   */
+  public void emptyQueue() {
+<span class="fc" id="L53">    currentInstance.getPrinterQueue().clear();</span>
+<span class="fc" id="L54">  }</span>
+
+  /**
+   * Private constructor prevents instantiation, unless using the getInstance() method.
+   */
+<span class="fc" id="L59">  private PrinterQueue() {</span>
+<span class="fc" id="L60">    printerItemQueue = new LinkedList&lt;&gt;();</span>
+<span class="fc" id="L61">  }</span>
+
+  public Queue&lt;PrinterItem&gt; getPrinterQueue() {
+<span class="fc" id="L64">    return currentInstance.printerItemQueue;</span>
+  }
+
+  /**
+   * Adds a single print job to the queue.
+   *
+   * @param printerItem The printing job to be added to the queue
+   */
+  public void addPrinterItem(PrinterItem printerItem) {
+<span class="fc" id="L73">    currentInstance.getPrinterQueue().add(printerItem);</span>
+<span class="fc" id="L74">  }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

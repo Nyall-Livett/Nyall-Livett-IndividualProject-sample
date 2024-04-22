@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">extension-objects</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+import abstractextensions.CommanderExtension;
+import abstractextensions.SergeantExtension;
+import abstractextensions.SoldierExtension;
+import java.util.Optional;
+import java.util.function.Function;
+import org.slf4j.LoggerFactory;
+import units.CommanderUnit;
+import units.SergeantUnit;
+import units.SoldierUnit;
+import units.Unit;
+
+/**
+ * Anticipate that an object’s interface needs to be extended in the future. Additional interfaces
+ * are defined by extension objects.
+ */
+<span class="nc" id="L40">public class App {</span>
+
+  /**
+   * Program entry point.
+   *
+   * @param args command line args
+   */
+  public static void main(String[] args) {
+
+    //Create 3 different units
+<span class="fc" id="L50">    var soldierUnit = new SoldierUnit(&quot;SoldierUnit1&quot;);</span>
+<span class="fc" id="L51">    var sergeantUnit = new SergeantUnit(&quot;SergeantUnit1&quot;);</span>
+<span class="fc" id="L52">    var commanderUnit = new CommanderUnit(&quot;CommanderUnit1&quot;);</span>
+
+    //check for each unit to have an extension
+<span class="fc" id="L55">    checkExtensionsForUnit(soldierUnit);</span>
+<span class="fc" id="L56">    checkExtensionsForUnit(sergeantUnit);</span>
+<span class="fc" id="L57">    checkExtensionsForUnit(commanderUnit);</span>
+
+<span class="fc" id="L59">  }</span>
+
+  private static void checkExtensionsForUnit(Unit unit) {
+<span class="fc" id="L62">    final var logger = LoggerFactory.getLogger(App.class);</span>
+
+<span class="fc" id="L64">    var name = unit.getName();</span>
+<span class="fc" id="L65">    Function&lt;String, Runnable&gt; func = e -&gt; () -&gt; logger.info(&quot;{} without {}&quot;, name, e);</span>
+
+<span class="fc" id="L67">    var extension = &quot;SoldierExtension&quot;;</span>
+<span class="fc" id="L68">    Optional.ofNullable(unit.getUnitExtension(extension))</span>
+<span class="fc" id="L69">        .map(e -&gt; (SoldierExtension) e)</span>
+<span class="fc" id="L70">        .ifPresentOrElse(SoldierExtension::soldierReady, func.apply(extension));</span>
+
+<span class="fc" id="L72">    extension = &quot;SergeantExtension&quot;;</span>
+<span class="fc" id="L73">    Optional.ofNullable(unit.getUnitExtension(extension))</span>
+<span class="fc" id="L74">        .map(e -&gt; (SergeantExtension) e)</span>
+<span class="fc" id="L75">        .ifPresentOrElse(SergeantExtension::sergeantReady, func.apply(extension));</span>
+
+<span class="fc" id="L77">    extension = &quot;CommanderExtension&quot;;</span>
+<span class="fc" id="L78">    Optional.ofNullable(unit.getUnitExtension(extension))</span>
+<span class="fc" id="L79">        .map(e -&gt; (CommanderExtension) e)</span>
+<span class="fc" id="L80">        .ifPresentOrElse(CommanderExtension::commanderReady, func.apply(extension));</span>
+<span class="fc" id="L81">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

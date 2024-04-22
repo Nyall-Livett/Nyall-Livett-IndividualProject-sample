@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268929847">
+    <module artifactId="typeobjectpattern" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="ADDED"/>
+        <file path="etc/typeobjectpattern.urm.puml" result="UNKNOWN"/>
+        <file path="evosuite-report/statistics.csv" result="UNKNOWN"/>
+        <file path="evosuite-tests/com/iluwatar/typeobject/CandyGame_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/typeobject/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/typeobject/Candy.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/typeobject/CandyGame.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/typeobject/Cell.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/typeobject/CellPool.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/typeobject/JsonParser.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/typeobject/CandyGameTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/typeobject/CandyGame_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/typeobject/CellPoolTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/typeobject/CellTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

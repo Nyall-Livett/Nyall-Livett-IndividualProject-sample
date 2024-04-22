@@ -1,0 +1,7 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+business-delegate,com.iluwatar.business.delegate,BusinessDelegate,0,11,0,0,0,4,0,2,0,2
+business-delegate,com.iluwatar.business.delegate,MobileClient,0,11,0,0,0,5,0,2,0,2
+business-delegate,com.iluwatar.business.delegate,YouTubeService,0,11,0,0,0,4,0,3,0,3
+business-delegate,com.iluwatar.business.delegate,NetflixService,0,11,0,0,0,4,0,3,0,3
+business-delegate,com.iluwatar.business.delegate,App,3,33,0,0,1,9,1,1,1,1
+business-delegate,com.iluwatar.business.delegate,BusinessLookup,0,15,0,2,0,4,0,3,0,2

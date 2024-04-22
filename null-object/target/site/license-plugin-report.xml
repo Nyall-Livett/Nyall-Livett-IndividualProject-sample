@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268654818">
+    <module artifactId="null-object" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/null-object.ucls" result="UNKNOWN"/>
+        <file path="etc/null-object.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+    </files>
+</licensePluginReport>

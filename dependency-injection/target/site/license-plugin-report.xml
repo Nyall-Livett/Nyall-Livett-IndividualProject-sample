@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268741294">
+    <module artifactId="dependency-injection" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/dependency-injection.ucls" result="UNKNOWN"/>
+        <file path="etc/dependency-injection.urm.puml" result="UNKNOWN"/>
+        <file path="evosuite-report/statistics.csv" result="UNKNOWN"/>
+        <file path="evosuite-tests/com/iluwatar/dependency/injection/AdvancedSorceress_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="evosuite-tests/com/iluwatar/dependency/injection/GuiceWizard_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/dependency/injection/AdvancedSorceress.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/dependency/injection/AdvancedWizard.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/dependency/injection/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/dependency/injection/GuiceWizard.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/dependency/injection/OldTobyTobacco.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/dependency/injection/RivendellTobacco.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/dependency/injection/SecondBreakfastTobacco.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/dependency/injection/SimpleWizard.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/dependency/injection/Tobacco.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/dependency/injection/TobaccoModule.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/dependency/injection/Wizard.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/dependency/injection/AdvancedSorceressTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/dependency/injection/AdvancedWizardTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/dependency/injection/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/dependency/injection/GuiceWizardTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/dependency/injection/SimpleWizardTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/dependency/injection/utils/InMemoryAppender.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

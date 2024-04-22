@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268784831">
+    <module artifactId="event-driven-architecture" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/eda.ucls" result="UNKNOWN"/>
+        <file path="etc/event-driven-architecture.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/eda/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/eda/event/AbstractEvent.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/eda/event/UserCreatedEvent.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/eda/event/UserUpdatedEvent.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/eda/framework/Event.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/eda/framework/EventDispatcher.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/eda/framework/Handler.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/eda/handler/UserCreatedEventHandler.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/eda/handler/UserUpdatedEventHandler.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/eda/model/User.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/eda/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/eda/event/UserCreatedEventTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/eda/framework/EventDispatcherTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

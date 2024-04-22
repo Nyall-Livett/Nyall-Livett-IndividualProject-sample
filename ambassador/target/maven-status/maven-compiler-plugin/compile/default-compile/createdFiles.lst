@@ -1,0 +1,7 @@
+com/iluwatar/ambassador/RemoteServiceInterface.class
+com/iluwatar/ambassador/ServiceAmbassador.class
+com/iluwatar/ambassador/Client.class
+com/iluwatar/ambassador/RemoteServiceStatus.class
+com/iluwatar/ambassador/App.class
+com/iluwatar/ambassador/RemoteService.class
+com/iluwatar/ambassador/util/RandomProvider.class

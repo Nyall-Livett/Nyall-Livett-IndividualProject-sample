@@ -1,0 +1,9 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+sharding,com.iluwatar.sharding,ShardManager,4,51,2,2,2,12,2,5,0,5
+sharding,com.iluwatar.sharding,LookupShardManager,8,66,1,1,1,13,1,4,0,4
+sharding,com.iluwatar.sharding,Data.DataType,0,34,0,0,0,2,0,1,0,1
+sharding,com.iluwatar.sharding,RangeShardManager,2,43,1,3,1,12,1,6,0,4
+sharding,com.iluwatar.sharding,Data,15,26,0,0,7,8,4,4,4,4
+sharding,com.iluwatar.sharding,Shard,0,34,0,0,0,10,0,5,0,5
+sharding,com.iluwatar.sharding,App,3,158,0,0,1,41,1,1,1,1
+sharding,com.iluwatar.sharding,HashShardManager,0,46,0,2,0,10,0,5,0,4

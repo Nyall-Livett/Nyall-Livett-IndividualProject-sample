@@ -1,0 +1,13 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+master-worker-pattern,com.iluwatar.masterworker.system.systemmaster,Master,4,115,1,7,2,29,1,12,0,9
+master-worker-pattern,com.iluwatar.masterworker.system.systemmaster,ArrayTransposeMaster,0,126,0,6,0,22,0,8,0,5
+master-worker-pattern,com.iluwatar.masterworker,Input,0,6,0,0,0,3,0,1,0,1
+master-worker-pattern,com.iluwatar.masterworker,Result,0,6,0,0,0,3,0,1,0,1
+master-worker-pattern,com.iluwatar.masterworker,ArrayInput,5,110,4,8,2,27,4,5,0,3
+master-worker-pattern,com.iluwatar.masterworker,App,42,0,2,0,13,0,4,0,3,0
+master-worker-pattern,com.iluwatar.masterworker,ArrayResult,0,4,0,0,0,2,0,1,0,1
+master-worker-pattern,com.iluwatar.masterworker,ArrayUtilityMethods,77,63,12,8,17,14,11,5,3,3
+master-worker-pattern,com.iluwatar.masterworker.system.systemworkers,ArrayTransposeWorker,0,56,0,4,0,10,0,4,0,2
+master-worker-pattern,com.iluwatar.masterworker.system.systemworkers,Worker,0,35,0,0,0,14,0,6,0,6
+master-worker-pattern,com.iluwatar.masterworker.system,ArrayTransposeMasterWorker,0,9,0,0,0,3,0,2,0,2
+master-worker-pattern,com.iluwatar.masterworker.system,MasterWorker,0,16,0,0,0,5,0,2,0,2

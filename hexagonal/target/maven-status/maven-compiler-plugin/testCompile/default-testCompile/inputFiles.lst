@@ -1,0 +1,13 @@
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/hexagonal/src/test/java/com/iluwatar/hexagonal/eventlog/MongoEventLogTest.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/hexagonal/src/test/java/com/iluwatar/hexagonal/domain/LotteryTicketIdTest.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/hexagonal/src/test/java/com/iluwatar/hexagonal/database/InMemoryTicketRepositoryTest.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/hexagonal/src/test/java/com/iluwatar/hexagonal/test/LotteryTestUtils.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/hexagonal/src/test/java/com/iluwatar/hexagonal/domain/LotteryTicketCheckResultTest.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/hexagonal/src/test/java/com/iluwatar/hexagonal/AppTest.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/hexagonal/src/test/java/com/iluwatar/hexagonal/banking/MongoBankTest.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/hexagonal/src/test/java/com/iluwatar/hexagonal/domain/LotteryNumbersTest.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/hexagonal/src/test/java/com/iluwatar/hexagonal/banking/InMemoryBankTest.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/hexagonal/src/test/java/com/iluwatar/hexagonal/domain/LotteryTicketTest.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/hexagonal/src/test/java/com/iluwatar/hexagonal/database/MongoTicketRepositoryTest.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/hexagonal/src/test/java/com/iluwatar/hexagonal/domain/PlayerDetailsTest.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/hexagonal/src/test/java/com/iluwatar/hexagonal/domain/LotteryTest.java

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Feind.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">lockable-object</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.lockableobject.domain</a> &gt; <span class="el_source">Feind.java</span></div><h1>Feind.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.lockableobject.domain;
+
+import com.iluwatar.lockableobject.Lockable;
+import java.security.SecureRandom;
+import lombok.NonNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/** A Feind is a creature that all it wants is to posses a Lockable object. */
+public class Feind implements Runnable {
+
+  private final Creature creature;
+  private final Lockable target;
+  private final SecureRandom random;
+<span class="fc" id="L39">  private static final Logger LOGGER = LoggerFactory.getLogger(Feind.class.getName());</span>
+
+  /**
+   * public constructor.
+   *
+   * @param feind as the creature to lock to he lockable.
+   * @param target as the target object.
+   */
+<span class="fc bfc" id="L47" title="All 4 branches covered.">  public Feind(@NonNull Creature feind, @NonNull Lockable target) {</span>
+<span class="fc" id="L48">    this.creature = feind;</span>
+<span class="fc" id="L49">    this.target = target;</span>
+<span class="fc" id="L50">    this.random = new SecureRandom();</span>
+<span class="fc" id="L51">  }</span>
+
+  @Override
+  public void run() {
+<span class="fc bfc" id="L55" title="All 2 branches covered.">    if (!creature.acquire(target)) {</span>
+      try {
+<span class="fc" id="L57">        fightForTheSword(creature, target.getLocker(), target);</span>
+<span class="nc" id="L58">      } catch (InterruptedException e) {</span>
+<span class="nc" id="L59">        LOGGER.error(e.getMessage());</span>
+<span class="nc" id="L60">        Thread.currentThread().interrupt();</span>
+<span class="pc" id="L61">      }</span>
+    } else {
+<span class="fc" id="L63">      LOGGER.info(&quot;{} has acquired the sword!&quot;, target.getLocker().getName());</span>
+    }
+<span class="fc" id="L65">  }</span>
+
+  /**
+   * Keeps on fighting until the Lockable is possessed.
+   *
+   * @param reacher as the source creature.
+   * @param holder as the foe.
+   * @param sword as the Lockable to posses.
+   * @throws InterruptedException in case of interruption.
+   */
+<span class="pc bpc" id="L75" title="1 of 2 branches missed.">  private void fightForTheSword(Creature reacher, @NonNull Creature holder, Lockable sword)</span>
+      throws InterruptedException {
+<span class="fc" id="L77">    LOGGER.info(&quot;A duel between {} and {} has been started!&quot;, reacher.getName(), holder.getName());</span>
+    boolean randBool;
+<span class="fc bfc" id="L79" title="All 6 branches covered.">    while (this.target.isLocked() &amp;&amp; reacher.isAlive() &amp;&amp; holder.isAlive()) {</span>
+<span class="fc" id="L80">      randBool = random.nextBoolean();</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">      if (randBool) {</span>
+<span class="fc" id="L82">        reacher.attack(holder);</span>
+      } else {
+<span class="fc" id="L84">        holder.attack(reacher);</span>
+      }
+    }
+<span class="fc bfc" id="L87" title="All 2 branches covered.">    if (reacher.isAlive()) {</span>
+<span class="fc bfc" id="L88" title="All 2 branches covered.">      if (!reacher.acquire(sword)) {</span>
+<span class="fc" id="L89">        fightForTheSword(reacher, sword.getLocker(), sword);</span>
+      } else {
+<span class="fc" id="L91">        LOGGER.info(&quot;{} has acquired the sword!&quot;, reacher.getName());</span>
+      }
+    }
+<span class="fc" id="L94">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

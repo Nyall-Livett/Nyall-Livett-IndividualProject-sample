@@ -1,0 +1,6 @@
+com/iluwatar/factory/CopperCoin.class
+com/iluwatar/factory/Coin.class
+com/iluwatar/factory/CoinType.class
+com/iluwatar/factory/CoinFactory.class
+com/iluwatar/factory/GoldCoin.class
+com/iluwatar/factory/App.class

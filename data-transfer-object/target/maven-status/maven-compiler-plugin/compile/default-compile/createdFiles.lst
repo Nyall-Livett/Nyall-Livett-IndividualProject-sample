@@ -1,0 +1,17 @@
+com/iluwatar/datatransfer/product/ProductDto$Cost.class
+com/iluwatar/datatransfer/product/ProductDto.class
+com/iluwatar/datatransfer/product/ProductDto$Response$Private.class
+com/iluwatar/datatransfer/product/ProductDto$Request.class
+com/iluwatar/datatransfer/product/Product.class
+com/iluwatar/datatransfer/product/ProductDto$Name.class
+com/iluwatar/datatransfer/product/Product$ProductBuilder.class
+com/iluwatar/datatransfer/product/ProductDto$Response.class
+com/iluwatar/datatransfer/product/ProductDto$Supplier.class
+com/iluwatar/datatransfer/product/ProductDto$Request$Create.class
+com/iluwatar/datatransfer/product/ProductDto$Id.class
+com/iluwatar/datatransfer/App.class
+com/iluwatar/datatransfer/customer/CustomerDto.class
+com/iluwatar/datatransfer/customer/CustomerResource.class
+com/iluwatar/datatransfer/product/ProductDto$Response$Public.class
+com/iluwatar/datatransfer/product/ProductResource.class
+com/iluwatar/datatransfer/product/ProductDto$Price.class

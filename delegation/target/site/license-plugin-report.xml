@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268783021">
+    <module artifactId="delegation" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/delegation.ucls" result="UNKNOWN"/>
+        <file path="etc/delegation.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/delegation/simple/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/delegation/simple/Printer.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/delegation/simple/PrinterController.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/delegation/simple/printers/CanonPrinter.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/delegation/simple/printers/EpsonPrinter.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/delegation/simple/printers/HpPrinter.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/delegation/simple/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/delegation/simple/DelegateTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

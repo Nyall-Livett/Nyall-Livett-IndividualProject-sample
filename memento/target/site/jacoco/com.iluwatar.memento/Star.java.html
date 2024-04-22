@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Star.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">memento</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.memento</a> &gt; <span class="el_source">Star.java</span></div><h1>Star.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.memento;
+
+/**
+ * Star uses &quot;mementos&quot; to store and restore state.
+ */
+public class Star {
+
+  private StarType type;
+  private int ageYears;
+  private int massTons;
+
+  /**
+   * Constructor.
+   */
+<span class="fc" id="L39">  public Star(StarType startType, int startAge, int startMass) {</span>
+<span class="fc" id="L40">    this.type = startType;</span>
+<span class="fc" id="L41">    this.ageYears = startAge;</span>
+<span class="fc" id="L42">    this.massTons = startMass;</span>
+<span class="fc" id="L43">  }</span>
+
+  /**
+   * Makes time pass for the star.
+   */
+  public void timePasses() {
+<span class="fc" id="L49">    ageYears *= 2;</span>
+<span class="fc" id="L50">    massTons *= 8;</span>
+<span class="pc bpc" id="L51" title="1 of 6 branches missed.">    switch (type) {</span>
+      case RED_GIANT:
+<span class="fc" id="L53">        type = StarType.WHITE_DWARF;</span>
+<span class="fc" id="L54">        break;</span>
+      case SUN:
+<span class="fc" id="L56">        type = StarType.RED_GIANT;</span>
+<span class="fc" id="L57">        break;</span>
+      case SUPERNOVA:
+<span class="fc" id="L59">        type = StarType.DEAD;</span>
+<span class="fc" id="L60">        break;</span>
+      case WHITE_DWARF:
+<span class="fc" id="L62">        type = StarType.SUPERNOVA;</span>
+<span class="fc" id="L63">        break;</span>
+      case DEAD:
+      {
+<span class="fc" id="L66">        ageYears *= 2;</span>
+<span class="fc" id="L67">        massTons = 0;</span>
+      }
+<span class="fc" id="L69">      break;</span>
+      default: {
+      }
+    }
+<span class="fc" id="L73">  }</span>
+
+  StarMemento getMemento() {
+<span class="fc" id="L76">    var state = new StarMementoInternal();</span>
+<span class="fc" id="L77">    state.setAgeYears(ageYears);</span>
+<span class="fc" id="L78">    state.setMassTons(massTons);</span>
+<span class="fc" id="L79">    state.setType(type);</span>
+<span class="fc" id="L80">    return state;</span>
+  }
+
+  void setMemento(StarMemento memento) {
+<span class="fc" id="L84">    var state = (StarMementoInternal) memento;</span>
+<span class="fc" id="L85">    this.type = state.getType();</span>
+<span class="fc" id="L86">    this.ageYears = state.getAgeYears();</span>
+<span class="fc" id="L87">    this.massTons = state.getMassTons();</span>
+<span class="fc" id="L88">  }</span>
+
+  @Override
+  public String toString() {
+<span class="fc" id="L92">    return String.format(&quot;%s age: %d years mass: %d tons&quot;, type.toString(), ageYears, massTons);</span>
+  }
+
+  /**
+   * StarMemento implementation.
+   */
+  private static class StarMementoInternal implements StarMemento {
+
+    private StarType type;
+    private int ageYears;
+    private int massTons;
+
+    public StarType getType() {
+<span class="fc" id="L105">      return type;</span>
+    }
+
+    public void setType(StarType type) {
+<span class="fc" id="L109">      this.type = type;</span>
+<span class="fc" id="L110">    }</span>
+
+    public int getAgeYears() {
+<span class="fc" id="L113">      return ageYears;</span>
+    }
+
+    public void setAgeYears(int ageYears) {
+<span class="fc" id="L117">      this.ageYears = ageYears;</span>
+<span class="fc" id="L118">    }</span>
+
+    public int getMassTons() {
+<span class="fc" id="L121">      return massTons;</span>
+    }
+
+    public void setMassTons(int massTons) {
+<span class="fc" id="L125">      this.massTons = massTons;</span>
+<span class="fc" id="L126">    }</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

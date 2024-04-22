@@ -1,0 +1,11 @@
+com/iluwatar/cqrs/domain/model/Author.class
+com/iluwatar/cqrs/commandes/CommandServiceImpl.class
+com/iluwatar/cqrs/dto/Book.class
+com/iluwatar/cqrs/queries/QueryServiceImpl.class
+com/iluwatar/cqrs/queries/QueryService.class
+com/iluwatar/cqrs/dto/Author.class
+com/iluwatar/cqrs/commandes/CommandService.class
+com/iluwatar/cqrs/util/HibernateUtil.class
+com/iluwatar/cqrs/app/App.class
+com/iluwatar/cqrs/constants/AppConstants.class
+com/iluwatar/cqrs/domain/model/Book.class

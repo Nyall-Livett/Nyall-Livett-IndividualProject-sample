@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268982497">
+    <module artifactId="model-view-viewmodel" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="ADDED"/>
+        <file path="etc/model-view-viewmodel.urm.puml" result="UNKNOWN"/>
+        <file path="lombok.config" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/assembly/webapp.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/model/view/viewmodel/Book.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/model/view/viewmodel/BookService.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/model/view/viewmodel/BookServiceImpl.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/model/view/viewmodel/BookViewModel.java" result="NOOP"/>
+        <file path="src/main/webapp/WEB-INF/web.xml" result="NOOP"/>
+        <file path="src/main/webapp/index.zul" result="UNKNOWN"/>
+        <file path="src/test/java/com/iluwatar/model/view/viewmodel/BookTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

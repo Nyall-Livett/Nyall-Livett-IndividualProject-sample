@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268794734">
+    <module artifactId="factory-kit" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/factory-kit.ucls" result="UNKNOWN"/>
+        <file path="etc/factory-kit.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/factorykit/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/factorykit/Axe.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/factorykit/Bow.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/factorykit/Builder.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/factorykit/Spear.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/factorykit/Sword.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/factorykit/Weapon.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/factorykit/WeaponFactory.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/factorykit/WeaponType.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/factorykit/app/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/factorykit/factorykit/FactoryKitTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

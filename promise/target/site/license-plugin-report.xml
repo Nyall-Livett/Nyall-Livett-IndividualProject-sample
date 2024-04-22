@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268820844">
+    <module artifactId="promise" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/promise.ucls" result="UNKNOWN"/>
+        <file path="etc/promise.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/promise/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/promise/Promise.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/promise/PromiseSupport.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/promise/Utility.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/promise/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/promise/PromiseTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

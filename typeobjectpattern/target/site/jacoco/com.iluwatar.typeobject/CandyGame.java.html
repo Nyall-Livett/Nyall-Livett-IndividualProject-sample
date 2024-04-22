@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CandyGame.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">typeobjectpattern</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.typeobject</a> &gt; <span class="el_source">CandyGame.java</span></div><h1>CandyGame.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.typeobject;
+
+import com.iluwatar.typeobject.Candy.Type;
+import java.util.ArrayList;
+import java.util.List;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * The CandyGame class contains the rules for the continuation of the game and has the game matrix
+ * (field 'cells') and totalPoints gained during the game.
+ */
+
+<span class="fc" id="L37">@Slf4j</span>
+public class CandyGame {
+
+  Cell[][] cells;
+  CellPool pool;
+  int totalPoints;
+
+<span class="fc" id="L44">  CandyGame(int num, CellPool pool) {</span>
+<span class="fc" id="L45">    this.cells = new Cell[num][num];</span>
+<span class="fc" id="L46">    this.pool = pool;</span>
+<span class="fc" id="L47">    this.totalPoints = 0;</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">    for (var i = 0; i &lt; num; i++) {</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">      for (var j = 0; j &lt; num; j++) {</span>
+<span class="fc" id="L50">        this.cells[i][j] = this.pool.getNewCell();</span>
+<span class="fc" id="L51">        this.cells[i][j].positionX = j;</span>
+<span class="fc" id="L52">        this.cells[i][j].positionY = i;</span>
+      }
+    }
+<span class="fc" id="L55">  }</span>
+
+  static String numOfSpaces(int num) {
+<span class="nc" id="L58">    return &quot; &quot;.repeat(Math.max(0, num));</span>
+  }
+
+  void printGameStatus() {
+<span class="nc" id="L62">    LOGGER.info(&quot;&quot;);</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">    for (Cell[] cell : cells) {</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">      for (var j = 0; j &lt; cells.length; j++) {</span>
+<span class="nc" id="L65">        var candyName = cell[j].candy.name;</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">        if (candyName.length() &lt; 20) {</span>
+<span class="nc" id="L67">          var totalSpaces = 20 - candyName.length();</span>
+<span class="nc" id="L68">          LOGGER.info(numOfSpaces(totalSpaces / 2) + cell[j].candy.name</span>
+<span class="nc" id="L69">              + numOfSpaces(totalSpaces - totalSpaces / 2) + &quot;|&quot;);</span>
+<span class="nc" id="L70">        } else {</span>
+<span class="nc" id="L71">          LOGGER.info(candyName + &quot;|&quot;);</span>
+        }
+      }
+<span class="nc" id="L74">      LOGGER.info(&quot;&quot;);</span>
+    }
+<span class="nc" id="L76">    LOGGER.info(&quot;&quot;);</span>
+<span class="nc" id="L77">  }</span>
+
+  List&lt;Cell&gt; adjacentCells(int y, int x) {
+<span class="fc" id="L80">    var adjacent = new ArrayList&lt;Cell&gt;();</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">    if (y == 0) {</span>
+<span class="fc" id="L82">      adjacent.add(this.cells[1][x]);</span>
+    }
+<span class="fc bfc" id="L84" title="All 2 branches covered.">    if (x == 0) {</span>
+<span class="fc" id="L85">      adjacent.add(this.cells[y][1]);</span>
+    }
+<span class="fc bfc" id="L87" title="All 2 branches covered.">    if (y == cells.length - 1) {</span>
+<span class="fc" id="L88">      adjacent.add(this.cells[cells.length - 2][x]);</span>
+    }
+<span class="fc bfc" id="L90" title="All 2 branches covered.">    if (x == cells.length - 1) {</span>
+<span class="fc" id="L91">      adjacent.add(this.cells[y][cells.length - 2]);</span>
+    }
+<span class="fc bfc" id="L93" title="All 4 branches covered.">    if (y &gt; 0 &amp;&amp; y &lt; cells.length - 1) {</span>
+<span class="fc" id="L94">      adjacent.add(this.cells[y - 1][x]);</span>
+<span class="fc" id="L95">      adjacent.add(this.cells[y + 1][x]);</span>
+    }
+<span class="fc bfc" id="L97" title="All 4 branches covered.">    if (x &gt; 0 &amp;&amp; x &lt; cells.length - 1) {</span>
+<span class="fc" id="L98">      adjacent.add(this.cells[y][x - 1]);</span>
+<span class="fc" id="L99">      adjacent.add(this.cells[y][x + 1]);</span>
+    }
+<span class="fc" id="L101">    return adjacent;</span>
+  }
+
+  boolean continueRound() {
+<span class="fc bfc" id="L105" title="All 2 branches covered.">    for (var i = 0; i &lt; this.cells.length; i++) {</span>
+<span class="fc bfc" id="L106" title="All 2 branches covered.">      if (this.cells[cells.length - 1][i].candy.getType().equals(Type.REWARD_FRUIT)) {</span>
+<span class="fc" id="L107">        return true;</span>
+      }
+    }
+<span class="fc bfc" id="L110" title="All 2 branches covered.">    for (var i = 0; i &lt; this.cells.length; i++) {</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">      for (var j = 0; j &lt; this.cells.length; j++) {</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">        if (!this.cells[i][j].candy.getType().equals(Type.REWARD_FRUIT)) {</span>
+<span class="fc" id="L113">          var adj = adjacentCells(i, j);</span>
+<span class="fc bfc" id="L114" title="All 2 branches covered.">          for (Cell cell : adj) {</span>
+<span class="fc bfc" id="L115" title="All 2 branches covered.">            if (this.cells[i][j].candy.name.equals(cell.candy.name)) {</span>
+<span class="fc" id="L116">              return true;</span>
+            }
+<span class="fc" id="L118">          }</span>
+        }
+      }
+    }
+<span class="fc" id="L122">    return false;</span>
+  }
+
+  void handleChange(int points) {
+<span class="nc" id="L126">    LOGGER.info(&quot;+&quot; + points + &quot; points!&quot;);</span>
+<span class="nc" id="L127">    this.totalPoints += points;</span>
+<span class="nc" id="L128">    printGameStatus();</span>
+<span class="nc" id="L129">  }</span>
+
+  void round(int timeSoFar, int totalTime) {
+<span class="nc" id="L132">    var start = System.currentTimeMillis();</span>
+<span class="nc" id="L133">    var end = System.currentTimeMillis();</span>
+<span class="nc bnc" id="L134" title="All 4 branches missed.">    while (end - start + timeSoFar &lt; totalTime &amp;&amp; continueRound()) {</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">      for (var i = 0; i &lt; this.cells.length; i++) {</span>
+<span class="nc" id="L136">        var points = 0;</span>
+<span class="nc" id="L137">        var j = this.cells.length - 1;</span>
+<span class="nc bnc" id="L138" title="All 2 branches missed.">        while (this.cells[j][i].candy.getType().equals(Type.REWARD_FRUIT)) {</span>
+<span class="nc" id="L139">          points = this.cells[j][i].candy.getPoints();</span>
+<span class="nc" id="L140">          this.cells[j][i].crush(pool, this.cells);</span>
+<span class="nc" id="L141">          handleChange(points);</span>
+        }
+      }
+<span class="nc bnc" id="L144" title="All 2 branches missed.">      for (var i = 0; i &lt; this.cells.length; i++) {</span>
+<span class="nc" id="L145">        var j = cells.length - 1;</span>
+<span class="nc" id="L146">        var points = 0;</span>
+<span class="nc bnc" id="L147" title="All 2 branches missed.">        while (j &gt; 0) {</span>
+<span class="nc" id="L148">          points = this.cells[j][i].interact(this.cells[j - 1][i], this.pool, this.cells);</span>
+<span class="nc bnc" id="L149" title="All 2 branches missed.">          if (points != 0) {</span>
+<span class="nc" id="L150">            handleChange(points);</span>
+          } else {
+<span class="nc" id="L152">            j = j - 1;</span>
+          }
+        }
+      }
+<span class="nc bnc" id="L156" title="All 2 branches missed.">      for (Cell[] cell : this.cells) {</span>
+<span class="nc" id="L157">        var j = 0;</span>
+<span class="nc" id="L158">        var points = 0;</span>
+<span class="nc bnc" id="L159" title="All 2 branches missed.">        while (j &lt; cells.length - 1) {</span>
+<span class="nc" id="L160">          points = cell[j].interact(cell[j + 1], this.pool, this.cells);</span>
+<span class="nc bnc" id="L161" title="All 2 branches missed.">          if (points != 0) {</span>
+<span class="nc" id="L162">            handleChange(points);</span>
+          } else {
+<span class="nc" id="L164">            j = j + 1;</span>
+          }
+        }
+      }
+<span class="nc" id="L168">      end = System.currentTimeMillis();</span>
+    }
+<span class="nc" id="L170">  }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

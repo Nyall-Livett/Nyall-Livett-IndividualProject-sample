@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713269044699">
+    <module artifactId="thread-local-storage" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="ADDED"/>
+        <file path="etc/thread-local-storage.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/AbstractThreadLocalExample.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/WithThreadLocal.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/WithoutThreadLocal.java" result="NOOP"/>
+        <file path="src/test/java/ThreadLocalTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

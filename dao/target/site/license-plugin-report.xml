@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268619134">
+    <module artifactId="dao" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/dao.ucls" result="UNKNOWN"/>
+        <file path="etc/dao.urm.puml" result="UNKNOWN"/>
+        <file path="evosuite-report/statistics.csv" result="UNKNOWN"/>
+        <file path="evosuite-tests/com/iluwatar/dao/DbCustomerDao_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/dao/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/dao/CustomException.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/dao/Customer.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/dao/CustomerDao.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/dao/CustomerSchemaSql.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/dao/DbCustomerDao.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/dao/InMemoryCustomerDao.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/dao/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/dao/CustomerTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/dao/DbCustomerDaoTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/dao/DbCustomerDao_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/dao/InMemoryCustomerDaoTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

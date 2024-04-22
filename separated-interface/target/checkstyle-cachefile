@@ -1,0 +1,9 @@
+#Sun Mar 31 11:42:00 BST 2024
+configuration*?=5B12FA6E531B6AE2747F163FB61A64CEF951EC52
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/separated-interface/src/main/java/com/iluwatar/separatedinterface/invoice/InvoiceGenerator.java=1707917841892
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/separated-interface/src/main/java/com/iluwatar/separatedinterface/App.java=1707917841892
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/separated-interface/src/main/java/com/iluwatar/separatedinterface/taxes/DomesticTaxCalculator.java=1707917841892
+module-resource*?\:checkstyle-xpath-suppressions.xml=25A35774496ABC46AE1B2A96E2CBC2A2B7C95F2E
+module-resource*?\:checkstyle-suppressions.xml=5CA59B323FF14A7183C495F63A2BDD30F053EA44
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/separated-interface/src/main/java/com/iluwatar/separatedinterface/invoice/TaxCalculator.java=1707917841892
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/separated-interface/src/main/java/com/iluwatar/separatedinterface/taxes/ForeignTaxCalculator.java=1707917841893

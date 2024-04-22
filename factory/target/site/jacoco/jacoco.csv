@@ -1,0 +1,6 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+factory,com.iluwatar.factory,CoinFactory,3,5,0,0,1,1,1,1,1,1
+factory,com.iluwatar.factory,App,3,22,0,0,1,7,1,2,1,2
+factory,com.iluwatar.factory,GoldCoin,0,5,0,0,0,2,0,2,0,2
+factory,com.iluwatar.factory,CopperCoin,0,5,0,0,0,2,0,2,0,2
+factory,com.iluwatar.factory,CoinType,0,26,0,0,0,3,0,1,0,1

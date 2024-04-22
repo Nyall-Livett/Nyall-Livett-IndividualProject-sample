@@ -1,0 +1,6 @@
+com/iluwatar/versionnumber/BookNotFoundException.class
+com/iluwatar/versionnumber/VersionMismatchException.class
+com/iluwatar/versionnumber/BookRepository.class
+com/iluwatar/versionnumber/App.class
+com/iluwatar/versionnumber/BookDuplicateException.class
+com/iluwatar/versionnumber/Book.class

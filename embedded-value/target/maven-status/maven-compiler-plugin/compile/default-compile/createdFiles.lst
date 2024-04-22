@@ -1,0 +1,5 @@
+com/iluwatar/embedded/value/Order.class
+com/iluwatar/embedded/value/ShippingAddress.class
+com/iluwatar/embedded/value/DataSourceInterface.class
+com/iluwatar/embedded/value/DataSource.class
+com/iluwatar/embedded/value/App.class

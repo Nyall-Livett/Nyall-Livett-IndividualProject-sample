@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">multiton</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.multiton</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.multiton;
+
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * Whereas Singleton design pattern introduces single globally accessible object, the Multiton
+ * pattern defines many globally accessible objects. The client asks for the correct instance from
+ * the Multiton by passing an enumeration as a parameter.
+ *
+ * &lt;p&gt;There is more than one way to implement the multiton design pattern. In the first example
+ * {@link Nazgul} is the Multiton and we can ask single {@link Nazgul} from it using {@link
+ * NazgulName}. The {@link Nazgul}s are statically initialized and stored in a concurrent hash map.
+ *
+ * &lt;p&gt;In the enum implementation {@link NazgulEnum} is the multiton. It is static and mutable
+ * because of the way java supports enums.
+ */
+<span class="fc" id="L41">@Slf4j</span>
+<span class="nc" id="L42">public class App {</span>
+
+  /**
+   * Program entry point.
+   *
+   * @param args command line args
+   */
+  public static void main(String[] args) {
+    // eagerly initialized multiton
+<span class="fc" id="L51">    LOGGER.info(&quot;Printing out eagerly initialized multiton contents&quot;);</span>
+<span class="fc" id="L52">    LOGGER.info(&quot;KHAMUL={}&quot;, Nazgul.getInstance(NazgulName.KHAMUL));</span>
+<span class="fc" id="L53">    LOGGER.info(&quot;MURAZOR={}&quot;, Nazgul.getInstance(NazgulName.MURAZOR));</span>
+<span class="fc" id="L54">    LOGGER.info(&quot;DWAR={}&quot;, Nazgul.getInstance(NazgulName.DWAR));</span>
+<span class="fc" id="L55">    LOGGER.info(&quot;JI_INDUR={}&quot;, Nazgul.getInstance(NazgulName.JI_INDUR));</span>
+<span class="fc" id="L56">    LOGGER.info(&quot;AKHORAHIL={}&quot;, Nazgul.getInstance(NazgulName.AKHORAHIL));</span>
+<span class="fc" id="L57">    LOGGER.info(&quot;HOARMURATH={}&quot;, Nazgul.getInstance(NazgulName.HOARMURATH));</span>
+<span class="fc" id="L58">    LOGGER.info(&quot;ADUNAPHEL={}&quot;, Nazgul.getInstance(NazgulName.ADUNAPHEL));</span>
+<span class="fc" id="L59">    LOGGER.info(&quot;REN={}&quot;, Nazgul.getInstance(NazgulName.REN));</span>
+<span class="fc" id="L60">    LOGGER.info(&quot;UVATHA={}&quot;, Nazgul.getInstance(NazgulName.UVATHA));</span>
+
+    // enum multiton
+<span class="fc" id="L63">    LOGGER.info(&quot;Printing out enum-based multiton contents&quot;);</span>
+<span class="fc" id="L64">    LOGGER.info(&quot;KHAMUL={}&quot;, NazgulEnum.KHAMUL);</span>
+<span class="fc" id="L65">    LOGGER.info(&quot;MURAZOR={}&quot;, NazgulEnum.MURAZOR);</span>
+<span class="fc" id="L66">    LOGGER.info(&quot;DWAR={}&quot;, NazgulEnum.DWAR);</span>
+<span class="fc" id="L67">    LOGGER.info(&quot;JI_INDUR={}&quot;, NazgulEnum.JI_INDUR);</span>
+<span class="fc" id="L68">    LOGGER.info(&quot;AKHORAHIL={}&quot;, NazgulEnum.AKHORAHIL);</span>
+<span class="fc" id="L69">    LOGGER.info(&quot;HOARMURATH={}&quot;, NazgulEnum.HOARMURATH);</span>
+<span class="fc" id="L70">    LOGGER.info(&quot;ADUNAPHEL={}&quot;, NazgulEnum.ADUNAPHEL);</span>
+<span class="fc" id="L71">    LOGGER.info(&quot;REN={}&quot;, NazgulEnum.REN);</span>
+<span class="fc" id="L72">    LOGGER.info(&quot;UVATHA={}&quot;, NazgulEnum.UVATHA);</span>
+<span class="fc" id="L73">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

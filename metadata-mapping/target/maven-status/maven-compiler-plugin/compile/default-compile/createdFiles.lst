@@ -1,0 +1,5 @@
+com/iluwatar/metamapping/utils/HibernateUtil.class
+com/iluwatar/metamapping/App.class
+com/iluwatar/metamapping/utils/DatabaseUtil.class
+com/iluwatar/metamapping/model/User.class
+com/iluwatar/metamapping/service/UserService.class

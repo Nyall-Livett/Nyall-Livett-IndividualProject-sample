@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268924265">
+    <module artifactId="priority-queue" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/priority-queue.urm.puml" result="UNKNOWN"/>
+        <file path="evosuite-report/statistics.csv" result="UNKNOWN"/>
+        <file path="evosuite-tests/com/iluwatar/priority/queue/QueueManager_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/priority/queue/Application.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/priority/queue/Message.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/priority/queue/PriorityMessageQueue.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/priority/queue/QueueManager.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/priority/queue/Worker.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/priority/queue/PriorityMessageQueueTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/priority/queue/QueueManagerTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

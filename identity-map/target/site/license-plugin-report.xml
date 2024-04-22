@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713269034967">
+    <module artifactId="identity-map" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="ADDED"/>
+        <file path="etc/identity-map.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/identitymap/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/identitymap/IdNotFoundException.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/identitymap/IdentityMap.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/identitymap/Person.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/identitymap/PersonDbSimulator.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/identitymap/PersonDbSimulatorImplementation.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/identitymap/PersonFinder.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/identitymap/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/identitymap/IdentityMapTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/identitymap/PersonDbSimulatorImplementationTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/identitymap/PersonFinderTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/identitymap/PersonTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

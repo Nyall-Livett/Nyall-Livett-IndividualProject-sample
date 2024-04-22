@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">lockable-object</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.lockableobject</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.lockableobject;
+
+import com.iluwatar.lockableobject.domain.Creature;
+import com.iluwatar.lockableobject.domain.Elf;
+import com.iluwatar.lockableobject.domain.Feind;
+import com.iluwatar.lockableobject.domain.Human;
+import com.iluwatar.lockableobject.domain.Orc;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * The Lockable Object pattern is a concurrency pattern. Instead of using the &quot;synchronized&quot; word
+ * upon the methods to be synchronized, the object which implements the Lockable interface handles
+ * the request.
+ *
+ * &lt;p&gt;In this example, we create a new Lockable object with the SwordOfAragorn implementation of it.
+ * Afterwards we create 6 Creatures with the Elf, Orc and Human implementations and assign them each
+ * to a Fiend object and the Sword is the target object. Because there is only one Sword and it uses
+ * the Lockable Object pattern, only one creature can hold the sword at a given time. When the sword
+ * is locked, any other alive Fiends will try to lock, which will result in a race to lock the
+ * sword.
+ *
+ * @author Noam Greenshtain
+ */
+<span class="fc" id="L53">@Slf4j</span>
+<span class="fc" id="L54">public class App implements Runnable {</span>
+
+  private static final int WAIT_TIME = 3;
+  private static final int WORKERS = 2;
+  private static final int MULTIPLICATION_FACTOR = 3;
+
+  /**
+   * main method.
+   *
+   * @param args as arguments for the main method.
+   */
+  public static void main(String[] args) {
+<span class="fc" id="L66">    var app = new App();</span>
+<span class="fc" id="L67">    app.run();</span>
+<span class="fc" id="L68">  }</span>
+
+  @Override
+  public void run() {
+    // The target object for this example.
+<span class="fc" id="L73">    var sword = new SwordOfAragorn();</span>
+    // Creation of creatures.
+<span class="fc" id="L75">    List&lt;Creature&gt; creatures = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">    for (var i = 0; i &lt; WORKERS; i++) {</span>
+<span class="fc" id="L77">      creatures.add(new Elf(String.format(&quot;Elf %s&quot;, i)));</span>
+<span class="fc" id="L78">      creatures.add(new Orc(String.format(&quot;Orc %s&quot;, i)));</span>
+<span class="fc" id="L79">      creatures.add(new Human(String.format(&quot;Human %s&quot;, i)));</span>
+    }
+<span class="fc" id="L81">    int totalFiends = WORKERS * MULTIPLICATION_FACTOR;</span>
+<span class="fc" id="L82">    ExecutorService service = Executors.newFixedThreadPool(totalFiends);</span>
+    // Attach every creature and the sword is a Fiend to fight for the sword.
+<span class="fc bfc" id="L84" title="All 2 branches covered.">    for (var i = 0; i &lt; totalFiends; i = i + MULTIPLICATION_FACTOR) {</span>
+<span class="fc" id="L85">      service.submit(new Feind(creatures.get(i), sword));</span>
+<span class="fc" id="L86">      service.submit(new Feind(creatures.get(i + 1), sword));</span>
+<span class="fc" id="L87">      service.submit(new Feind(creatures.get(i + 2), sword));</span>
+    }
+    // Wait for program to terminate.
+    try {
+<span class="pc bpc" id="L91" title="1 of 2 branches missed.">      if (!service.awaitTermination(WAIT_TIME, TimeUnit.SECONDS)) {</span>
+<span class="fc" id="L92">        LOGGER.info(&quot;The master of the sword is now {}.&quot;, sword.getLocker().getName());</span>
+      }
+<span class="nc" id="L94">    } catch (InterruptedException e) {</span>
+<span class="nc" id="L95">      LOGGER.error(e.getMessage());</span>
+<span class="nc" id="L96">      Thread.currentThread().interrupt();</span>
+    } finally {
+<span class="fc" id="L98">      service.shutdown();</span>
+    }
+<span class="fc" id="L100">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

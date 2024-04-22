@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268626594">
+    <module artifactId="proxy" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/proxy.urm.puml" result="UNKNOWN"/>
+        <file path="evosuite-report/statistics.csv" result="UNKNOWN"/>
+        <file path="evosuite-tests/com/iluwatar/proxy/IvoryTower_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="evosuite-tests/com/iluwatar/proxy/WizardTowerProxy_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="evosuite-tests/com/iluwatar/proxy/Wizard_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/proxy/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/proxy/IvoryTower.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/proxy/Wizard.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/proxy/WizardTower.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/proxy/WizardTowerProxy.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/proxy/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/proxy/IvoryTowerTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/proxy/WizardTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/proxy/WizardTowerProxyTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/proxy/WizardTowerProxy_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/proxy/utils/InMemoryAppender.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

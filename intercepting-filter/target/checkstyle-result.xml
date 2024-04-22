@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="9.3">
+<file name="/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/intercepting-filter/src/main/java/com/iluwatar/intercepting/filter/Order.java">
+</file>
+<file name="/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/intercepting-filter/src/main/java/com/iluwatar/intercepting/filter/Client.java">
+</file>
+<file name="/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/intercepting-filter/src/main/java/com/iluwatar/intercepting/filter/AddressFilter.java">
+</file>
+<file name="/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/intercepting-filter/src/main/java/com/iluwatar/intercepting/filter/FilterChain.java">
+</file>
+<file name="/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/intercepting-filter/src/main/java/com/iluwatar/intercepting/filter/ContactFilter.java">
+</file>
+<file name="/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/intercepting-filter/src/main/java/com/iluwatar/intercepting/filter/NameFilter.java">
+</file>
+<file name="/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/intercepting-filter/src/main/java/com/iluwatar/intercepting/filter/FilterManager.java">
+</file>
+<file name="/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/intercepting-filter/src/main/java/com/iluwatar/intercepting/filter/DepositFilter.java">
+</file>
+<file name="/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/intercepting-filter/src/main/java/com/iluwatar/intercepting/filter/AbstractFilter.java">
+</file>
+<file name="/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/intercepting-filter/src/main/java/com/iluwatar/intercepting/filter/OrderFilter.java">
+</file>
+<file name="/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/intercepting-filter/src/main/java/com/iluwatar/intercepting/filter/App.java">
+</file>
+<file name="/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/intercepting-filter/src/main/java/com/iluwatar/intercepting/filter/Target.java">
+</file>
+<file name="/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/intercepting-filter/src/main/java/com/iluwatar/intercepting/filter/Filter.java">
+</file>
+</checkstyle>

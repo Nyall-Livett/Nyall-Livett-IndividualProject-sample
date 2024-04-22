@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268636141">
+    <module artifactId="memento" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/memento.ucls" result="UNKNOWN"/>
+        <file path="etc/memento.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/memento/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/memento/Star.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/memento/StarMemento.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/memento/StarType.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/memento/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/memento/StarTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

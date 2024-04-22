@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268680856">
+    <module artifactId="poison-pill" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/poison-pill.ucls" result="UNKNOWN"/>
+        <file path="etc/poison-pill.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/poison/pill/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/poison/pill/Consumer.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/poison/pill/Message.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/poison/pill/MessageQueue.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/poison/pill/MqPublishPoint.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/poison/pill/MqSubscribePoint.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/poison/pill/Producer.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/poison/pill/SimpleMessage.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/poison/pill/SimpleMessageQueue.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/poison/pill/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/poison/pill/ConsumerTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/poison/pill/PoisonMessageTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/poison/pill/ProducerTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/poison/pill/SimpleMessageTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

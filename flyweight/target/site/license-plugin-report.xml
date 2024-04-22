@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268625165">
+    <module artifactId="flyweight" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/flyweight.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flyweight/AlchemistShop.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flyweight/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flyweight/HealingPotion.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flyweight/HolyWaterPotion.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flyweight/InvisibilityPotion.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flyweight/PoisonPotion.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flyweight/Potion.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flyweight/PotionFactory.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flyweight/PotionType.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flyweight/StrengthPotion.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/flyweight/AlchemistShopTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/flyweight/AppTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

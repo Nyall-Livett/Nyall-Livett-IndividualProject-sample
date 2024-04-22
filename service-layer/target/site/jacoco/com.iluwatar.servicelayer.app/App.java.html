@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">service-layer</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.servicelayer.app</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.servicelayer.app;
+
+import com.iluwatar.servicelayer.magic.MagicService;
+import com.iluwatar.servicelayer.magic.MagicServiceImpl;
+import com.iluwatar.servicelayer.spell.Spell;
+import com.iluwatar.servicelayer.spell.SpellDaoImpl;
+import com.iluwatar.servicelayer.spellbook.Spellbook;
+import com.iluwatar.servicelayer.spellbook.SpellbookDaoImpl;
+import com.iluwatar.servicelayer.wizard.Wizard;
+import com.iluwatar.servicelayer.wizard.WizardDaoImpl;
+import lombok.extern.slf4j.Slf4j;
+
+
+/**
+ * Service layer defines an application's boundary with a layer of services that establishes a set
+ * of available operations and coordinates the application's response in each operation.
+ *
+ * &lt;p&gt;Enterprise applications typically require different kinds of interfaces to the data they
+ * store and the logic they implement: data loaders, user interfaces, integration gateways, and
+ * others. Despite their different purposes, these interfaces often need common interactions with
+ * the application to access and manipulate its data and invoke its business logic. The interactions
+ * may be complex, involving transactions across multiple resources and the coordination of several
+ * responses to an action. Encoding the logic of the interactions separately in each interface
+ * causes a lot of duplication.
+ *
+ * &lt;p&gt;The example application demonstrates interactions between a client ({@link App}) and a
+ * service ({@link MagicService}). The service is implemented with 3-layer architecture (entity,
+ * dao, service). For persistence the example uses in-memory H2 database which is populated on each
+ * application startup.
+ */
+<span class="fc" id="L55">@Slf4j</span>
+<span class="nc" id="L56">public class App {</span>
+  public static final String BOOK_OF_IDORES = &quot;Book of Idores&quot;;
+
+  /**
+   * Program entry point.
+   *
+   * @param args command line args
+   */
+  public static void main(String[] args) {
+    // populate the in-memory database
+<span class="fc" id="L66">    initData();</span>
+    // query the data using the service
+<span class="fc" id="L68">    queryData();</span>
+<span class="fc" id="L69">  }</span>
+
+  /**
+   * Initialize data.
+   */
+  public static void initData() {
+    // spells
+<span class="fc" id="L76">    var spell1 = new Spell(&quot;Ice dart&quot;);</span>
+<span class="fc" id="L77">    var spell2 = new Spell(&quot;Invisibility&quot;);</span>
+<span class="fc" id="L78">    var spell3 = new Spell(&quot;Stun bolt&quot;);</span>
+<span class="fc" id="L79">    var spell4 = new Spell(&quot;Confusion&quot;);</span>
+<span class="fc" id="L80">    var spell5 = new Spell(&quot;Darkness&quot;);</span>
+<span class="fc" id="L81">    var spell6 = new Spell(&quot;Fireball&quot;);</span>
+<span class="fc" id="L82">    var spell7 = new Spell(&quot;Enchant weapon&quot;);</span>
+<span class="fc" id="L83">    var spell8 = new Spell(&quot;Rock armour&quot;);</span>
+<span class="fc" id="L84">    var spell9 = new Spell(&quot;Light&quot;);</span>
+<span class="fc" id="L85">    var spell10 = new Spell(&quot;Bee swarm&quot;);</span>
+<span class="fc" id="L86">    var spell11 = new Spell(&quot;Haste&quot;);</span>
+<span class="fc" id="L87">    var spell12 = new Spell(&quot;Levitation&quot;);</span>
+<span class="fc" id="L88">    var spell13 = new Spell(&quot;Magic lock&quot;);</span>
+<span class="fc" id="L89">    var spell14 = new Spell(&quot;Summon hell bat&quot;);</span>
+<span class="fc" id="L90">    var spell15 = new Spell(&quot;Water walking&quot;);</span>
+<span class="fc" id="L91">    var spell16 = new Spell(&quot;Magic storm&quot;);</span>
+<span class="fc" id="L92">    var spell17 = new Spell(&quot;Entangle&quot;);</span>
+<span class="fc" id="L93">    var spellDao = new SpellDaoImpl();</span>
+<span class="fc" id="L94">    spellDao.persist(spell1);</span>
+<span class="fc" id="L95">    spellDao.persist(spell2);</span>
+<span class="fc" id="L96">    spellDao.persist(spell3);</span>
+<span class="fc" id="L97">    spellDao.persist(spell4);</span>
+<span class="fc" id="L98">    spellDao.persist(spell5);</span>
+<span class="fc" id="L99">    spellDao.persist(spell6);</span>
+<span class="fc" id="L100">    spellDao.persist(spell7);</span>
+<span class="fc" id="L101">    spellDao.persist(spell8);</span>
+<span class="fc" id="L102">    spellDao.persist(spell9);</span>
+<span class="fc" id="L103">    spellDao.persist(spell10);</span>
+<span class="fc" id="L104">    spellDao.persist(spell11);</span>
+<span class="fc" id="L105">    spellDao.persist(spell12);</span>
+<span class="fc" id="L106">    spellDao.persist(spell13);</span>
+<span class="fc" id="L107">    spellDao.persist(spell14);</span>
+<span class="fc" id="L108">    spellDao.persist(spell15);</span>
+<span class="fc" id="L109">    spellDao.persist(spell16);</span>
+<span class="fc" id="L110">    spellDao.persist(spell17);</span>
+
+    // spellbooks
+<span class="fc" id="L113">    var spellbookDao = new SpellbookDaoImpl();</span>
+<span class="fc" id="L114">    var spellbook1 = new Spellbook(&quot;Book of Orgymon&quot;);</span>
+<span class="fc" id="L115">    spellbookDao.persist(spellbook1);</span>
+<span class="fc" id="L116">    spellbook1.addSpell(spell1);</span>
+<span class="fc" id="L117">    spellbook1.addSpell(spell2);</span>
+<span class="fc" id="L118">    spellbook1.addSpell(spell3);</span>
+<span class="fc" id="L119">    spellbook1.addSpell(spell4);</span>
+<span class="fc" id="L120">    spellbookDao.merge(spellbook1);</span>
+<span class="fc" id="L121">    var spellbook2 = new Spellbook(&quot;Book of Aras&quot;);</span>
+<span class="fc" id="L122">    spellbookDao.persist(spellbook2);</span>
+<span class="fc" id="L123">    spellbook2.addSpell(spell5);</span>
+<span class="fc" id="L124">    spellbook2.addSpell(spell6);</span>
+<span class="fc" id="L125">    spellbookDao.merge(spellbook2);</span>
+<span class="fc" id="L126">    var spellbook3 = new Spellbook(&quot;Book of Kritior&quot;);</span>
+<span class="fc" id="L127">    spellbookDao.persist(spellbook3);</span>
+<span class="fc" id="L128">    spellbook3.addSpell(spell7);</span>
+<span class="fc" id="L129">    spellbook3.addSpell(spell8);</span>
+<span class="fc" id="L130">    spellbook3.addSpell(spell9);</span>
+<span class="fc" id="L131">    spellbookDao.merge(spellbook3);</span>
+<span class="fc" id="L132">    var spellbook4 = new Spellbook(&quot;Book of Tamaex&quot;);</span>
+<span class="fc" id="L133">    spellbookDao.persist(spellbook4);</span>
+<span class="fc" id="L134">    spellbook4.addSpell(spell10);</span>
+<span class="fc" id="L135">    spellbook4.addSpell(spell11);</span>
+<span class="fc" id="L136">    spellbook4.addSpell(spell12);</span>
+<span class="fc" id="L137">    spellbookDao.merge(spellbook4);</span>
+<span class="fc" id="L138">    var spellbook5 = new Spellbook(BOOK_OF_IDORES);</span>
+<span class="fc" id="L139">    spellbookDao.persist(spellbook5);</span>
+<span class="fc" id="L140">    spellbook5.addSpell(spell13);</span>
+<span class="fc" id="L141">    spellbookDao.merge(spellbook5);</span>
+<span class="fc" id="L142">    var spellbook6 = new Spellbook(&quot;Book of Opaen&quot;);</span>
+<span class="fc" id="L143">    spellbookDao.persist(spellbook6);</span>
+<span class="fc" id="L144">    spellbook6.addSpell(spell14);</span>
+<span class="fc" id="L145">    spellbook6.addSpell(spell15);</span>
+<span class="fc" id="L146">    spellbookDao.merge(spellbook6);</span>
+<span class="fc" id="L147">    var spellbook7 = new Spellbook(&quot;Book of Kihione&quot;);</span>
+<span class="fc" id="L148">    spellbookDao.persist(spellbook7);</span>
+<span class="fc" id="L149">    spellbook7.addSpell(spell16);</span>
+<span class="fc" id="L150">    spellbook7.addSpell(spell17);</span>
+<span class="fc" id="L151">    spellbookDao.merge(spellbook7);</span>
+
+    // wizards
+<span class="fc" id="L154">    var wizardDao = new WizardDaoImpl();</span>
+<span class="fc" id="L155">    var wizard1 = new Wizard(&quot;Aderlard Boud&quot;);</span>
+<span class="fc" id="L156">    wizardDao.persist(wizard1);</span>
+<span class="fc" id="L157">    wizard1.addSpellbook(spellbookDao.findByName(&quot;Book of Orgymon&quot;));</span>
+<span class="fc" id="L158">    wizard1.addSpellbook(spellbookDao.findByName(&quot;Book of Aras&quot;));</span>
+<span class="fc" id="L159">    wizardDao.merge(wizard1);</span>
+<span class="fc" id="L160">    var wizard2 = new Wizard(&quot;Anaxis Bajraktari&quot;);</span>
+<span class="fc" id="L161">    wizardDao.persist(wizard2);</span>
+<span class="fc" id="L162">    wizard2.addSpellbook(spellbookDao.findByName(&quot;Book of Kritior&quot;));</span>
+<span class="fc" id="L163">    wizard2.addSpellbook(spellbookDao.findByName(&quot;Book of Tamaex&quot;));</span>
+<span class="fc" id="L164">    wizardDao.merge(wizard2);</span>
+<span class="fc" id="L165">    var wizard3 = new Wizard(&quot;Xuban Munoa&quot;);</span>
+<span class="fc" id="L166">    wizardDao.persist(wizard3);</span>
+<span class="fc" id="L167">    wizard3.addSpellbook(spellbookDao.findByName(BOOK_OF_IDORES));</span>
+<span class="fc" id="L168">    wizard3.addSpellbook(spellbookDao.findByName(&quot;Book of Opaen&quot;));</span>
+<span class="fc" id="L169">    wizardDao.merge(wizard3);</span>
+<span class="fc" id="L170">    var wizard4 = new Wizard(&quot;Blasius Dehooge&quot;);</span>
+<span class="fc" id="L171">    wizardDao.persist(wizard4);</span>
+<span class="fc" id="L172">    wizard4.addSpellbook(spellbookDao.findByName(&quot;Book of Kihione&quot;));</span>
+<span class="fc" id="L173">    wizardDao.merge(wizard4);</span>
+<span class="fc" id="L174">  }</span>
+
+  /**
+   * Query the data.
+   */
+  public static void queryData() {
+<span class="fc" id="L180">    var wizardDao = new WizardDaoImpl();</span>
+<span class="fc" id="L181">    var spellbookDao = new SpellbookDaoImpl();</span>
+<span class="fc" id="L182">    var spellDao = new SpellDaoImpl();</span>
+<span class="fc" id="L183">    var service = new MagicServiceImpl(wizardDao, spellbookDao, spellDao);</span>
+<span class="fc" id="L184">    LOGGER.info(&quot;Enumerating all wizards&quot;);</span>
+<span class="fc" id="L185">    service.findAllWizards().stream().map(Wizard::getName).forEach(LOGGER::info);</span>
+<span class="fc" id="L186">    LOGGER.info(&quot;Enumerating all spellbooks&quot;);</span>
+<span class="fc" id="L187">    service.findAllSpellbooks().stream().map(Spellbook::getName).forEach(LOGGER::info);</span>
+<span class="fc" id="L188">    LOGGER.info(&quot;Enumerating all spells&quot;);</span>
+<span class="fc" id="L189">    service.findAllSpells().stream().map(Spell::getName).forEach(LOGGER::info);</span>
+<span class="fc" id="L190">    LOGGER.info(&quot;Find wizards with spellbook 'Book of Idores'&quot;);</span>
+<span class="fc" id="L191">    var wizardsWithSpellbook = service.findWizardsWithSpellbook(BOOK_OF_IDORES);</span>
+<span class="fc" id="L192">    wizardsWithSpellbook.forEach(w -&gt; LOGGER.info(&quot;{} has 'Book of Idores'&quot;, w.getName()));</span>
+<span class="fc" id="L193">    LOGGER.info(&quot;Find wizards with spell 'Fireball'&quot;);</span>
+<span class="fc" id="L194">    var wizardsWithSpell = service.findWizardsWithSpell(&quot;Fireball&quot;);</span>
+<span class="fc" id="L195">    wizardsWithSpell.forEach(w -&gt; LOGGER.info(&quot;{} has 'Fireball'&quot;, w.getName()));</span>
+<span class="fc" id="L196">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

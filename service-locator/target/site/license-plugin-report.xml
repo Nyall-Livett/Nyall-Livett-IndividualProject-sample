@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268654226">
+    <module artifactId="service-locator" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/service-locator.ucls" result="UNKNOWN"/>
+        <file path="etc/service-locator.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/servicelocator/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/servicelocator/InitContext.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/servicelocator/Service.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/servicelocator/ServiceCache.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/servicelocator/ServiceImpl.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/servicelocator/ServiceLocator.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/servicelocator/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/servicelocator/ServiceLocatorTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

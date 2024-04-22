@@ -1,0 +1,14 @@
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/flux/src/main/java/com/iluwatar/flux/action/Action.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/flux/src/main/java/com/iluwatar/flux/view/ContentView.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/flux/src/main/java/com/iluwatar/flux/view/MenuView.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/flux/src/main/java/com/iluwatar/flux/action/ContentAction.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/flux/src/main/java/com/iluwatar/flux/store/Store.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/flux/src/main/java/com/iluwatar/flux/action/ActionType.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/flux/src/main/java/com/iluwatar/flux/action/Content.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/flux/src/main/java/com/iluwatar/flux/app/App.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/flux/src/main/java/com/iluwatar/flux/dispatcher/Dispatcher.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/flux/src/main/java/com/iluwatar/flux/action/MenuItem.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/flux/src/main/java/com/iluwatar/flux/store/ContentStore.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/flux/src/main/java/com/iluwatar/flux/store/MenuStore.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/flux/src/main/java/com/iluwatar/flux/view/View.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/flux/src/main/java/com/iluwatar/flux/action/MenuAction.java

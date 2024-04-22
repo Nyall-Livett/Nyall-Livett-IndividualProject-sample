@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MongoTicketRepository.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">hexagonal</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.hexagonal.database</a> &gt; <span class="el_source">MongoTicketRepository.java</span></div><h1>MongoTicketRepository.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.hexagonal.database;
+
+import com.iluwatar.hexagonal.domain.LotteryNumbers;
+import com.iluwatar.hexagonal.domain.LotteryTicket;
+import com.iluwatar.hexagonal.domain.LotteryTicketId;
+import com.iluwatar.hexagonal.domain.PlayerDetails;
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import org.bson.Document;
+
+/**
+ * Mongo lottery ticket database.
+ */
+public class MongoTicketRepository implements LotteryTicketRepository {
+
+  private static final String DEFAULT_DB = &quot;lotteryDB&quot;;
+  private static final String DEFAULT_TICKETS_COLLECTION = &quot;lotteryTickets&quot;;
+  private static final String DEFAULT_COUNTERS_COLLECTION = &quot;counters&quot;;
+  private static final String TICKET_ID = &quot;ticketId&quot;;
+
+  private MongoClient mongoClient;
+  private MongoDatabase database;
+  private MongoCollection&lt;Document&gt; ticketsCollection;
+  private MongoCollection&lt;Document&gt; countersCollection;
+
+  /**
+   * Constructor.
+   */
+<span class="nc" id="L60">  public MongoTicketRepository() {</span>
+<span class="nc" id="L61">    connect();</span>
+<span class="nc" id="L62">  }</span>
+
+  /**
+   * Constructor accepting parameters.
+   */
+  public MongoTicketRepository(String dbName, String ticketsCollectionName,
+<span class="nc" id="L68">                               String countersCollectionName) {</span>
+<span class="nc" id="L69">    connect(dbName, ticketsCollectionName, countersCollectionName);</span>
+<span class="nc" id="L70">  }</span>
+
+  /**
+   * Connect to database with default parameters.
+   */
+  public void connect() {
+<span class="nc" id="L76">    connect(DEFAULT_DB, DEFAULT_TICKETS_COLLECTION, DEFAULT_COUNTERS_COLLECTION);</span>
+<span class="nc" id="L77">  }</span>
+
+  /**
+   * Connect to database with given parameters.
+   */
+  public void connect(String dbName, String ticketsCollectionName,
+                      String countersCollectionName) {
+<span class="nc bnc" id="L84" title="All 2 branches missed.">    if (mongoClient != null) {</span>
+<span class="nc" id="L85">      mongoClient.close();</span>
+    }
+<span class="nc" id="L87">    mongoClient = new MongoClient(System.getProperty(&quot;mongo-host&quot;),</span>
+<span class="nc" id="L88">        Integer.parseInt(System.getProperty(&quot;mongo-port&quot;)));</span>
+<span class="nc" id="L89">    database = mongoClient.getDatabase(dbName);</span>
+<span class="nc" id="L90">    ticketsCollection = database.getCollection(ticketsCollectionName);</span>
+<span class="nc" id="L91">    countersCollection = database.getCollection(countersCollectionName);</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">    if (countersCollection.countDocuments() &lt;= 0) {</span>
+<span class="nc" id="L93">      initCounters();</span>
+    }
+<span class="nc" id="L95">  }</span>
+
+  private void initCounters() {
+<span class="nc" id="L98">    var doc = new Document(&quot;_id&quot;, TICKET_ID).append(&quot;seq&quot;, 1);</span>
+<span class="nc" id="L99">    countersCollection.insertOne(doc);</span>
+<span class="nc" id="L100">  }</span>
+
+  /**
+   * Get next ticket id.
+   *
+   * @return next ticket id
+   */
+  public int getNextId() {
+<span class="nc" id="L108">    var find = new Document(&quot;_id&quot;, TICKET_ID);</span>
+<span class="nc" id="L109">    var increase = new Document(&quot;seq&quot;, 1);</span>
+<span class="nc" id="L110">    var update = new Document(&quot;$inc&quot;, increase);</span>
+<span class="nc" id="L111">    var result = countersCollection.findOneAndUpdate(find, update);</span>
+<span class="nc" id="L112">    return result.getInteger(&quot;seq&quot;);</span>
+  }
+
+  /**
+   * Get tickets collection.
+   *
+   * @return tickets collection
+   */
+  public MongoCollection&lt;Document&gt; getTicketsCollection() {
+<span class="nc" id="L121">    return ticketsCollection;</span>
+  }
+
+  /**
+   * Get counters collection.
+   *
+   * @return counters collection
+   */
+  public MongoCollection&lt;Document&gt; getCountersCollection() {
+<span class="nc" id="L130">    return countersCollection;</span>
+  }
+
+  @Override
+  public Optional&lt;LotteryTicket&gt; findById(LotteryTicketId id) {
+<span class="nc" id="L135">    return ticketsCollection</span>
+<span class="nc" id="L136">        .find(new Document(TICKET_ID, id.getId()))</span>
+<span class="nc" id="L137">        .limit(1)</span>
+<span class="nc" id="L138">        .into(new ArrayList&lt;&gt;())</span>
+<span class="nc" id="L139">        .stream()</span>
+<span class="nc" id="L140">        .findFirst()</span>
+<span class="nc" id="L141">        .map(this::docToTicket);</span>
+  }
+
+  @Override
+  public Optional&lt;LotteryTicketId&gt; save(LotteryTicket ticket) {
+<span class="nc" id="L146">    var ticketId = getNextId();</span>
+<span class="nc" id="L147">    var doc = new Document(TICKET_ID, ticketId);</span>
+<span class="nc" id="L148">    doc.put(&quot;email&quot;, ticket.getPlayerDetails().getEmail());</span>
+<span class="nc" id="L149">    doc.put(&quot;bank&quot;, ticket.getPlayerDetails().getBankAccount());</span>
+<span class="nc" id="L150">    doc.put(&quot;phone&quot;, ticket.getPlayerDetails().getPhoneNumber());</span>
+<span class="nc" id="L151">    doc.put(&quot;numbers&quot;, ticket.getLotteryNumbers().getNumbersAsString());</span>
+<span class="nc" id="L152">    ticketsCollection.insertOne(doc);</span>
+<span class="nc" id="L153">    return Optional.of(new LotteryTicketId(ticketId));</span>
+  }
+
+  @Override
+  public Map&lt;LotteryTicketId, LotteryTicket&gt; findAll() {
+<span class="nc" id="L158">    return ticketsCollection</span>
+<span class="nc" id="L159">        .find(new Document())</span>
+<span class="nc" id="L160">        .into(new ArrayList&lt;&gt;())</span>
+<span class="nc" id="L161">        .stream()</span>
+<span class="nc" id="L162">        .map(this::docToTicket)</span>
+<span class="nc" id="L163">        .collect(Collectors.toMap(LotteryTicket::getId, Function.identity()));</span>
+  }
+
+  @Override
+  public void deleteAll() {
+<span class="nc" id="L168">    ticketsCollection.deleteMany(new Document());</span>
+<span class="nc" id="L169">  }</span>
+
+  private LotteryTicket docToTicket(Document doc) {
+<span class="nc" id="L172">    var playerDetails = new PlayerDetails(doc.getString(&quot;email&quot;), doc.getString(&quot;bank&quot;),</span>
+<span class="nc" id="L173">        doc.getString(&quot;phone&quot;));</span>
+<span class="nc" id="L174">    var numbers = Arrays.stream(doc.getString(&quot;numbers&quot;).split(&quot;,&quot;))</span>
+<span class="nc" id="L175">        .map(Integer::parseInt)</span>
+<span class="nc" id="L176">        .collect(Collectors.toSet());</span>
+<span class="nc" id="L177">    var lotteryNumbers = LotteryNumbers.create(numbers);</span>
+<span class="nc" id="L178">    var ticketId = new LotteryTicketId(doc.getInteger(TICKET_ID));</span>
+<span class="nc" id="L179">    return new LotteryTicket(ticketId, playerDetails, lotteryNumbers);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

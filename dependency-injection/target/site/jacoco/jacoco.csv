@@ -1,0 +1,11 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+dependency-injection,com.iluwatar.dependency.injection,Tobacco,0,17,0,0,0,5,0,3,0,3
+dependency-injection,com.iluwatar.dependency.injection,OldTobyTobacco,0,3,0,0,0,1,0,1,0,1
+dependency-injection,com.iluwatar.dependency.injection,AdvancedWizard,0,5,0,0,0,2,0,1,0,1
+dependency-injection,com.iluwatar.dependency.injection,SecondBreakfastTobacco,0,3,0,0,0,1,0,1,0,1
+dependency-injection,com.iluwatar.dependency.injection,AdvancedSorceress,0,8,0,0,0,3,0,2,0,2
+dependency-injection,com.iluwatar.dependency.injection,TobaccoModule,0,10,0,0,0,3,0,2,0,2
+dependency-injection,com.iluwatar.dependency.injection,SimpleWizard,0,13,0,0,0,4,0,2,0,2
+dependency-injection,com.iluwatar.dependency.injection,RivendellTobacco,0,3,0,0,0,1,0,1,0,1
+dependency-injection,com.iluwatar.dependency.injection,GuiceWizard,0,11,0,0,0,5,0,2,0,2
+dependency-injection,com.iluwatar.dependency.injection,App,3,44,0,0,1,11,1,1,1,1

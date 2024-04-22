@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1710601511504">
+    <module artifactId="collecting-parameter" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="etc/collecting-parameter.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/collectingparameter/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/collectingparameter/PaperSizes.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/collectingparameter/PrinterItem.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/collectingparameter/PrinterQueue.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/collectingparameter/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/collectingparameter/CollectingParameterTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/collectingparameter/PrinterQueueTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

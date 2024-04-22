@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268627958">
+    <module artifactId="chain-of-responsibility" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/chain-of-responsibility.urm.puml" result="UNKNOWN"/>
+        <file path="evosuite-report/statistics.csv" result="UNKNOWN"/>
+        <file path="evosuite-tests/com/iluwatar/chain/OrcKing_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/chain/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/chain/OrcCommander.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/chain/OrcKing.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/chain/OrcOfficer.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/chain/OrcSoldier.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/chain/Request.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/chain/RequestHandler.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/chain/RequestType.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/chain/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/chain/OrcKingTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

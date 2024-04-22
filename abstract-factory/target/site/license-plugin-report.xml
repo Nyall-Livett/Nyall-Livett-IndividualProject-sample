@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268600768">
+    <module artifactId="abstract-factory" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path=".gitignore 2" result="UNKNOWN"/>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/abstract-factory.urm 2.puml" result="UNKNOWN"/>
+        <file path="etc/abstract-factory.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+    </files>
+</licensePluginReport>

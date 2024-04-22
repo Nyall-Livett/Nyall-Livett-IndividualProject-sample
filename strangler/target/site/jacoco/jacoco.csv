@@ -1,0 +1,8 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+strangler,com.iluwatar.strangler,HalfArithmetic,0,44,0,2,0,11,0,6,0,5
+strangler,com.iluwatar.strangler,NewArithmetic,0,41,0,2,0,10,0,6,0,5
+strangler,com.iluwatar.strangler,HalfSource,0,32,0,2,0,6,0,6,0,5
+strangler,com.iluwatar.strangler,App,3,80,0,0,1,13,1,1,1,1
+strangler,com.iluwatar.strangler,OldSource,0,63,0,4,0,12,0,6,0,4
+strangler,com.iluwatar.strangler,OldArithmetic,0,28,0,0,0,8,0,4,0,4
+strangler,com.iluwatar.strangler,NewSource,0,46,0,2,0,8,0,8,0,7

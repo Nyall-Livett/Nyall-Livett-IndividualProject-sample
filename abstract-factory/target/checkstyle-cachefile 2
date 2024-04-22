@@ -1,0 +1,4 @@
+#Fri Apr 12 17:37:48 BST 2024
+configuration*?=66382BD3D5043F6627FA000EB8B600AF93F7A6B3
+module-resource*?\:checkstyle-suppressions.xml=5CA59B323FF14A7183C495F63A2BDD30F053EA44
+module-resource*?\:checkstyle-xpath-suppressions.xml=D5076F29141A89623C82960FEF8664E69A312C21

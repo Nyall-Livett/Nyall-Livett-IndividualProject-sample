@@ -1,0 +1,10 @@
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/event-driven-architecture/src/main/java/com/iluwatar/eda/event/UserCreatedEvent.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/event-driven-architecture/src/main/java/com/iluwatar/eda/framework/EventDispatcher.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/event-driven-architecture/src/main/java/com/iluwatar/eda/handler/UserUpdatedEventHandler.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/event-driven-architecture/src/main/java/com/iluwatar/eda/handler/UserCreatedEventHandler.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/event-driven-architecture/src/main/java/com/iluwatar/eda/framework/Handler.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/event-driven-architecture/src/main/java/com/iluwatar/eda/event/UserUpdatedEvent.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/event-driven-architecture/src/main/java/com/iluwatar/eda/App.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/event-driven-architecture/src/main/java/com/iluwatar/eda/model/User.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/event-driven-architecture/src/main/java/com/iluwatar/eda/event/AbstractEvent.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/event-driven-architecture/src/main/java/com/iluwatar/eda/framework/Event.java

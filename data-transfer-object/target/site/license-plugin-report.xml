@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268879858">
+    <module artifactId="data-transfer-object" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/data-transfer-object.ucls" result="UNKNOWN"/>
+        <file path="etc/data-transfer-object.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/datatransfer/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/datatransfer/customer/CustomerDto.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/datatransfer/customer/CustomerResource.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/datatransfer/product/Product.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/datatransfer/product/ProductDto.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/datatransfer/product/ProductResource.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/datatransfer/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/datatransfer/customer/CustomerResourceTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

@@ -1,0 +1,7 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+interpreter,com.iluwatar.interpreter,MinusExpression,0,19,0,0,0,6,0,3,0,3
+interpreter,com.iluwatar.interpreter,PlusExpression,0,19,0,0,0,6,0,3,0,3
+interpreter,com.iluwatar.interpreter,App,3,144,0,13,1,27,1,11,1,4
+interpreter,com.iluwatar.interpreter,NumberExpression,0,18,0,0,0,8,0,4,0,4
+interpreter,com.iluwatar.interpreter,MultiplyExpression,0,19,0,0,0,6,0,3,0,3
+interpreter,com.iluwatar.interpreter,Expression,0,3,0,0,0,1,0,1,0,1

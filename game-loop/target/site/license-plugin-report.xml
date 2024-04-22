@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268955228">
+    <module artifactId="game-loop" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="ADDED"/>
+        <file path="etc/game-loop.urm.puml" result="UNKNOWN"/>
+        <file path="evosuite-report/statistics.csv" result="UNKNOWN"/>
+        <file path="evosuite-tests/com/iluwatar/gameloop/VariableStepGameLoop_ESTest_scaffolding.java" result="ADDED"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/gameloop/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/gameloop/Bullet.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/gameloop/FixedStepGameLoop.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/gameloop/FrameBasedGameLoop.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/gameloop/GameController.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/gameloop/GameLoop.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/gameloop/GameStatus.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/gameloop/VariableStepGameLoop.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/gameloop/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/gameloop/FixedStepGameLoopTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/gameloop/FrameBasedGameLoopTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/gameloop/GameControllerTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/gameloop/GameLoopTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/gameloop/VariableStepGameLoopTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

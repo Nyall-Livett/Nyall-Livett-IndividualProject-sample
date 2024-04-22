@@ -1,0 +1,9 @@
+com/iluwatar/component/component/graphiccomponent/GraphicComponent.class
+com/iluwatar/component/component/inputcomponent/DemoInputComponent.class
+com/iluwatar/component/component/inputcomponent/InputComponent.class
+com/iluwatar/component/component/graphiccomponent/ObjectGraphicComponent.class
+com/iluwatar/component/component/physiccomponent/ObjectPhysicComponent.class
+com/iluwatar/component/component/inputcomponent/PlayerInputComponent.class
+com/iluwatar/component/component/physiccomponent/PhysicComponent.class
+com/iluwatar/component/GameObject.class
+com/iluwatar/component/App.class

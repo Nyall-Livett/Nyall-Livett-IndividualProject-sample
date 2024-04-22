@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ArrayInput.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">master-worker-pattern</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.masterworker</a> &gt; <span class="el_source">ArrayInput.java</span></div><h1>ArrayInput.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.masterworker;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * Class ArrayInput extends abstract class {@link Input} and contains data of type int[][].
+ */
+
+public class ArrayInput extends Input&lt;int[][]&gt; {
+
+  public ArrayInput(int[][] data) {
+<span class="fc" id="L38">    super(data);</span>
+<span class="fc" id="L39">  }</span>
+
+  static int[] makeDivisions(int[][] data, int num) {
+<span class="fc" id="L42">    var initialDivision = data.length / num; //equally dividing</span>
+<span class="fc" id="L43">    var divisions = new int[num];</span>
+<span class="fc" id="L44">    Arrays.fill(divisions, initialDivision);</span>
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">    if (initialDivision * num != data.length) {</span>
+<span class="fc" id="L46">      var extra = data.length - initialDivision * num;</span>
+<span class="fc" id="L47">      var l = 0;</span>
+      //equally dividing extra among all parts
+<span class="fc bfc" id="L49" title="All 2 branches covered.">      while (extra &gt; 0) {</span>
+<span class="fc" id="L50">        divisions[l] = divisions[l] + 1;</span>
+<span class="fc" id="L51">        extra--;</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        if (l == num - 1) {</span>
+<span class="nc" id="L53">          l = 0;</span>
+        } else {
+<span class="fc" id="L55">          l++;</span>
+        }
+      }
+    }
+<span class="fc" id="L59">    return divisions;</span>
+  }
+
+  @Override
+  public List&lt;Input&lt;int[][]&gt;&gt; divideData(int num) {
+<span class="pc bpc" id="L64" title="1 of 2 branches missed.">    if (this.data == null) {</span>
+<span class="nc" id="L65">      return null;</span>
+    } else {
+<span class="fc" id="L67">      var divisions = makeDivisions(this.data, num);</span>
+<span class="fc" id="L68">      var result = new ArrayList&lt;Input&lt;int[][]&gt;&gt;(num);</span>
+<span class="fc" id="L69">      var rowsDone = 0; //number of rows divided so far</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">      for (var i = 0; i &lt; num; i++) {</span>
+<span class="fc" id="L71">        var rows = divisions[i];</span>
+<span class="pc bpc" id="L72" title="1 of 2 branches missed.">        if (rows != 0) {</span>
+<span class="fc" id="L73">          var divided = new int[rows][this.data[0].length];</span>
+<span class="fc" id="L74">          System.arraycopy(this.data, rowsDone, divided, 0, rows);</span>
+<span class="fc" id="L75">          rowsDone += rows;</span>
+<span class="fc" id="L76">          var dividedInput = new ArrayInput(divided);</span>
+<span class="fc" id="L77">          result.add(dividedInput);</span>
+        } else {
+          break; //rest of divisions will also be 0
+        }
+      }
+<span class="fc" id="L82">      return result;</span>
+    }
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

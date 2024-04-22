@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268876609">
+    <module artifactId="cqrs" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/cqrs.ucls" result="UNKNOWN"/>
+        <file path="etc/cqrs.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/cqrs/app/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/cqrs/commandes/CommandService.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/cqrs/commandes/CommandServiceImpl.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/cqrs/constants/AppConstants.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/cqrs/domain/model/Author.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/cqrs/domain/model/Book.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/cqrs/dto/Author.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/cqrs/dto/Book.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/cqrs/queries/QueryService.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/cqrs/queries/QueryServiceImpl.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/cqrs/util/HibernateUtil.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/cqrs/IntegrationTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

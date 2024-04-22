@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReaderWriterLock.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">reader-writer-lock</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.reader.writer.lock</a> &gt; <span class="el_source">ReaderWriterLock.java</span></div><h1>ReaderWriterLock.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.reader.writer.lock;
+
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReadWriteLock;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * Class responsible for control the access for reader or writer
+ *
+ * &lt;p&gt;Allows multiple readers to hold the lock at same time, but if any writer holds the lock then
+ * readers wait. If reader holds the lock then writer waits. This lock is not fair.
+ */
+<span class="fc" id="L41">@Slf4j</span>
+<span class="fc" id="L42">public class ReaderWriterLock implements ReadWriteLock {</span>
+
+
+<span class="fc" id="L45">  private final Object readerMutex = new Object();</span>
+
+  private int currentReaderCount;
+
+  /**
+   * Global mutex is used to indicate that whether reader or writer gets the lock in the moment.
+   *
+   * &lt;p&gt;1. When it contains the reference of {@link #readerLock}, it means that the lock is
+   * acquired by the reader, another reader can also do the read operation concurrently. &lt;br&gt; 2.
+   * When it contains the reference of reference of {@link #writerLock}, it means that the lock is
+   * acquired by the writer exclusively, no more reader or writer can get the lock.
+   *
+   * &lt;p&gt;This is the most important field in this class to control the access for reader/writer.
+   */
+<span class="fc" id="L59">  private final Set&lt;Object&gt; globalMutex = new HashSet&lt;&gt;();</span>
+
+<span class="fc" id="L61">  private final ReadLock readerLock = new ReadLock();</span>
+<span class="fc" id="L62">  private final WriteLock writerLock = new WriteLock();</span>
+
+  @Override
+  public Lock readLock() {
+<span class="fc" id="L66">    return readerLock;</span>
+  }
+
+  @Override
+  public Lock writeLock() {
+<span class="fc" id="L71">    return writerLock;</span>
+  }
+
+  /**
+   * return true when globalMutex hold the reference of writerLock.
+   */
+  private boolean doesWriterOwnThisLock() {
+<span class="fc" id="L78">    return globalMutex.contains(writerLock);</span>
+  }
+
+  /**
+   * Nobody get the lock when globalMutex contains nothing.
+   */
+  private boolean isLockFree() {
+<span class="fc" id="L85">    return globalMutex.isEmpty();</span>
+  }
+
+  /**
+   * Reader Lock, can be access for more than one reader concurrently if no writer get the lock.
+   */
+<span class="fc" id="L91">  private class ReadLock implements Lock {</span>
+
+    @Override
+    public void lock() {
+<span class="fc" id="L95">      synchronized (readerMutex) {</span>
+<span class="fc" id="L96">        currentReaderCount++;</span>
+<span class="fc bfc" id="L97" title="All 2 branches covered.">        if (currentReaderCount == 1) {</span>
+<span class="fc" id="L98">          acquireForReaders();</span>
+        }
+<span class="fc" id="L100">      }</span>
+<span class="fc" id="L101">    }</span>
+
+    /**
+     * Acquire the globalMutex lock on behalf of current and future concurrent readers. Make sure no
+     * writers currently owns the lock.
+     */
+    private void acquireForReaders() {
+      // Try to get the globalMutex lock for the first reader
+<span class="fc" id="L109">      synchronized (globalMutex) {</span>
+        // If the no one get the lock or the lock is locked by reader, just set the reference
+        // to the globalMutex to indicate that the lock is locked by Reader.
+<span class="fc bfc" id="L112" title="All 2 branches covered.">        while (doesWriterOwnThisLock()) {</span>
+          try {
+<span class="fc" id="L114">            globalMutex.wait();</span>
+<span class="nc" id="L115">          } catch (InterruptedException e) {</span>
+<span class="nc" id="L116">            var message = &quot;InterruptedException while waiting for globalMutex in acquireForReaders&quot;;</span>
+<span class="nc" id="L117">            LOGGER.info(message, e);</span>
+<span class="nc" id="L118">            Thread.currentThread().interrupt();</span>
+<span class="pc" id="L119">          }</span>
+        }
+<span class="fc" id="L121">        globalMutex.add(this);</span>
+<span class="fc" id="L122">      }</span>
+<span class="fc" id="L123">    }</span>
+
+    @Override
+    public void unlock() {
+<span class="fc" id="L127">      synchronized (readerMutex) {</span>
+<span class="fc" id="L128">        currentReaderCount--;</span>
+        // Release the lock only when it is the last reader, it is ensure that the lock is released
+        // when all reader is completely.
+<span class="fc bfc" id="L131" title="All 2 branches covered.">        if (currentReaderCount == 0) {</span>
+<span class="fc" id="L132">          synchronized (globalMutex) {</span>
+            // Notify the waiter, mostly the writer
+<span class="fc" id="L134">            globalMutex.remove(this);</span>
+<span class="fc" id="L135">            globalMutex.notifyAll();</span>
+<span class="fc" id="L136">          }</span>
+        }
+<span class="fc" id="L138">      }</span>
+
+<span class="fc" id="L140">    }</span>
+
+    @Override
+    public void lockInterruptibly() {
+<span class="nc" id="L144">      throw new UnsupportedOperationException();</span>
+    }
+
+    @Override
+    public boolean tryLock() {
+<span class="nc" id="L149">      throw new UnsupportedOperationException();</span>
+    }
+
+    @Override
+    public boolean tryLock(long time, TimeUnit unit) {
+<span class="nc" id="L154">      throw new UnsupportedOperationException();</span>
+    }
+
+    @Override
+    public Condition newCondition() {
+<span class="nc" id="L159">      throw new UnsupportedOperationException();</span>
+    }
+
+  }
+
+  /**
+   * Writer Lock, can only be accessed by one writer concurrently.
+   */
+<span class="fc" id="L167">  private class WriteLock implements Lock {</span>
+
+    @Override
+    public void lock() {
+<span class="fc" id="L171">      synchronized (globalMutex) {</span>
+
+        // Wait until the lock is free.
+<span class="fc bfc" id="L174" title="All 2 branches covered.">        while (!isLockFree()) {</span>
+          try {
+<span class="fc" id="L176">            globalMutex.wait();</span>
+<span class="nc" id="L177">          } catch (InterruptedException e) {</span>
+<span class="nc" id="L178">            LOGGER.info(&quot;InterruptedException while waiting for globalMutex to begin writing&quot;, e);</span>
+<span class="nc" id="L179">            Thread.currentThread().interrupt();</span>
+<span class="pc" id="L180">          }</span>
+        }
+        // When the lock is free, acquire it by placing an entry in globalMutex
+<span class="fc" id="L183">        globalMutex.add(this);</span>
+<span class="fc" id="L184">      }</span>
+<span class="fc" id="L185">    }</span>
+
+    @Override
+    public void unlock() {
+<span class="fc" id="L189">      synchronized (globalMutex) {</span>
+<span class="fc" id="L190">        globalMutex.remove(this);</span>
+        // Notify the waiter, other writer or reader
+<span class="fc" id="L192">        globalMutex.notifyAll();</span>
+<span class="fc" id="L193">      }</span>
+<span class="fc" id="L194">    }</span>
+
+    @Override
+    public void lockInterruptibly() {
+<span class="nc" id="L198">      throw new UnsupportedOperationException();</span>
+    }
+
+    @Override
+    public boolean tryLock() {
+<span class="nc" id="L203">      throw new UnsupportedOperationException();</span>
+    }
+
+    @Override
+    public boolean tryLock(long time, TimeUnit unit) {
+<span class="nc" id="L208">      throw new UnsupportedOperationException();</span>
+    }
+
+    @Override
+    public Condition newCondition() {
+<span class="nc" id="L213">      throw new UnsupportedOperationException();</span>
+    }
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268920233">
+    <module artifactId="collection-pipeline" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/collection-pipeline.ucls" result="UNKNOWN"/>
+        <file path="etc/collection-pipeline.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/collectionpipeline/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/collectionpipeline/Car.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/collectionpipeline/CarFactory.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/collectionpipeline/Category.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/collectionpipeline/FunctionalProgramming.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/collectionpipeline/ImperativeProgramming.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/collectionpipeline/Person.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/collectionpipeline/AppTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

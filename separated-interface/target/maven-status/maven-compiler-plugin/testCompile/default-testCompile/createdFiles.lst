@@ -1,0 +1,4 @@
+com/iluwatar/separatedinterface/invoice/InvoiceGeneratorTest.class
+com/iluwatar/separatedinterface/taxes/DomesticTaxCalculatorTest.class
+com/iluwatar/separatedinterface/taxes/ForeignTaxCalculatorTest.class
+com/iluwatar/separatedinterface/AppTest.class

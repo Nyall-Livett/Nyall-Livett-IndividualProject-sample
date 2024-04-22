@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713269030468">
+    <module artifactId="embedded-value" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="ADDED"/>
+        <file path="etc/embedded-value.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/embedded/value/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/embedded/value/DataSource.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/embedded/value/DataSourceInterface.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/embedded/value/Order.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/embedded/value/ShippingAddress.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/embedded/value/AppTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

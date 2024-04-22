@@ -1,0 +1,9 @@
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/circuit-breaker/src/main/java/com/iluwatar/circuitbreaker/RemoteService.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/circuit-breaker/src/main/java/com/iluwatar/circuitbreaker/DelayedRemoteService.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/circuit-breaker/src/main/java/com/iluwatar/circuitbreaker/App.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/circuit-breaker/src/main/java/com/iluwatar/circuitbreaker/DefaultCircuitBreaker.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/circuit-breaker/src/main/java/com/iluwatar/circuitbreaker/State.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/circuit-breaker/src/main/java/com/iluwatar/circuitbreaker/MonitoringService.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/circuit-breaker/src/main/java/com/iluwatar/circuitbreaker/CircuitBreaker.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/circuit-breaker/src/main/java/com/iluwatar/circuitbreaker/RemoteServiceException.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/circuit-breaker/src/main/java/com/iluwatar/circuitbreaker/QuickRemoteService.java

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713269025817">
+    <module artifactId="metadata-mapping" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="ADDED"/>
+        <file path="etc/metadata-mapping.urm.puml" result="UNKNOWN"/>
+        <file path="etc/metamapping.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/metamapping/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/metamapping/model/User.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/metamapping/service/UserService.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/metamapping/utils/DatabaseUtil.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/metamapping/utils/HibernateUtil.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/metamapping/AppTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

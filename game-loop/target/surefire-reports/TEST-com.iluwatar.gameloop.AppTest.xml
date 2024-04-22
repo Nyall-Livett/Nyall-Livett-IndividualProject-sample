@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.iluwatar.gameloop.AppTest" time="6.088" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="gopherProxySet" value="false"/>
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/game-loop/target/test-classes:/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/game-loop/target/classes:/Users/nyalllivett/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/Users/nyalllivett/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/Users/nyalllivett/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/nyalllivett/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/Users/nyalllivett/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/nyalllivett/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/Users/nyalllivett/.m2/repository/org/junit/vintage/junit-vintage-engine/5.8.2/junit-vintage-engine-5.8.2.jar:/Users/nyalllivett/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/nyalllivett/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/Users/nyalllivett/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/nyalllivett/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/Users/nyalllivett/.m2/repository/org/evosuite/evosuite-runtime/1.2.0/evosuite-runtime-1.2.0.jar:/Users/nyalllivett/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/Users/nyalllivett/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/Users/nyalllivett/.m2/repository/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar:"/>
+    <property name="java.vm.vendor" value="Amazon.com Inc."/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://aws.amazon.com/corretto/"/>
+    <property name="user.timezone" value="Europe/London"/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="GB"/>
+    <property name="sun.boot.library.path" value="/Users/nyalllivett/Library/Java/JavaVirtualMachines/corretto-11.0.22/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/game-loop/target/surefire/surefirebooter-20240416130228054_660.jar /Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/game-loop/target/surefire 2024-04-16T12-56-39_886-jvmRun1 surefire-20240416130228054_658tmp surefire_118-20240416130228054_659tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/game-loop/target/test-classes:/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/game-loop/target/classes:/Users/nyalllivett/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/Users/nyalllivett/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/Users/nyalllivett/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/nyalllivett/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/Users/nyalllivett/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/nyalllivett/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/Users/nyalllivett/.m2/repository/org/junit/vintage/junit-vintage-engine/5.8.2/junit-vintage-engine-5.8.2.jar:/Users/nyalllivett/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/nyalllivett/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/Users/nyalllivett/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/nyalllivett/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/Users/nyalllivett/.m2/repository/org/evosuite/evosuite-runtime/1.2.0/evosuite-runtime-1.2.0.jar:/Users/nyalllivett/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/Users/nyalllivett/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/Users/nyalllivett/.m2/repository/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/nyalllivett"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-01-16"/>
+    <property name="java.home" value="/Users/nyalllivett/Library/Java/JavaVirtualMachines/corretto-11.0.22/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/game-loop"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="checkstyle.skip" value="true"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/game-loop/target/surefire/surefirebooter-20240416130228054_660.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="11.0.22+7-LTS"/>
+    <property name="user.name" value="nyalllivett"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="13.5.1"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Corretto-11.0.22.7.1"/>
+    <property name="localRepository" value="/Users/nyalllivett/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-11/issues/"/>
+    <property name="java.io.tmpdir" value="/var/folders/r5/wybk1jdx0sd04gfc1n3_j0yw0000gn/T/"/>
+    <property name="java.version" value="11.0.22"/>
+    <property name="user.dir" value="/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/game-loop"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/Users/nyalllivett/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Amazon.com Inc."/>
+    <property name="java.vm.version" value="11.0.22+7-LTS"/>
+    <property name="java.specification.maintenance.version" value="2"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="java.class.version" value="55.0"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+  </properties>
+  <testcase name="shouldExecuteApplicationWithoutException" classname="com.iluwatar.gameloop.AppTest" time="6.078">
+    <system-out><![CDATA[13:02:28.526 [main] INFO com.iluwatar.gameloop.App - Start frame-based game loop:
+13:02:28.754 [Thread-2] INFO com.iluwatar.gameloop.FrameBasedGameLoop - Current bullet position: 0.5
+13:02:28.902 [Thread-2] INFO com.iluwatar.gameloop.FrameBasedGameLoop - Current bullet position: 1.0
+13:02:29.052 [Thread-2] INFO com.iluwatar.gameloop.FrameBasedGameLoop - Current bullet position: 1.5
+13:02:29.171 [Thread-2] INFO com.iluwatar.gameloop.FrameBasedGameLoop - Current bullet position: 2.0
+13:02:29.401 [Thread-2] INFO com.iluwatar.gameloop.FrameBasedGameLoop - Current bullet position: 2.5
+13:02:29.530 [Thread-2] INFO com.iluwatar.gameloop.FrameBasedGameLoop - Current bullet position: 3.0
+13:02:29.692 [Thread-2] INFO com.iluwatar.gameloop.FrameBasedGameLoop - Current bullet position: 3.5
+13:02:29.851 [Thread-2] INFO com.iluwatar.gameloop.FrameBasedGameLoop - Current bullet position: 4.0
+13:02:29.966 [Thread-2] INFO com.iluwatar.gameloop.FrameBasedGameLoop - Current bullet position: 4.5
+13:02:30.186 [Thread-2] INFO com.iluwatar.gameloop.FrameBasedGameLoop - Current bullet position: 5.0
+13:02:30.322 [Thread-2] INFO com.iluwatar.gameloop.FrameBasedGameLoop - Current bullet position: 5.5
+13:02:30.413 [Thread-2] INFO com.iluwatar.gameloop.FrameBasedGameLoop - Current bullet position: 6.0
+13:02:30.533 [main] INFO com.iluwatar.gameloop.App - Stop frame-based game loop.
+13:02:30.534 [main] INFO com.iluwatar.gameloop.App - Start variable-step game loop:
+13:02:30.576 [Thread-2] INFO com.iluwatar.gameloop.FrameBasedGameLoop - Current bullet position: 6.5
+13:02:30.646 [Thread-3] INFO com.iluwatar.gameloop.VariableStepGameLoop - Current bullet position: 0.055
+13:02:30.893 [Thread-3] INFO com.iluwatar.gameloop.VariableStepGameLoop - Current bullet position: 0.1785
+13:02:30.967 [Thread-3] INFO com.iluwatar.gameloop.VariableStepGameLoop - Current bullet position: 0.2155
+13:02:31.091 [Thread-3] INFO com.iluwatar.gameloop.VariableStepGameLoop - Current bullet position: 0.2775
+13:02:31.155 [Thread-3] INFO com.iluwatar.gameloop.VariableStepGameLoop - Current bullet position: 0.3095
+13:02:31.382 [Thread-3] INFO com.iluwatar.gameloop.VariableStepGameLoop - Current bullet position: 0.423
+13:02:31.477 [Thread-3] INFO com.iluwatar.gameloop.VariableStepGameLoop - Current bullet position: 0.4705
+13:02:31.584 [Thread-3] INFO com.iluwatar.gameloop.VariableStepGameLoop - Current bullet position: 0.524
+13:02:31.669 [Thread-3] INFO com.iluwatar.gameloop.VariableStepGameLoop - Current bullet position: 0.5665
+13:02:31.898 [Thread-3] INFO com.iluwatar.gameloop.VariableStepGameLoop - Current bullet position: 0.681
+13:02:32.113 [Thread-3] INFO com.iluwatar.gameloop.VariableStepGameLoop - Current bullet position: 0.7885
+13:02:32.175 [Thread-3] INFO com.iluwatar.gameloop.VariableStepGameLoop - Current bullet position: 0.8195
+13:02:32.258 [Thread-3] INFO com.iluwatar.gameloop.VariableStepGameLoop - Current bullet position: 0.861
+13:02:32.335 [Thread-3] INFO com.iluwatar.gameloop.VariableStepGameLoop - Current bullet position: 0.8995
+13:02:32.538 [main] INFO com.iluwatar.gameloop.App - Stop variable-step game loop.
+13:02:32.538 [main] INFO com.iluwatar.gameloop.App - Start fixed-step game loop:
+13:02:32.546 [Thread-3] INFO com.iluwatar.gameloop.VariableStepGameLoop - Current bullet position: 1.005
+13:02:32.599 [Thread-4] INFO com.iluwatar.gameloop.FixedStepGameLoop - Current bullet position: 0.0
+13:02:32.814 [Thread-4] INFO com.iluwatar.gameloop.FixedStepGameLoop - Current bullet position: 0.02
+13:02:32.987 [Thread-4] INFO com.iluwatar.gameloop.FixedStepGameLoop - Current bullet position: 0.12999998
+13:02:33.102 [Thread-4] INFO com.iluwatar.gameloop.FixedStepGameLoop - Current bullet position: 0.22000003
+13:02:33.186 [Thread-4] INFO com.iluwatar.gameloop.FixedStepGameLoop - Current bullet position: 0.28
+13:02:33.248 [Thread-4] INFO com.iluwatar.gameloop.FixedStepGameLoop - Current bullet position: 0.31999996
+13:02:33.487 [Thread-4] INFO com.iluwatar.gameloop.FixedStepGameLoop - Current bullet position: 0.34999993
+13:02:33.709 [Thread-4] INFO com.iluwatar.gameloop.FixedStepGameLoop - Current bullet position: 0.46999982
+13:02:33.904 [Thread-4] INFO com.iluwatar.gameloop.FixedStepGameLoop - Current bullet position: 0.57999974
+13:02:34.092 [Thread-4] INFO com.iluwatar.gameloop.FixedStepGameLoop - Current bullet position: 0.67999965
+13:02:34.182 [Thread-4] INFO com.iluwatar.gameloop.FixedStepGameLoop - Current bullet position: 0.76999956
+13:02:34.390 [Thread-4] INFO com.iluwatar.gameloop.FixedStepGameLoop - Current bullet position: 0.8199995
+13:02:34.545 [main] INFO com.iluwatar.gameloop.App - Stop variable-step game loop.
+13:02:34.550 [Thread-4] INFO com.iluwatar.gameloop.FixedStepGameLoop - Current bullet position: 0.9199994
+]]></system-out>
+  </testcase>
+</testsuite>

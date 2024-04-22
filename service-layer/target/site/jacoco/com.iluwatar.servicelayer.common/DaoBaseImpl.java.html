@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DaoBaseImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">service-layer</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.servicelayer.common</a> &gt; <span class="el_source">DaoBaseImpl.java</span></div><h1>DaoBaseImpl.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.servicelayer.common;
+
+import com.iluwatar.servicelayer.hibernate.HibernateUtil;
+import java.lang.reflect.ParameterizedType;
+import java.util.List;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+/**
+ * Base class for Dao implementations.
+ *
+ * @param &lt;E&gt; Type of Entity
+ */
+<span class="fc" id="L42">public abstract class DaoBaseImpl&lt;E extends BaseEntity&gt; implements Dao&lt;E&gt; {</span>
+
+<span class="fc" id="L44">  @SuppressWarnings(&quot;unchecked&quot;)</span>
+<span class="fc" id="L45">  protected Class&lt;E&gt; persistentClass = (Class&lt;E&gt;) ((ParameterizedType) getClass()</span>
+<span class="fc" id="L46">      .getGenericSuperclass()).getActualTypeArguments()[0];</span>
+
+  /*
+   * Making this getSessionFactory() instead of getSession() so that it is the responsibility
+   * of the caller to open as well as close the session (prevents potential resource leak).
+   */
+  protected SessionFactory getSessionFactory() {
+<span class="fc" id="L53">    return HibernateUtil.getSessionFactory();</span>
+  }
+
+  @Override
+  public E find(Long id) {
+<span class="fc" id="L58">    Transaction tx = null;</span>
+    E result;
+<span class="fc" id="L60">    try (var session = getSessionFactory().openSession()) {</span>
+<span class="fc" id="L61">      tx = session.beginTransaction();</span>
+<span class="fc" id="L62">      CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();</span>
+<span class="fc" id="L63">      CriteriaQuery&lt;E&gt; builderQuery = criteriaBuilder.createQuery(persistentClass);</span>
+<span class="fc" id="L64">      Root&lt;E&gt; root = builderQuery.from(persistentClass);</span>
+<span class="fc" id="L65">      builderQuery.select(root).where(criteriaBuilder.equal(root.get(&quot;id&quot;), id));</span>
+<span class="fc" id="L66">      Query&lt;E&gt; query = session.createQuery(builderQuery);</span>
+<span class="fc" id="L67">      result = query.uniqueResult();</span>
+<span class="fc" id="L68">      tx.commit();</span>
+<span class="nc" id="L69">    } catch (Exception e) {</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">      if (tx != null) {</span>
+<span class="nc" id="L71">        tx.rollback();</span>
+      }
+<span class="nc" id="L73">      throw e;</span>
+<span class="fc" id="L74">    }</span>
+<span class="fc" id="L75">    return result;</span>
+  }
+
+  @Override
+  public void persist(E entity) {
+<span class="fc" id="L80">    Transaction tx = null;</span>
+<span class="fc" id="L81">    try (var session = getSessionFactory().openSession()) {</span>
+<span class="fc" id="L82">      tx = session.beginTransaction();</span>
+<span class="fc" id="L83">      session.persist(entity);</span>
+<span class="fc" id="L84">      tx.commit();</span>
+<span class="nc" id="L85">    } catch (Exception e) {</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">      if (tx != null) {</span>
+<span class="nc" id="L87">        tx.rollback();</span>
+      }
+<span class="nc" id="L89">      throw e;</span>
+<span class="fc" id="L90">    }</span>
+<span class="fc" id="L91">  }</span>
+
+  @Override
+  public E merge(E entity) {
+<span class="fc" id="L95">    Transaction tx = null;</span>
+<span class="fc" id="L96">    E result = null;</span>
+<span class="fc" id="L97">    try (var session = getSessionFactory().openSession()) {</span>
+<span class="fc" id="L98">      tx = session.beginTransaction();</span>
+<span class="fc" id="L99">      result = (E) session.merge(entity);</span>
+<span class="fc" id="L100">      tx.commit();</span>
+<span class="nc" id="L101">    } catch (Exception e) {</span>
+<span class="nc bnc" id="L102" title="All 2 branches missed.">      if (tx != null) {</span>
+<span class="nc" id="L103">        tx.rollback();</span>
+      }
+<span class="nc" id="L105">      throw e;</span>
+<span class="fc" id="L106">    }</span>
+<span class="fc" id="L107">    return result;</span>
+  }
+
+  @Override
+  public void delete(E entity) {
+<span class="fc" id="L112">    Transaction tx = null;</span>
+<span class="fc" id="L113">    try (var session = getSessionFactory().openSession()) {</span>
+<span class="fc" id="L114">      tx = session.beginTransaction();</span>
+<span class="fc" id="L115">      session.delete(entity);</span>
+<span class="fc" id="L116">      tx.commit();</span>
+<span class="nc" id="L117">    } catch (Exception e) {</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">      if (tx != null) {</span>
+<span class="nc" id="L119">        tx.rollback();</span>
+      }
+<span class="nc" id="L121">      throw e;</span>
+<span class="fc" id="L122">    }</span>
+<span class="fc" id="L123">  }</span>
+
+  @Override
+  public List&lt;E&gt; findAll() {
+<span class="fc" id="L127">    Transaction tx = null;</span>
+    List&lt;E&gt; result;
+<span class="fc" id="L129">    try (var session = getSessionFactory().openSession()) {</span>
+<span class="fc" id="L130">      tx = session.beginTransaction();</span>
+<span class="fc" id="L131">      CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();</span>
+<span class="fc" id="L132">      CriteriaQuery&lt;E&gt; builderQuery = criteriaBuilder.createQuery(persistentClass);</span>
+<span class="fc" id="L133">      Root&lt;E&gt; root = builderQuery.from(persistentClass);</span>
+<span class="fc" id="L134">      builderQuery.select(root);</span>
+<span class="fc" id="L135">      Query&lt;E&gt; query = session.createQuery(builderQuery);</span>
+<span class="fc" id="L136">      result = query.getResultList();</span>
+<span class="nc" id="L137">    } catch (Exception e) {</span>
+<span class="nc bnc" id="L138" title="All 2 branches missed.">      if (tx != null) {</span>
+<span class="nc" id="L139">        tx.rollback();</span>
+      }
+<span class="nc" id="L141">      throw e;</span>
+<span class="fc" id="L142">    }</span>
+<span class="fc" id="L143">    return result;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

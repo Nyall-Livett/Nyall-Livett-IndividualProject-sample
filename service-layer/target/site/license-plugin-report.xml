@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268707036">
+    <module artifactId="service-layer" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/service-layer.ucls" result="UNKNOWN"/>
+        <file path="etc/service-layer.urm.puml" result="UNKNOWN"/>
+        <file path="evosuite-report/statistics.csv" result="UNKNOWN"/>
+        <file path="evosuite-tests/com/iluwatar/servicelayer/magic/MagicServiceImpl_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/servicelayer/app/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/servicelayer/common/BaseEntity.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/servicelayer/common/Dao.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/servicelayer/common/DaoBaseImpl.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/servicelayer/hibernate/HibernateUtil.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/servicelayer/magic/MagicService.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/servicelayer/magic/MagicServiceImpl.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/servicelayer/spell/Spell.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/servicelayer/spell/SpellDao.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/servicelayer/spell/SpellDaoImpl.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/servicelayer/spellbook/Spellbook.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/servicelayer/spellbook/SpellbookDao.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/servicelayer/spellbook/SpellbookDaoImpl.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/servicelayer/wizard/Wizard.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/servicelayer/wizard/WizardDao.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/servicelayer/wizard/WizardDaoImpl.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/servicelayer/app/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/servicelayer/common/BaseDaoTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/servicelayer/magic/MagicServiceImplTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/servicelayer/spell/SpellDaoImplTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/servicelayer/spellbook/SpellbookDaoImplTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/servicelayer/wizard/WizardDaoImplTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

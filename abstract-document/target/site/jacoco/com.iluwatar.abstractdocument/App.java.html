@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">abstract-document</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.abstractdocument</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.abstractdocument;
+
+import com.iluwatar.abstractdocument.domain.Car;
+import com.iluwatar.abstractdocument.domain.enums.Property;
+import java.util.List;
+import java.util.Map;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * The Abstract Document pattern enables handling additional, non-static properties. This pattern
+ * uses concept of traits to enable type safety and separate properties of different classes into
+ * set of interfaces.
+ *
+ * &lt;p&gt;In Abstract Document pattern,({@link AbstractDocument}) fully implements {@link Document})
+ * interface. Traits are then defined to enable access to properties in usual, static way.
+ */
+<span class="fc" id="L41">@Slf4j</span>
+<span class="nc" id="L42">public class App {</span>
+
+  /**
+   * Program entry point.
+   *
+   * @param args command line args
+   */
+  public static void main(String[] args) {
+<span class="fc" id="L50">    LOGGER.info(&quot;Constructing parts and car&quot;);</span>
+
+<span class="fc" id="L52">    var wheelProperties = Map.of(</span>
+<span class="fc" id="L53">        Property.TYPE.toString(), &quot;wheel&quot;,</span>
+<span class="fc" id="L54">        Property.MODEL.toString(), &quot;15C&quot;,</span>
+<span class="fc" id="L55">        Property.PRICE.toString(), 100L);</span>
+
+<span class="fc" id="L57">    var doorProperties = Map.of(</span>
+<span class="fc" id="L58">        Property.TYPE.toString(), &quot;door&quot;,</span>
+<span class="fc" id="L59">        Property.MODEL.toString(), &quot;Lambo&quot;,</span>
+<span class="fc" id="L60">        Property.PRICE.toString(), 300L);</span>
+
+<span class="fc" id="L62">    var carProperties = Map.of(</span>
+<span class="fc" id="L63">        Property.MODEL.toString(), &quot;300SL&quot;,</span>
+<span class="fc" id="L64">        Property.PRICE.toString(), 10000L,</span>
+<span class="fc" id="L65">        Property.PARTS.toString(), List.of(wheelProperties, doorProperties));</span>
+
+<span class="fc" id="L67">    var car = new Car(carProperties);</span>
+
+<span class="fc" id="L69">    LOGGER.info(&quot;Here is our car:&quot;);</span>
+<span class="fc" id="L70">    LOGGER.info(&quot;-&gt; model: {}&quot;, car.getModel().orElseThrow());</span>
+<span class="fc" id="L71">    LOGGER.info(&quot;-&gt; price: {}&quot;, car.getPrice().orElseThrow());</span>
+<span class="fc" id="L72">    LOGGER.info(&quot;-&gt; parts: &quot;);</span>
+<span class="fc" id="L73">    car.getParts().forEach(p -&gt; LOGGER.info(&quot;\t{}/{}/{}&quot;,</span>
+<span class="fc" id="L74">        p.getType().orElse(null),</span>
+<span class="fc" id="L75">        p.getModel().orElse(null),</span>
+<span class="fc" id="L76">        p.getPrice().orElse(null))</span>
+    );
+<span class="fc" id="L78">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

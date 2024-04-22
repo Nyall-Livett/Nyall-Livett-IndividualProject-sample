@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">singleton</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.singleton</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.singleton;
+
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * &lt;p&gt;Singleton pattern ensures that the class can have only one existing instance per Java
+ * classloader instance and provides global access to it.&lt;/p&gt;
+ *
+ * &lt;p&gt;One of the risks of this pattern is that bugs resulting from setting a singleton up in a
+ * distributed environment can be tricky to debug since it will work fine if you debug with a
+ * single classloader. Additionally, these problems can crop up a while after the implementation of
+ * a singleton, since they may start synchronous and only become async with time, so it may
+ * not be clear why you are seeing certain changes in behavior.&lt;/p&gt;
+ *
+ * &lt;p&gt;There are many ways to implement the Singleton. The first one is the eagerly initialized
+ * instance in {@link IvoryTower}. Eager initialization implies that the implementation is thread
+ * safe. If you can afford to give up control of the instantiation moment, then this implementation
+ * will suit you fine.&lt;/p&gt;
+ *
+ * &lt;p&gt;The other option to implement eagerly initialized Singleton is enum-based Singleton. The
+ * example is found in {@link EnumIvoryTower}. At first glance, the code looks short and simple.
+ * However, you should be aware of the downsides including committing to implementation strategy,
+ * extending the enum class, serializability, and restrictions to coding. These are extensively
+ * discussed in Stack Overflow: http://programmers.stackexchange.com/questions/179386/what-are-the-downsides-of-implementing
+ * -a-singleton-with-javas-enum&lt;/p&gt;
+ *
+ * &lt;p&gt;{@link ThreadSafeLazyLoadedIvoryTower} is a Singleton implementation that is initialized on
+ * demand. The downside is that it is very slow to access since the whole access method is
+ * synchronized.&lt;/p&gt;
+ *
+ * &lt;p&gt;Another Singleton implementation that is initialized on demand is found in
+ * {@link ThreadSafeDoubleCheckLocking}. It is somewhat faster than {@link
+ * ThreadSafeLazyLoadedIvoryTower} since it doesn't synchronize the whole access method but only the
+ * method internals on specific conditions.&lt;/p&gt;
+ *
+ * &lt;p&gt;Yet another way to implement thread-safe lazily initialized Singleton can be found in
+ * {@link InitializingOnDemandHolderIdiom}. However, this implementation requires at least Java 8
+ * API level to work.&lt;/p&gt;
+ */
+<span class="fc" id="L64">@Slf4j</span>
+<span class="nc" id="L65">public class App {</span>
+
+  /**
+   * Program entry point.
+   *
+   * @param args command line args
+   */
+  public static void main(String[] args) {
+
+    // eagerly initialized singleton
+<span class="fc" id="L75">    var ivoryTower1 = IvoryTower.getInstance();</span>
+<span class="fc" id="L76">    var ivoryTower2 = IvoryTower.getInstance();</span>
+<span class="fc" id="L77">    LOGGER.info(&quot;ivoryTower1={}&quot;, ivoryTower1);</span>
+<span class="fc" id="L78">    LOGGER.info(&quot;ivoryTower2={}&quot;, ivoryTower2);</span>
+
+    // lazily initialized singleton
+<span class="fc" id="L81">    var threadSafeIvoryTower1 = ThreadSafeLazyLoadedIvoryTower.getInstance();</span>
+<span class="fc" id="L82">    var threadSafeIvoryTower2 = ThreadSafeLazyLoadedIvoryTower.getInstance();</span>
+<span class="fc" id="L83">    LOGGER.info(&quot;threadSafeIvoryTower1={}&quot;, threadSafeIvoryTower1);</span>
+<span class="fc" id="L84">    LOGGER.info(&quot;threadSafeIvoryTower2={}&quot;, threadSafeIvoryTower2);</span>
+
+    // enum singleton
+<span class="fc" id="L87">    var enumIvoryTower1 = EnumIvoryTower.INSTANCE;</span>
+<span class="fc" id="L88">    var enumIvoryTower2 = EnumIvoryTower.INSTANCE;</span>
+<span class="fc" id="L89">    LOGGER.info(&quot;enumIvoryTower1={}&quot;, enumIvoryTower1);</span>
+<span class="fc" id="L90">    LOGGER.info(&quot;enumIvoryTower2={}&quot;, enumIvoryTower2);</span>
+
+    // double checked locking
+<span class="fc" id="L93">    var dcl1 = ThreadSafeDoubleCheckLocking.getInstance();</span>
+<span class="fc" id="L94">    LOGGER.info(dcl1.toString());</span>
+<span class="fc" id="L95">    var dcl2 = ThreadSafeDoubleCheckLocking.getInstance();</span>
+<span class="fc" id="L96">    LOGGER.info(dcl2.toString());</span>
+
+    // initialize on demand holder idiom
+<span class="fc" id="L99">    var demandHolderIdiom = InitializingOnDemandHolderIdiom.getInstance();</span>
+<span class="fc" id="L100">    LOGGER.info(demandHolderIdiom.toString());</span>
+<span class="fc" id="L101">    var demandHolderIdiom2 = InitializingOnDemandHolderIdiom.getInstance();</span>
+<span class="fc" id="L102">    LOGGER.info(demandHolderIdiom2.toString());</span>
+
+    // initialize singleton using Bill Pugh's implementation
+<span class="fc" id="L105">    var billPughSingleton = BillPughImplementation.getInstance();</span>
+<span class="fc" id="L106">    LOGGER.info(billPughSingleton.toString());</span>
+<span class="fc" id="L107">    var billPughSingleton2 = BillPughImplementation.getInstance();</span>
+<span class="fc" id="L108">    LOGGER.info(billPughSingleton2.toString());</span>
+<span class="fc" id="L109">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

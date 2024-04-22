@@ -1,0 +1,8 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+presentation,com.iluwatar.presentationmodel,App,0,11,0,0,0,4,0,2,0,2
+presentation,com.iluwatar.presentationmodel,View.new MouseAdapter() {...},14,6,0,0,3,1,1,1,1,1
+presentation,com.iluwatar.presentationmodel,PresentationModel,0,262,0,8,0,45,0,17,0,13
+presentation,com.iluwatar.presentationmodel,View.new MouseAdapter() {...},7,6,0,0,3,1,1,1,1,1
+presentation,com.iluwatar.presentationmodel,DisplayedAlbums,0,38,0,2,0,8,0,4,0,3
+presentation,com.iluwatar.presentationmodel,View,15,227,2,0,4,48,2,5,1,5
+presentation,com.iluwatar.presentationmodel,View.new MouseAdapter() {...},4,6,0,0,2,1,1,1,1,1

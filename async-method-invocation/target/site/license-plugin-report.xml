@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268756544">
+    <module artifactId="async-method-invocation" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/async-method-invocation.ucls" result="UNKNOWN"/>
+        <file path="etc/async-method-invocation.urm.puml" result="UNKNOWN"/>
+        <file path="evosuite-report/statistics.csv" result="UNKNOWN"/>
+        <file path="evosuite-tests/com/iluwatar/async/method/invocation/ThreadAsyncExecutor_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/async/method/invocation/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/async/method/invocation/AsyncCallback.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/async/method/invocation/AsyncExecutor.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/async/method/invocation/AsyncResult.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/async/method/invocation/ThreadAsyncExecutor.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/async/method/invocation/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/async/method/invocation/ThreadAsyncExecutorTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

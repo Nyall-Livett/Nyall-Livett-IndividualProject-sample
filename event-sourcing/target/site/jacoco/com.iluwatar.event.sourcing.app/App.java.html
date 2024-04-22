@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">event-sourcing</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.event.sourcing.app</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.event.sourcing.app;
+
+import com.iluwatar.event.sourcing.event.AccountCreateEvent;
+import com.iluwatar.event.sourcing.event.MoneyDepositEvent;
+import com.iluwatar.event.sourcing.event.MoneyTransferEvent;
+import com.iluwatar.event.sourcing.processor.DomainEventProcessor;
+import com.iluwatar.event.sourcing.processor.JsonFileJournal;
+import com.iluwatar.event.sourcing.state.AccountAggregate;
+import java.math.BigDecimal;
+import java.util.Date;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * Event Sourcing: Instead of storing just the current state of the data in a domain, use an
+ * append-only store to record the full series of actions taken on that data. The store acts as the
+ * system of record and can be used to materialize the domain objects. This can simplify tasks in
+ * complex domains, by avoiding the need to synchronize the data model and the business domain,
+ * while improving performance, scalability, and responsiveness. It can also provide consistency for
+ * transactional data, and maintain full audit trails and history that can enable compensating
+ * actions.
+ *
+ * &lt;p&gt;This App class is an example usage of an Event Sourcing pattern. As an example, two bank
+ * accounts are created, then some money deposit and transfer actions are taken, so a new state of
+ * accounts is created. At that point, state is cleared in order to represent a system shut-down.
+ * After the shut-down, system state is recovered by re-creating the past events from event
+ * journals. Then state is printed so a user can view the last state is same with the state before a
+ * system shut-down.
+ *
+ * &lt;p&gt;Created by Serdar Hamzaogullari on 06.08.2017.
+ */
+<span class="nc" id="L55">@Slf4j</span>
+<span class="nc" id="L56">public class App {</span>
+
+  /**
+   * The constant ACCOUNT OF DAENERYS.
+   */
+  public static final int ACCOUNT_OF_DAENERYS = 1;
+  /**
+   * The constant ACCOUNT OF JON.
+   */
+  public static final int ACCOUNT_OF_JON = 2;
+
+  /**
+   * The entry point of application.
+   *
+   * @param args the input arguments
+   */
+  public static void main(String[] args) {
+
+<span class="nc" id="L74">    var eventProcessor = new DomainEventProcessor(new JsonFileJournal());</span>
+
+<span class="nc" id="L76">    LOGGER.info(&quot;Running the system first time............&quot;);</span>
+<span class="nc" id="L77">    eventProcessor.reset();</span>
+
+<span class="nc" id="L79">    LOGGER.info(&quot;Creating the accounts............&quot;);</span>
+
+<span class="nc" id="L81">    eventProcessor.process(new AccountCreateEvent(</span>
+<span class="nc" id="L82">        0, new Date().getTime(), ACCOUNT_OF_DAENERYS, &quot;Daenerys Targaryen&quot;));</span>
+
+<span class="nc" id="L84">    eventProcessor.process(new AccountCreateEvent(</span>
+<span class="nc" id="L85">        1, new Date().getTime(), ACCOUNT_OF_JON, &quot;Jon Snow&quot;));</span>
+
+<span class="nc" id="L87">    LOGGER.info(&quot;Do some money operations............&quot;);</span>
+
+<span class="nc" id="L89">    eventProcessor.process(new MoneyDepositEvent(</span>
+<span class="nc" id="L90">        2, new Date().getTime(), ACCOUNT_OF_DAENERYS, new BigDecimal(&quot;100000&quot;)));</span>
+
+<span class="nc" id="L92">    eventProcessor.process(new MoneyDepositEvent(</span>
+<span class="nc" id="L93">        3, new Date().getTime(), ACCOUNT_OF_JON, new BigDecimal(&quot;100&quot;)));</span>
+
+<span class="nc" id="L95">    eventProcessor.process(new MoneyTransferEvent(</span>
+<span class="nc" id="L96">        4, new Date().getTime(), new BigDecimal(&quot;10000&quot;), ACCOUNT_OF_DAENERYS,</span>
+        ACCOUNT_OF_JON));
+
+<span class="nc" id="L99">    LOGGER.info(&quot;...............State:............&quot;);</span>
+<span class="nc" id="L100">    LOGGER.info(AccountAggregate.getAccount(ACCOUNT_OF_DAENERYS).toString());</span>
+<span class="nc" id="L101">    LOGGER.info(AccountAggregate.getAccount(ACCOUNT_OF_JON).toString());</span>
+
+<span class="nc" id="L103">    LOGGER.info(&quot;At that point system had a shut down, state in memory is cleared............&quot;);</span>
+<span class="nc" id="L104">    AccountAggregate.resetState();</span>
+
+<span class="nc" id="L106">    LOGGER.info(&quot;Recover the system by the events in journal file............&quot;);</span>
+
+<span class="nc" id="L108">    eventProcessor = new DomainEventProcessor(new JsonFileJournal());</span>
+<span class="nc" id="L109">    eventProcessor.recover();</span>
+
+<span class="nc" id="L111">    LOGGER.info(&quot;...............Recovered State:............&quot;);</span>
+<span class="nc" id="L112">    LOGGER.info(AccountAggregate.getAccount(ACCOUNT_OF_DAENERYS).toString());</span>
+<span class="nc" id="L113">    LOGGER.info(AccountAggregate.getAccount(ACCOUNT_OF_JON).toString());</span>
+<span class="nc" id="L114">  }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

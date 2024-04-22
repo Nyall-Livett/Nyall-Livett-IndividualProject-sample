@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Product.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">domain-model</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.domainmodel</a> &gt; <span class="el_source">Product.java</span></div><h1>Product.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.domainmodel;
+
+import static org.joda.money.CurrencyUnit.USD;
+
+import java.math.RoundingMode;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.Optional;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
+import org.joda.money.Money;
+
+/**
+ * This class organizes domain logic of product.
+ * A single instance of this class
+ * contains both the data and behavior of a single product.
+ */
+<span class="fc" id="L47">@Slf4j</span>
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+public class Product {
+
+  private static final int DAYS_UNTIL_EXPIRATION_WHEN_DISCOUNT_ACTIVE = 4;
+  private static final double DISCOUNT_RATE = 0.2;
+
+  @NonNull private final ProductDao productDao;
+  @NonNull private String name;
+  @NonNull private Money price;
+  @NonNull private LocalDate expirationDate;
+
+  /**
+   * Save product or update if product already exist.
+   */
+  public void save() {
+    try {
+<span class="fc" id="L67">      Optional&lt;Product&gt; product = productDao.findByName(name);</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">      if (product.isPresent()) {</span>
+<span class="fc" id="L69">        productDao.update(this);</span>
+      } else {
+<span class="fc" id="L71">        productDao.save(this);</span>
+      }
+<span class="nc" id="L73">    } catch (SQLException ex) {</span>
+<span class="nc" id="L74">      LOGGER.error(ex.getMessage());</span>
+<span class="fc" id="L75">    }</span>
+<span class="fc" id="L76">  }</span>
+
+  /**
+   * Calculate sale price of product with discount.
+   */
+  public Money getSalePrice() {
+<span class="fc" id="L82">    return price.minus(calculateDiscount());</span>
+  }
+
+  private Money calculateDiscount() {
+<span class="fc bfc" id="L86" title="All 2 branches covered.">    if (ChronoUnit.DAYS.between(LocalDate.now(), expirationDate)</span>
+            &lt; DAYS_UNTIL_EXPIRATION_WHEN_DISCOUNT_ACTIVE) {
+
+<span class="fc" id="L89">      return price.multipliedBy(DISCOUNT_RATE, RoundingMode.DOWN);</span>
+    }
+
+<span class="fc" id="L92">    return Money.zero(USD);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

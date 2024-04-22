@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DbCustomerDao.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">dao</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.dao</a> &gt; <span class="el_source">DbCustomerDao.java</span></div><h1>DbCustomerDao.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Optional;
+import java.util.Spliterator;
+import java.util.Spliterators;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
+import javax.sql.DataSource;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * An implementation of {@link CustomerDao} that persists customers in RDBMS.
+ */
+<span class="fc" id="L44">@Slf4j</span>
+@RequiredArgsConstructor
+public class DbCustomerDao implements CustomerDao {
+
+  private final DataSource dataSource;
+
+  /**
+   * Get all customers as Java Stream.
+   *
+   * @return a lazily populated stream of customers. Note the stream returned must be closed to free
+   *     all the acquired resources. The stream keeps an open connection to the database till it is
+   *     complete or is closed manually.
+   */
+  @Override
+  public Stream&lt;Customer&gt; getAll() throws Exception {
+    try {
+<span class="fc" id="L60">      var connection = getConnection();</span>
+<span class="fc" id="L61">      var statement = connection.prepareStatement(&quot;SELECT * FROM CUSTOMERS&quot;); // NOSONAR</span>
+<span class="fc" id="L62">      var resultSet = statement.executeQuery(); // NOSONAR</span>
+<span class="fc" id="L63">      return StreamSupport.stream(new Spliterators.AbstractSpliterator&lt;Customer&gt;(Long.MAX_VALUE,</span>
+<span class="fc" id="L64">          Spliterator.ORDERED) {</span>
+
+        @Override
+        public boolean tryAdvance(Consumer&lt;? super Customer&gt; action) {
+          try {
+<span class="fc bfc" id="L69" title="All 2 branches covered.">            if (!resultSet.next()) {</span>
+<span class="fc" id="L70">              return false;</span>
+            }
+<span class="fc" id="L72">            action.accept(createCustomer(resultSet));</span>
+<span class="fc" id="L73">            return true;</span>
+<span class="nc" id="L74">          } catch (SQLException e) {</span>
+<span class="nc" id="L75">            throw new RuntimeException(e); // NOSONAR</span>
+          }
+        }
+<span class="fc" id="L78">      }, false).onClose(() -&gt; mutedClose(connection, statement, resultSet));</span>
+<span class="fc" id="L79">    } catch (SQLException e) {</span>
+<span class="fc" id="L80">      throw new CustomException(e.getMessage(), e);</span>
+    }
+  }
+
+  private Connection getConnection() throws SQLException {
+<span class="fc" id="L85">    return dataSource.getConnection();</span>
+  }
+
+  private void mutedClose(Connection connection, PreparedStatement statement, ResultSet resultSet) {
+    try {
+<span class="fc" id="L90">      resultSet.close();</span>
+<span class="fc" id="L91">      statement.close();</span>
+<span class="fc" id="L92">      connection.close();</span>
+<span class="nc" id="L93">    } catch (SQLException e) {</span>
+<span class="nc" id="L94">      LOGGER.info(&quot;Exception thrown &quot; + e.getMessage());</span>
+<span class="fc" id="L95">    }</span>
+<span class="fc" id="L96">  }</span>
+
+  private Customer createCustomer(ResultSet resultSet) throws SQLException {
+<span class="fc" id="L99">    return new Customer(resultSet.getInt(&quot;ID&quot;),</span>
+<span class="fc" id="L100">        resultSet.getString(&quot;FNAME&quot;),</span>
+<span class="fc" id="L101">        resultSet.getString(&quot;LNAME&quot;));</span>
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public Optional&lt;Customer&gt; getById(int id) throws Exception {
+
+<span class="fc" id="L110">    ResultSet resultSet = null;</span>
+
+<span class="fc" id="L112">    try (var connection = getConnection();</span>
+<span class="fc" id="L113">         var statement = connection.prepareStatement(&quot;SELECT * FROM CUSTOMERS WHERE ID = ?&quot;)) {</span>
+
+<span class="fc" id="L115">      statement.setInt(1, id);</span>
+<span class="fc" id="L116">      resultSet = statement.executeQuery();</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">      if (resultSet.next()) {</span>
+<span class="fc" id="L118">        return Optional.of(createCustomer(resultSet));</span>
+      } else {
+<span class="fc" id="L120">        return Optional.empty();</span>
+      }
+<span class="pc bpc" id="L122" title="2 of 4 branches missed.">    } catch (SQLException ex) {</span>
+<span class="fc" id="L123">      throw new CustomException(ex.getMessage(), ex);</span>
+    } finally {
+<span class="fc bfc" id="L125" title="All 2 branches covered.">      if (resultSet != null) {</span>
+<span class="fc" id="L126">        resultSet.close();</span>
+      }
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean add(Customer customer) throws Exception {
+<span class="fc bfc" id="L136" title="All 2 branches covered.">    if (getById(customer.getId()).isPresent()) {</span>
+<span class="fc" id="L137">      return false;</span>
+    }
+
+<span class="fc" id="L140">    try (var connection = getConnection();</span>
+<span class="fc" id="L141">         var statement = connection.prepareStatement(&quot;INSERT INTO CUSTOMERS VALUES (?,?,?)&quot;)) {</span>
+<span class="fc" id="L142">      statement.setInt(1, customer.getId());</span>
+<span class="fc" id="L143">      statement.setString(2, customer.getFirstName());</span>
+<span class="fc" id="L144">      statement.setString(3, customer.getLastName());</span>
+<span class="fc" id="L145">      statement.execute();</span>
+<span class="fc" id="L146">      return true;</span>
+<span class="nc" id="L147">    } catch (SQLException ex) {</span>
+<span class="nc" id="L148">      throw new CustomException(ex.getMessage(), ex);</span>
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean update(Customer customer) throws Exception {
+<span class="fc" id="L157">    try (var connection = getConnection();</span>
+<span class="fc" id="L158">         var statement =</span>
+             connection
+<span class="fc" id="L160">                 .prepareStatement(&quot;UPDATE CUSTOMERS SET FNAME = ?, LNAME = ? WHERE ID = ?&quot;)) {</span>
+<span class="fc" id="L161">      statement.setString(1, customer.getFirstName());</span>
+<span class="fc" id="L162">      statement.setString(2, customer.getLastName());</span>
+<span class="fc" id="L163">      statement.setInt(3, customer.getId());</span>
+<span class="fc bfc" id="L164" title="All 2 branches covered.">      return statement.executeUpdate() &gt; 0;</span>
+<span class="fc" id="L165">    } catch (SQLException ex) {</span>
+<span class="fc" id="L166">      throw new CustomException(ex.getMessage(), ex);</span>
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean delete(Customer customer) throws Exception {
+<span class="fc" id="L175">    try (var connection = getConnection();</span>
+<span class="fc" id="L176">         var statement = connection.prepareStatement(&quot;DELETE FROM CUSTOMERS WHERE ID = ?&quot;)) {</span>
+<span class="fc" id="L177">      statement.setInt(1, customer.getId());</span>
+<span class="fc bfc" id="L178" title="All 2 branches covered.">      return statement.executeUpdate() &gt; 0;</span>
+<span class="fc" id="L179">    } catch (SQLException ex) {</span>
+<span class="fc" id="L180">      throw new CustomException(ex.getMessage(), ex);</span>
+    }
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

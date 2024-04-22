@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cqrs</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.cqrs.app</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.cqrs.app;
+
+import com.iluwatar.cqrs.commandes.CommandServiceImpl;
+import com.iluwatar.cqrs.constants.AppConstants;
+import com.iluwatar.cqrs.queries.QueryServiceImpl;
+import com.iluwatar.cqrs.util.HibernateUtil;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * CQRS : Command Query Responsibility Segregation. A pattern used to separate query services from
+ * commands or writes services. The pattern is very simple but it has many consequences. For
+ * example, it can be used to tackle down a complex domain, or to use other architectures that were
+ * hard to implement with the classical way.
+ *
+ * &lt;p&gt;This implementation is an example of managing books and authors in a library. The persistence
+ * of books and authors is done according to the CQRS architecture. A command side that deals with a
+ * data model to persist(insert,update,delete) objects to a database. And a query side that uses
+ * native queries to get data from the database and return objects as DTOs (Data transfer Objects).
+ */
+<span class="nc" id="L44">@Slf4j</span>
+<span class="nc" id="L45">public class App {</span>
+
+  /**
+   * Program entry point.
+   *
+   * @param args command line args
+   */
+  public static void main(String[] args) {
+<span class="nc" id="L53">    var commands = new CommandServiceImpl();</span>
+
+    // Create Authors and Books using CommandService
+<span class="nc" id="L56">    commands.authorCreated(AppConstants.E_EVANS, &quot;Eric Evans&quot;, &quot;evans@email.com&quot;);</span>
+<span class="nc" id="L57">    commands.authorCreated(AppConstants.J_BLOCH, &quot;Joshua Bloch&quot;, &quot;jBloch@email.com&quot;);</span>
+<span class="nc" id="L58">    commands.authorCreated(AppConstants.M_FOWLER, &quot;Martin Fowler&quot;, &quot;mFowler@email.com&quot;);</span>
+
+<span class="nc" id="L60">    commands.bookAddedToAuthor(&quot;Domain-Driven Design&quot;, 60.08, AppConstants.E_EVANS);</span>
+<span class="nc" id="L61">    commands.bookAddedToAuthor(&quot;Effective Java&quot;, 40.54, AppConstants.J_BLOCH);</span>
+<span class="nc" id="L62">    commands.bookAddedToAuthor(&quot;Java Puzzlers&quot;, 39.99, AppConstants.J_BLOCH);</span>
+<span class="nc" id="L63">    commands.bookAddedToAuthor(&quot;Java Concurrency in Practice&quot;, 29.40, AppConstants.J_BLOCH);</span>
+<span class="nc" id="L64">    commands.bookAddedToAuthor(&quot;Patterns of Enterprise&quot;</span>
+        + &quot; Application Architecture&quot;, 54.01, AppConstants.M_FOWLER);
+<span class="nc" id="L66">    commands.bookAddedToAuthor(&quot;Domain Specific Languages&quot;, 48.89, AppConstants.M_FOWLER);</span>
+<span class="nc" id="L67">    commands.authorNameUpdated(AppConstants.E_EVANS, &quot;Eric J. Evans&quot;);</span>
+
+<span class="nc" id="L69">    var queries = new QueryServiceImpl();</span>
+
+    // Query the database using QueryService
+<span class="nc" id="L72">    var nullAuthor = queries.getAuthorByUsername(&quot;username&quot;);</span>
+<span class="nc" id="L73">    var evans = queries.getAuthorByUsername(AppConstants.E_EVANS);</span>
+<span class="nc" id="L74">    var blochBooksCount = queries.getAuthorBooksCount(AppConstants.J_BLOCH);</span>
+<span class="nc" id="L75">    var authorsCount = queries.getAuthorsCount();</span>
+<span class="nc" id="L76">    var dddBook = queries.getBook(&quot;Domain-Driven Design&quot;);</span>
+<span class="nc" id="L77">    var blochBooks = queries.getAuthorBooks(AppConstants.J_BLOCH);</span>
+
+<span class="nc" id="L79">    LOGGER.info(&quot;Author username : {}&quot;, nullAuthor);</span>
+<span class="nc" id="L80">    LOGGER.info(&quot;Author evans : {}&quot;, evans);</span>
+<span class="nc" id="L81">    LOGGER.info(&quot;jBloch number of books : {}&quot;, blochBooksCount);</span>
+<span class="nc" id="L82">    LOGGER.info(&quot;Number of authors : {}&quot;, authorsCount);</span>
+<span class="nc" id="L83">    LOGGER.info(&quot;DDD book : {}&quot;, dddBook);</span>
+<span class="nc" id="L84">    LOGGER.info(&quot;jBloch books : {}&quot;, blochBooks);</span>
+
+<span class="nc" id="L86">    HibernateUtil.getSessionFactory().close();</span>
+<span class="nc" id="L87">  }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PersonFinder.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">identity-map</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.identitymap</a> &gt; <span class="el_source">PersonFinder.java</span></div><h1>PersonFinder.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.identitymap;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * Any object of this class stores a DataBase and an Identity Map. When we try to look for a key we first check if
+ * it has been cached in the Identity Map and return it if it is indeed in the map.
+ * If that is not the case then go to the DataBase, get the record, store it in the
+ * Identity Map and then return the record. Now if we look for the record again we will find it in the table itself which
+ * will make lookup faster.
+ */
+<span class="fc" id="L38">@Slf4j</span>
+@Getter
+@Setter
+<span class="fc" id="L41">public class PersonFinder {</span>
+  private static final long serialVersionUID = 1L;
+  //  Access to the Identity Map
+<span class="fc" id="L44">  private IdentityMap identityMap = new IdentityMap();</span>
+<span class="fc" id="L45">  private PersonDbSimulatorImplementation db = new PersonDbSimulatorImplementation();</span>
+  /**
+   * get person corresponding to input ID.
+   *
+   * @param key : personNationalId to look for.
+   */
+  public Person getPerson(int key) {
+    // Try to find person in the identity map
+<span class="fc" id="L53">    Person person = this.identityMap.getPerson(key);</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">    if (person != null) {</span>
+<span class="fc" id="L55">      LOGGER.info(&quot;Person found in the Map&quot;);</span>
+<span class="fc" id="L56">      return person;</span>
+    } else {
+      // Try to find person in the database
+<span class="fc" id="L59">      person = this.db.find(key);</span>
+<span class="pc bpc" id="L60" title="1 of 2 branches missed.">      if (person != null) {</span>
+<span class="fc" id="L61">        this.identityMap.addPerson(person);</span>
+<span class="fc" id="L62">        LOGGER.info(&quot;Person found in DB.&quot;);</span>
+<span class="fc" id="L63">        return person;</span>
+      }
+<span class="nc" id="L65">      LOGGER.info(&quot;Person with this ID does not exist.&quot;);</span>
+<span class="nc" id="L66">      return null;</span>
+    }
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

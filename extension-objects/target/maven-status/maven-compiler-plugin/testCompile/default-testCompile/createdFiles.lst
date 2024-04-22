@@ -1,0 +1,12 @@
+concreteextensions/Sergeant_ESTest_scaffolding.class
+units/CommanderUnitTest.class
+concreteextensions/SergeantTest.class
+concreteextensions/Sergeant_ESTest.class
+concreteextensions/SoldierTest.class
+units/SergeantUnit_ESTest.class
+units/SergeantUnitTest.class
+units/SergeantUnit_ESTest_scaffolding.class
+concreteextensions/CommanderTest.class
+units/Java8HolderTest.class
+units/SoldierUnitTest.class
+AppTest.class

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268796021">
+    <module artifactId="feature-toggle" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/feature-toggle.ucls" result="UNKNOWN"/>
+        <file path="etc/feature-toggle.urm.puml" result="UNKNOWN"/>
+        <file path="evosuite-report/statistics.csv" result="UNKNOWN"/>
+        <file path="evosuite-tests/com/iluwatar/featuretoggle/pattern/tieredversion/TieredFeatureToggleVersion_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="evosuite-tests/com/iluwatar/featuretoggle/user/UserGroup_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/featuretoggle/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/featuretoggle/pattern/Service.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/featuretoggle/pattern/propertiesversion/PropertiesFeatureToggleVersion.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/featuretoggle/pattern/tieredversion/TieredFeatureToggleVersion.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/featuretoggle/user/User.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/featuretoggle/user/UserGroup.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/featuretoggle/pattern/propertiesversion/PropertiesFeatureToggleVersionTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/featuretoggle/pattern/tieredversion/TieredFeatureToggleVersionTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/featuretoggle/user/UserGroupTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/featuretoggle/user/UserGroup_ESTest_scaffolding.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

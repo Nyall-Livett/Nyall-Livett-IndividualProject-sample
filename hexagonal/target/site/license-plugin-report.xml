@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268809083">
+    <module artifactId="hexagonal" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/hexagonal.ucls" result="UNKNOWN"/>
+        <file path="etc/hexagonal.urm.puml" result="UNKNOWN"/>
+        <file path="evosuite-report/statistics.csv" result="UNKNOWN"/>
+        <file path="evosuite-tests/com/iluwatar/hexagonal/banking/InMemoryBank_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="evosuite-tests/com/iluwatar/hexagonal/domain/LotteryTicket_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/administration/ConsoleAdministration.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/administration/ConsoleAdministrationSrv.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/administration/ConsoleAdministrationSrvImpl.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/banking/InMemoryBank.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/banking/MongoBank.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/banking/WireTransfers.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/database/InMemoryTicketRepository.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/database/LotteryTicketRepository.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/database/MongoTicketRepository.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/domain/LotteryAdministration.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/domain/LotteryConstants.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/domain/LotteryNumbers.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/domain/LotteryService.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/domain/LotteryTicket.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/domain/LotteryTicketCheckResult.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/domain/LotteryTicketId.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/domain/LotteryUtils.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/domain/PlayerDetails.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/eventlog/LotteryEventLog.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/eventlog/MongoEventLog.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/eventlog/StdOutEventLog.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/module/LotteryModule.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/module/LotteryTestingModule.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/mongo/MongoConnectionPropertiesLoader.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/sampledata/SampleData.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/service/ConsoleLottery.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/service/LotteryConsoleService.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/hexagonal/service/LotteryConsoleServiceImpl.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/hexagonal/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/hexagonal/banking/InMemoryBankTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/hexagonal/banking/MongoBankTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/hexagonal/database/InMemoryTicketRepositoryTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/hexagonal/database/MongoTicketRepositoryTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/hexagonal/domain/LotteryNumbersTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/hexagonal/domain/LotteryTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/hexagonal/domain/LotteryTicketCheckResultTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/hexagonal/domain/LotteryTicketIdTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/hexagonal/domain/LotteryTicketTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/hexagonal/domain/PlayerDetailsTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/hexagonal/eventlog/MongoEventLogTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/hexagonal/test/LotteryTestUtils.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

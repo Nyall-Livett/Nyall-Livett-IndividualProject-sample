@@ -1,0 +1,6 @@
+com/iluwatar/logaggregation/App.class
+com/iluwatar/logaggregation/LogLevel.class
+com/iluwatar/logaggregation/LogProducer.class
+com/iluwatar/logaggregation/LogEntry.class
+com/iluwatar/logaggregation/LogAggregator.class
+com/iluwatar/logaggregation/CentralLogStore.class

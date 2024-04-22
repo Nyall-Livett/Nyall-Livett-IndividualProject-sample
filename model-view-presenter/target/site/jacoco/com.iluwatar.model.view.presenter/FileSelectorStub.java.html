@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FileSelectorStub.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">model-view-presenter</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.model.view.presenter</a> &gt; <span class="el_source">FileSelectorStub.java</span></div><h1>FileSelectorStub.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.model.view.presenter;
+
+/**
+ * Every instance of this class represents the Stub component in the Model-View-Presenter
+ * architectural pattern.
+ *
+ * &lt;p&gt;The stub implements the View interface and it is useful when we want the test the reaction to
+ * user events, such as mouse clicks.
+ *
+ * &lt;p&gt;Since we can not test the GUI directly, the MVP pattern provides this functionality through
+ * the View's dummy implementation, the Stub.
+ */
+public class FileSelectorStub implements FileSelectorView {
+
+  /**
+   * Indicates whether or not the view is opened.
+   */
+  private boolean opened;
+
+  /**
+   * The presenter Component.
+   */
+  private FileSelectorPresenter presenter;
+
+  /**
+   * The current name of the file.
+   */
+  private String name;
+
+  /**
+   * Indicates the number of messages that were &quot;displayed&quot; to the user.
+   */
+  private int numOfMessageSent;
+
+  /**
+   * Indicates if the data of the file where displayed or not.
+   */
+  private boolean dataDisplayed;
+
+  /**
+   * Constructor.
+   */
+<span class="fc" id="L67">  public FileSelectorStub() {</span>
+<span class="fc" id="L68">    this.opened = false;</span>
+<span class="fc" id="L69">    this.presenter = null;</span>
+<span class="fc" id="L70">    this.name = &quot;&quot;;</span>
+<span class="fc" id="L71">    this.numOfMessageSent = 0;</span>
+<span class="fc" id="L72">    this.dataDisplayed = false;</span>
+<span class="fc" id="L73">  }</span>
+
+  @Override
+  public void open() {
+<span class="fc" id="L77">    this.opened = true;</span>
+<span class="fc" id="L78">  }</span>
+
+  @Override
+  public void setPresenter(FileSelectorPresenter presenter) {
+<span class="fc" id="L82">    this.presenter = presenter;</span>
+<span class="fc" id="L83">  }</span>
+
+  @Override
+  public boolean isOpened() {
+<span class="fc" id="L87">    return this.opened;</span>
+  }
+
+  @Override
+  public FileSelectorPresenter getPresenter() {
+<span class="fc" id="L92">    return this.presenter;</span>
+  }
+
+  @Override
+  public String getFileName() {
+<span class="fc" id="L97">    return this.name;</span>
+  }
+
+  @Override
+  public void setFileName(String name) {
+<span class="fc" id="L102">    this.name = name;</span>
+<span class="fc" id="L103">  }</span>
+
+  @Override
+  public void showMessage(String message) {
+<span class="fc" id="L107">    this.numOfMessageSent++;</span>
+<span class="fc" id="L108">  }</span>
+
+  @Override
+  public void close() {
+<span class="fc" id="L112">    this.opened = false;</span>
+<span class="fc" id="L113">  }</span>
+
+  @Override
+  public void displayData(String data) {
+<span class="fc" id="L117">    this.dataDisplayed = true;</span>
+<span class="fc" id="L118">  }</span>
+
+  /**
+   * Returns the number of messages that were displayed to the user.
+   */
+  public int getMessagesSent() {
+<span class="fc" id="L124">    return this.numOfMessageSent;</span>
+  }
+
+  /**
+   * Returns true, if the data were displayed.
+   *
+   * @return True if the data where displayed, false otherwise.
+   */
+  public boolean dataDisplayed() {
+<span class="fc" id="L133">    return this.dataDisplayed;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

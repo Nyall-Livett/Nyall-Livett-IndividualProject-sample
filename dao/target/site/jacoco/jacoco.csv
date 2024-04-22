@@ -1,0 +1,7 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+dao,com.iluwatar.dao,Customer,0,12,0,0,0,6,0,3,0,3
+dao,com.iluwatar.dao,InMemoryCustomerDao,0,62,0,6,0,10,0,9,0,6
+dao,com.iluwatar.dao,App,3,169,0,2,1,45,1,11,1,10
+dao,com.iluwatar.dao,DbCustomerDao.new Spliterators.AbstractSpliterator() {...},6,26,0,2,2,5,0,3,0,2
+dao,com.iluwatar.dao,DbCustomerDao,14,225,2,12,4,53,2,15,0,10
+dao,com.iluwatar.dao,CustomException,7,5,0,0,4,2,2,1,2,1

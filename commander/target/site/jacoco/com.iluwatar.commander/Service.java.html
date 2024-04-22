@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Service.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">commander</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.commander</a> &gt; <span class="el_source">Service.java</span></div><h1>Service.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.commander;
+
+import com.iluwatar.commander.exceptions.DatabaseUnavailableException;
+import java.security.SecureRandom;
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
+
+/**
+ * Service class is an abstract class extended by all services in this example. They all have a
+ * public receiveRequest method to receive requests, which could also contain details of the user
+ * other than the implementation details (though we are not doing that here) and updateDb method
+ * which adds to their respective databases. There is a method to generate transaction/request id
+ * for the transactions/requests, which are then sent back. These could be stored by the {@link
+ * Commander} class in a separate database for reference (though we are not doing that here).
+ */
+
+public abstract class Service {
+
+  protected final Database database;
+  public ArrayList&lt;Exception&gt; exceptionsList;
+<span class="fc" id="L46">  private static final SecureRandom RANDOM = new SecureRandom();</span>
+  private static final String ALL_CHARS = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890&quot;;
+<span class="fc" id="L48">  private static final Hashtable&lt;String, Boolean&gt; USED_IDS = new Hashtable&lt;&gt;();</span>
+
+<span class="fc" id="L50">  protected Service(Database db, Exception... exc) {</span>
+<span class="fc" id="L51">    this.database = db;</span>
+<span class="fc" id="L52">    this.exceptionsList = new ArrayList&lt;&gt;(List.of(exc));</span>
+<span class="fc" id="L53">  }</span>
+
+  public abstract String receiveRequest(Object... parameters) throws DatabaseUnavailableException;
+
+  protected abstract String updateDb(Object... parameters) throws DatabaseUnavailableException;
+
+  protected String generateId() {
+<span class="fc" id="L60">    StringBuilder random = new StringBuilder();</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">    while (random.length() &lt; 12) { // length of the random string.</span>
+<span class="fc" id="L62">      int index = (int) (RANDOM.nextFloat() * ALL_CHARS.length());</span>
+<span class="fc" id="L63">      random.append(ALL_CHARS.charAt(index));</span>
+<span class="fc" id="L64">    }</span>
+<span class="fc" id="L65">    String id = random.toString();</span>
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">    if (USED_IDS.get(id) != null) {</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">      while (USED_IDS.get(id)) {</span>
+<span class="nc" id="L68">        id = generateId();</span>
+      }
+    }
+<span class="fc" id="L71">    return id;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

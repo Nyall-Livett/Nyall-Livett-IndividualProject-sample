@@ -1,0 +1,11 @@
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/cqrs/src/main/java/com/iluwatar/cqrs/commandes/CommandService.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/cqrs/src/main/java/com/iluwatar/cqrs/constants/AppConstants.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/cqrs/src/main/java/com/iluwatar/cqrs/dto/Book.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/cqrs/src/main/java/com/iluwatar/cqrs/domain/model/Author.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/cqrs/src/main/java/com/iluwatar/cqrs/dto/Author.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/cqrs/src/main/java/com/iluwatar/cqrs/queries/QueryServiceImpl.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/cqrs/src/main/java/com/iluwatar/cqrs/domain/model/Book.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/cqrs/src/main/java/com/iluwatar/cqrs/util/HibernateUtil.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/cqrs/src/main/java/com/iluwatar/cqrs/app/App.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/cqrs/src/main/java/com/iluwatar/cqrs/commandes/CommandServiceImpl.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/cqrs/src/main/java/com/iluwatar/cqrs/queries/QueryService.java

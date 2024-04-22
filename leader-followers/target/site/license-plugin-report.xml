@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268963565">
+    <module artifactId="leader-followers" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="ADDED"/>
+        <file path="etc/leader-followers.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/leaderfollowers/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/leaderfollowers/Task.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/leaderfollowers/TaskHandler.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/leaderfollowers/TaskSet.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/leaderfollowers/WorkCenter.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/leaderfollowers/Worker.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/leaderfollowers/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/leaderfollowers/TaskHandlerTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/leaderfollowers/TaskSetTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/leaderfollowers/WorkCenterTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

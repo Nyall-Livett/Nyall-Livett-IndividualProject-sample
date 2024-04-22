@@ -1,0 +1,12 @@
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/Message.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/ring/RingApp.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/MessageManager.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/AbstractMessageManager.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/bully/BullyApp.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/Instance.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/MessageType.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/AbstractInstance.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/bully/BullyInstance.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/ring/RingMessageManager.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/bully/BullyMessageManager.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/leader-election/src/main/java/com/iluwatar/leaderelection/ring/RingInstance.java

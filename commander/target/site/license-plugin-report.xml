@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268928395">
+    <module artifactId="commander" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="ADDED"/>
+        <file path="etc/commander.urm.puml" result="UNKNOWN"/>
+        <file path="evosuite-report/statistics.csv" result="UNKNOWN"/>
+        <file path="evosuite-tests/com/iluwatar/commander/Retry_ESTest_scaffolding.java" result="ADDED"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/AppEmployeeDbFailCases.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/AppMessagingFailCases.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/AppPaymentFailCases.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/AppQueueFailCases.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/AppShippingFailCases.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/Commander.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/Database.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/Order.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/Retry.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/Service.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/User.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/employeehandle/EmployeeDatabase.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/employeehandle/EmployeeHandle.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/exceptions/DatabaseUnavailableException.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/exceptions/IsEmptyException.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/exceptions/ItemUnavailableException.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/exceptions/PaymentDetailsErrorException.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/exceptions/ShippingNotPossibleException.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/messagingservice/MessagingDatabase.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/messagingservice/MessagingService.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/paymentservice/PaymentDatabase.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/paymentservice/PaymentService.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/queue/Queue.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/queue/QueueDatabase.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/queue/QueueTask.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/shippingservice/ShippingDatabase.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/commander/shippingservice/ShippingService.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/commander/CommanderTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/commander/RetryTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/commander/Retry_ESTest_scaffolding.java" result="ADDED"/>
+    </files>
+</licensePluginReport>

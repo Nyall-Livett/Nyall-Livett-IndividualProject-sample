@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268965906">
+    <module artifactId="arrange-act-assert" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="ADDED"/>
+        <file path="etc/arrange-act-assert.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/arrangeactassert/Cash.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/arrangeactassert/CashAAATest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/arrangeactassert/CashAntiAAATest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

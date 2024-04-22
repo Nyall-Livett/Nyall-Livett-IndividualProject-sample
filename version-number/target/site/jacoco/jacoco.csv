@@ -1,0 +1,7 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+version-number,com.iluwatar.versionnumber,BookNotFoundException,4,0,0,0,2,0,1,0,1,0
+version-number,com.iluwatar.versionnumber,BookDuplicateException,4,0,0,0,2,0,1,0,1,0
+version-number,com.iluwatar.versionnumber,BookRepository,20,91,3,5,3,16,3,5,0,4
+version-number,com.iluwatar.versionnumber,Book,0,68,0,0,0,23,0,10,0,10
+version-number,com.iluwatar.versionnumber,App,7,65,0,0,3,17,1,2,1,2
+version-number,com.iluwatar.versionnumber,VersionMismatchException,0,4,0,0,0,2,0,1,0,1

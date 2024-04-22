@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">object-pool</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.object.pool</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.object.pool;
+
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * When it is necessary to work with a large number of objects that are particularly expensive to
+ * instantiate and each object is only needed for a short period of time, the performance of an
+ * entire application may be adversely affected. An object pool design pattern may be deemed
+ * desirable in cases such as these.
+ *
+ * &lt;p&gt;The object pool design pattern creates a set of objects that may be reused. When a new object
+ * is needed, it is requested from the pool. If a previously prepared object is available it is
+ * returned immediately, avoiding the instantiation cost. If no objects are present in the pool, a
+ * new item is created and returned. When the object has been used and is no longer needed, it is
+ * returned to the pool, allowing it to be used again in the future without repeating the
+ * computationally expensive instantiation process. It is important to note that once an object has
+ * been used and returned, existing references will become invalid.
+ *
+ * &lt;p&gt;In this example we have created {@link OliphauntPool} inheriting from generic {@link
+ * ObjectPool}. {@link Oliphaunt}s can be checked out from the pool and later returned to it. The
+ * pool tracks created instances and their status (available, inUse).
+ */
+<span class="fc" id="L47">@Slf4j</span>
+<span class="nc" id="L48">public class App {</span>
+
+  /**
+   * Program entry point.
+   *
+   * @param args command line args
+   */
+  public static void main(String[] args) {
+<span class="fc" id="L56">    var pool = new OliphauntPool();</span>
+<span class="fc" id="L57">    LOGGER.info(pool.toString());</span>
+<span class="fc" id="L58">    var oliphaunt1 = pool.checkOut();</span>
+<span class="fc" id="L59">    String checkedOut = &quot;Checked out {}&quot;;</span>
+
+<span class="fc" id="L61">    LOGGER.info(checkedOut, oliphaunt1);</span>
+<span class="fc" id="L62">    LOGGER.info(pool.toString());</span>
+<span class="fc" id="L63">    var oliphaunt2 = pool.checkOut();</span>
+<span class="fc" id="L64">    LOGGER.info(checkedOut, oliphaunt2);</span>
+<span class="fc" id="L65">    var oliphaunt3 = pool.checkOut();</span>
+<span class="fc" id="L66">    LOGGER.info(checkedOut, oliphaunt3);</span>
+<span class="fc" id="L67">    LOGGER.info(pool.toString());</span>
+<span class="fc" id="L68">    LOGGER.info(&quot;Checking in {}&quot;, oliphaunt1);</span>
+<span class="fc" id="L69">    pool.checkIn(oliphaunt1);</span>
+<span class="fc" id="L70">    LOGGER.info(&quot;Checking in {}&quot;, oliphaunt2);</span>
+<span class="fc" id="L71">    pool.checkIn(oliphaunt2);</span>
+<span class="fc" id="L72">    LOGGER.info(pool.toString());</span>
+<span class="fc" id="L73">    var oliphaunt4 = pool.checkOut();</span>
+<span class="fc" id="L74">    LOGGER.info(checkedOut, oliphaunt4);</span>
+<span class="fc" id="L75">    var oliphaunt5 = pool.checkOut();</span>
+<span class="fc" id="L76">    LOGGER.info(checkedOut, oliphaunt5);</span>
+<span class="fc" id="L77">    LOGGER.info(pool.toString());</span>
+<span class="fc" id="L78">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

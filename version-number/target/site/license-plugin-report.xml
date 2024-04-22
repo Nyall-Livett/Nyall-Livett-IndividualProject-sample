@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268648002">
+    <module artifactId="version-number" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/version-number.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/versionnumber/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/versionnumber/Book.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/versionnumber/BookDuplicateException.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/versionnumber/BookNotFoundException.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/versionnumber/BookRepository.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/versionnumber/VersionMismatchException.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/versionnumber/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/versionnumber/BookRepositoryTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

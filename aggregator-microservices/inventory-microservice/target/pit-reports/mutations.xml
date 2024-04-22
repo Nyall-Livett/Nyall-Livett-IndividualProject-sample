@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mutations partial="true">
+<mutation detected='true' status='KILLED' numberOfTestsRun='1'><sourceFile>InventoryController.java</sourceFile><mutatedClass>com.iluwatar.inventory.microservice.InventoryController</mutatedClass><mutatedMethod>getProductInventories</mutatedMethod><methodDescription>()I</methodDescription><lineNumber>43</lineNumber><mutator>org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator</mutator><indexes><index>4</index></indexes><blocks><block>0</block></blocks><killingTest>com.iluwatar.inventory.microservice.InventoryControllerTest.[engine:junit-jupiter]/[class:com.iluwatar.inventory.microservice.InventoryControllerTest]/[method:testgetProductInventories()]</killingTest><description>replaced int return with 0 for com/iluwatar/inventory/microservice/InventoryController::getProductInventories</description></mutation>
+</mutations>

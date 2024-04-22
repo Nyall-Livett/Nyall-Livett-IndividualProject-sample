@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268623679">
+    <module artifactId="facade" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/facade.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/facade/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/facade/DwarvenCartOperator.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/facade/DwarvenGoldDigger.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/facade/DwarvenGoldmineFacade.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/facade/DwarvenMineWorker.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/facade/DwarvenTunnelDigger.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/facade/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/facade/DwarvenGoldmineFacadeTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

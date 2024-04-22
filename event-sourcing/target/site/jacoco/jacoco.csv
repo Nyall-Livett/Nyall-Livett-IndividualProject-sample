@@ -1,0 +1,10 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+event-sourcing,com.iluwatar.event.sourcing.state,AccountAggregate,0,33,0,0,0,9,0,4,0,4
+event-sourcing,com.iluwatar.event.sourcing.domain,Account,13,89,1,7,2,29,2,13,1,10
+event-sourcing,com.iluwatar.event.sourcing.processor,EventJournal,0,15,1,1,0,5,1,3,0,3
+event-sourcing,com.iluwatar.event.sourcing.processor,JsonFileJournal,26,149,2,10,8,33,2,7,0,3
+event-sourcing,com.iluwatar.event.sourcing.processor,DomainEventProcessor,0,27,0,2,0,11,0,5,0,4
+event-sourcing,com.iluwatar.event.sourcing.app,App,138,0,0,0,29,0,3,0,3,0
+event-sourcing,com.iluwatar.event.sourcing.event,MoneyDepositEvent,5,24,0,0,0,8,1,2,1,2
+event-sourcing,com.iluwatar.event.sourcing.event,AccountCreateEvent,5,30,1,1,1,9,1,2,0,2
+event-sourcing,com.iluwatar.event.sourcing.event,MoneyTransferEvent,14,40,0,0,0,12,2,2,2,2

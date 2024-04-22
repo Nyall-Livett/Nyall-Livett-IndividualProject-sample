@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CharacterStepBuilder.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">step-builder</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.stepbuilder</a> &gt; <span class="el_source">CharacterStepBuilder.java</span></div><h1>CharacterStepBuilder.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.stepbuilder;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * The Step Builder class.
+ */
+public final class CharacterStepBuilder {
+
+  private CharacterStepBuilder() {
+  }
+
+  public static NameStep newBuilder() {
+<span class="fc" id="L39">    return new CharacterSteps();</span>
+  }
+
+  /**
+   * First Builder Step in charge of the Character name. Next Step available : ClassStep
+   */
+  public interface NameStep {
+    ClassStep name(String name);
+  }
+
+  /**
+   * This step is in charge of setting the Character class (fighter or wizard). Fighter choice :
+   * Next Step available : WeaponStep Wizard choice : Next Step available : SpellStep
+   */
+  public interface ClassStep {
+    WeaponStep fighterClass(String fighterClass);
+
+    SpellStep wizardClass(String wizardClass);
+  }
+
+  /**
+   * This step is in charge of the weapon. Weapon choice : Next Step available : AbilityStep No
+   * weapon choice : Next Step available : BuildStep
+   */
+  public interface WeaponStep {
+    AbilityStep withWeapon(String weapon);
+
+    BuildStep noWeapon();
+  }
+
+  /**
+   * This step is in charge of the spell. Spell choice : Next Step available : AbilityStep No spell
+   * choice : Next Step available : BuildStep
+   */
+  public interface SpellStep {
+    AbilityStep withSpell(String spell);
+
+    BuildStep noSpell();
+  }
+
+  /**
+   * This step is in charge of abilities. Next Step available : BuildStep
+   */
+  public interface AbilityStep {
+    AbilityStep withAbility(String ability);
+
+    BuildStep noMoreAbilities();
+
+    BuildStep noAbilities();
+  }
+
+  /**
+   * This is the final step in charge of building the Character Object. Validation should be here.
+   */
+  public interface BuildStep {
+    Character build();
+  }
+
+
+  /**
+   * Step Builder implementation.
+   */
+<span class="fc" id="L101">  private static class CharacterSteps implements NameStep, ClassStep, WeaponStep, SpellStep,</span>
+      AbilityStep, BuildStep {
+
+    private String name;
+    private String fighterClass;
+    private String wizardClass;
+    private String weapon;
+    private String spell;
+<span class="fc" id="L109">    private final List&lt;String&gt; abilities = new ArrayList&lt;&gt;();</span>
+
+    @Override
+    public ClassStep name(String name) {
+<span class="fc" id="L113">      this.name = name;</span>
+<span class="fc" id="L114">      return this;</span>
+    }
+
+    @Override
+    public WeaponStep fighterClass(String fighterClass) {
+<span class="fc" id="L119">      this.fighterClass = fighterClass;</span>
+<span class="fc" id="L120">      return this;</span>
+    }
+
+    @Override
+    public SpellStep wizardClass(String wizardClass) {
+<span class="fc" id="L125">      this.wizardClass = wizardClass;</span>
+<span class="fc" id="L126">      return this;</span>
+    }
+
+    @Override
+    public AbilityStep withWeapon(String weapon) {
+<span class="fc" id="L131">      this.weapon = weapon;</span>
+<span class="fc" id="L132">      return this;</span>
+    }
+
+    @Override
+    public BuildStep noWeapon() {
+<span class="fc" id="L137">      return this;</span>
+    }
+
+    @Override
+    public AbilityStep withSpell(String spell) {
+<span class="fc" id="L142">      this.spell = spell;</span>
+<span class="fc" id="L143">      return this;</span>
+    }
+
+    @Override
+    public BuildStep noSpell() {
+<span class="fc" id="L148">      return this;</span>
+    }
+
+    @Override
+    public AbilityStep withAbility(String ability) {
+<span class="fc" id="L153">      this.abilities.add(ability);</span>
+<span class="fc" id="L154">      return this;</span>
+    }
+
+    @Override
+    public BuildStep noMoreAbilities() {
+<span class="fc" id="L159">      return this;</span>
+    }
+
+    @Override
+    public BuildStep noAbilities() {
+<span class="fc" id="L164">      return this;</span>
+    }
+
+    @Override
+    public Character build() {
+<span class="fc" id="L169">      var character = new Character(name);</span>
+
+<span class="fc bfc" id="L171" title="All 2 branches covered.">      if (fighterClass != null) {</span>
+<span class="fc" id="L172">        character.setFighterClass(fighterClass);</span>
+      } else {
+<span class="fc" id="L174">        character.setWizardClass(wizardClass);</span>
+      }
+
+<span class="fc bfc" id="L177" title="All 2 branches covered.">      if (weapon != null) {</span>
+<span class="fc" id="L178">        character.setWeapon(weapon);</span>
+      } else {
+<span class="fc" id="L180">        character.setSpell(spell);</span>
+      }
+
+<span class="fc bfc" id="L183" title="All 2 branches covered.">      if (!abilities.isEmpty()) {</span>
+<span class="fc" id="L184">        character.setAbilities(abilities);</span>
+      }
+
+<span class="fc" id="L187">      return character;</span>
+    }
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

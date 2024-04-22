@@ -1,0 +1,16 @@
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/service-layer/src/main/java/com/iluwatar/servicelayer/wizard/WizardDaoImpl.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/service-layer/src/main/java/com/iluwatar/servicelayer/common/Dao.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/service-layer/src/main/java/com/iluwatar/servicelayer/spell/Spell.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/service-layer/src/main/java/com/iluwatar/servicelayer/magic/MagicService.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/service-layer/src/main/java/com/iluwatar/servicelayer/common/DaoBaseImpl.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/service-layer/src/main/java/com/iluwatar/servicelayer/common/BaseEntity.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/service-layer/src/main/java/com/iluwatar/servicelayer/hibernate/HibernateUtil.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/service-layer/src/main/java/com/iluwatar/servicelayer/spellbook/SpellbookDao.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/service-layer/src/main/java/com/iluwatar/servicelayer/wizard/WizardDao.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/service-layer/src/main/java/com/iluwatar/servicelayer/spellbook/SpellbookDaoImpl.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/service-layer/src/main/java/com/iluwatar/servicelayer/wizard/Wizard.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/service-layer/src/main/java/com/iluwatar/servicelayer/magic/MagicServiceImpl.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/service-layer/src/main/java/com/iluwatar/servicelayer/spell/SpellDao.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/service-layer/src/main/java/com/iluwatar/servicelayer/spellbook/Spellbook.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/service-layer/src/main/java/com/iluwatar/servicelayer/app/App.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/service-layer/src/main/java/com/iluwatar/servicelayer/spell/SpellDaoImpl.java

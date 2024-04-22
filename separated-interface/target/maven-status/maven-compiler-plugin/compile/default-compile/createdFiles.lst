@@ -1,0 +1,5 @@
+com/iluwatar/separatedinterface/taxes/ForeignTaxCalculator.class
+com/iluwatar/separatedinterface/taxes/DomesticTaxCalculator.class
+com/iluwatar/separatedinterface/App.class
+com/iluwatar/separatedinterface/invoice/TaxCalculator.class
+com/iluwatar/separatedinterface/invoice/InvoiceGenerator.class

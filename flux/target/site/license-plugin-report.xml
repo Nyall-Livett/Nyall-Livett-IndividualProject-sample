@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268713712">
+    <module artifactId="flux" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/flux.ucls" result="UNKNOWN"/>
+        <file path="etc/flux.urm.puml" result="UNKNOWN"/>
+        <file path="evosuite-report/statistics.csv" result="UNKNOWN"/>
+        <file path="evosuite-tests/com/iluwatar/flux/action/MenuItem_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="evosuite-tests/com/iluwatar/flux/store/MenuStore_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="evosuite-tests/com/iluwatar/flux/view/MenuView_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flux/action/Action.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flux/action/ActionType.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flux/action/Content.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flux/action/ContentAction.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flux/action/MenuAction.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flux/action/MenuItem.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flux/app/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flux/dispatcher/Dispatcher.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flux/store/ContentStore.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flux/store/MenuStore.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flux/store/Store.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flux/view/ContentView.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flux/view/MenuView.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/flux/view/View.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/flux/action/ContentTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/flux/action/MenuItemTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/flux/app/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/flux/dispatcher/DispatcherTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/flux/store/ContentStoreTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/flux/store/MenuStoreTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/flux/view/ContentViewTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/flux/view/MenuViewTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268779509">
+    <module artifactId="reactor" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/reactor.ucls" result="UNKNOWN"/>
+        <file path="etc/reactor.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/reactor/app/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/reactor/app/AppClient.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/reactor/app/LoggingHandler.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/reactor/framework/AbstractNioChannel.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/reactor/framework/ChannelHandler.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/reactor/framework/Dispatcher.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/reactor/framework/NioDatagramChannel.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/reactor/framework/NioReactor.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/reactor/framework/NioServerSocketChannel.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/reactor/framework/SameThreadDispatcher.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/reactor/framework/ThreadPoolDispatcher.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/reactor/app/ReactorTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

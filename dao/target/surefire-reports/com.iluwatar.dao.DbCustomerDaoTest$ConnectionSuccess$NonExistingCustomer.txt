@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.iluwatar.dao.DbCustomerDaoTest$ConnectionSuccess$NonExistingCustomer
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s -- in com.iluwatar.dao.DbCustomerDaoTest$ConnectionSuccess$NonExistingCustomer

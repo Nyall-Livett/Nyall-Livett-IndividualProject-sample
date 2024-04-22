@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268644522">
+    <module artifactId="strategy" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/strategy.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/strategy/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/strategy/DragonSlayer.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/strategy/DragonSlayingStrategy.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/strategy/LambdaStrategy.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/strategy/MeleeStrategy.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/strategy/ProjectileStrategy.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/strategy/SpellStrategy.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/strategy/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/strategy/DragonSlayerTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/strategy/DragonSlayingStrategyTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268660797">
+    <module artifactId="property" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/property.ucls" result="UNKNOWN"/>
+        <file path="etc/property.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/property/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/property/Character.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/property/Prototype.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/property/Stats.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/property/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/property/CharacterTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

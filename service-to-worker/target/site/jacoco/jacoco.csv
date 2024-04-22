@@ -1,0 +1,8 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+service-to-worker,com.iluwatar.servicetoworker,Command,0,21,0,0,0,8,0,4,0,4
+service-to-worker,com.iluwatar.servicetoworker,App,3,77,0,0,1,16,1,1,1,1
+service-to-worker,com.iluwatar.servicetoworker,Dispatcher,0,30,0,0,0,10,0,4,0,4
+service-to-worker,com.iluwatar.servicetoworker,GiantController,0,17,0,0,0,7,0,3,0,3
+service-to-worker,com.iluwatar.servicetoworker,GiantModel,0,69,0,0,0,16,0,8,0,8
+service-to-worker,com.iluwatar.servicetoworker,GiantView,0,12,0,0,0,4,0,3,0,3
+service-to-worker,com.iluwatar.servicetoworker,Action,0,34,0,0,0,13,0,5,0,5

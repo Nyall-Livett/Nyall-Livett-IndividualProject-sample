@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Audio.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">event-queue</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.event.queue</a> &gt; <span class="el_source">Audio.java</span></div><h1>Audio.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.event.queue;
+
+import java.io.File;
+import java.io.IOException;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * This class implements the Event Queue pattern.
+ *
+ * @author mkuprivecz
+ */
+<span class="fc" id="L40">@Slf4j</span>
+public class Audio {
+<span class="fc" id="L42">  private static final Audio INSTANCE = new Audio();</span>
+
+  private static final int MAX_PENDING = 16;
+
+  private int headIndex;
+
+  private int tailIndex;
+
+<span class="fc" id="L50">  private volatile Thread updateThread = null;</span>
+
+<span class="fc" id="L52">  private final PlayMessage[] pendingAudio = new PlayMessage[MAX_PENDING];</span>
+
+  // Visible only for testing purposes
+<span class="fc" id="L55">  Audio() {</span>
+
+<span class="fc" id="L57">  }</span>
+
+  public static Audio getInstance() {
+<span class="nc" id="L60">    return INSTANCE;</span>
+  }
+
+  /**
+   * This method stops the Update Method's thread and waits till service stops.
+   */
+  public synchronized void stopService() throws InterruptedException {
+<span class="pc bpc" id="L67" title="1 of 2 branches missed.">    if (updateThread != null) {</span>
+<span class="fc" id="L68">      updateThread.interrupt();</span>
+    }
+<span class="fc" id="L70">    updateThread.join();</span>
+<span class="fc" id="L71">    updateThread = null;</span>
+<span class="fc" id="L72">  }</span>
+
+  /**
+   * This method check the Update Method's thread is started.
+   *
+   * @return boolean
+   */
+  public synchronized boolean isServiceRunning() {
+<span class="pc bpc" id="L80" title="1 of 4 branches missed.">    return updateThread != null &amp;&amp; updateThread.isAlive();</span>
+  }
+
+  /**
+   * Starts the thread for the Update Method pattern if it was not started previously. Also when the
+   * thread is is ready initializes the indexes of the queue
+   */
+  public void init() {
+<span class="fc bfc" id="L88" title="All 2 branches covered.">    if (updateThread == null) {</span>
+<span class="fc" id="L89">      updateThread = new Thread(() -&gt; {</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">        while (!Thread.currentThread().isInterrupted()) {</span>
+<span class="fc" id="L91">          update();</span>
+        }
+<span class="fc" id="L93">      });</span>
+    }
+<span class="fc" id="L95">    startThread();</span>
+<span class="fc" id="L96">  }</span>
+
+  /**
+   * This is a synchronized thread starter.
+   */
+  private synchronized void startThread() {
+<span class="fc bfc" id="L102" title="All 2 branches covered.">    if (!updateThread.isAlive()) {</span>
+<span class="fc" id="L103">      updateThread.start();</span>
+<span class="fc" id="L104">      headIndex = 0;</span>
+<span class="fc" id="L105">      tailIndex = 0;</span>
+    }
+<span class="fc" id="L107">  }</span>
+
+  /**
+   * This method adds a new audio into the queue.
+   *
+   * @param stream is the AudioInputStream for the method
+   * @param volume is the level of the audio's volume
+   */
+  public void playSound(AudioInputStream stream, float volume) {
+<span class="fc" id="L116">    init();</span>
+    // Walk the pending requests.
+<span class="fc bfc" id="L118" title="All 2 branches covered.">    for (var i = headIndex; i != tailIndex; i = (i + 1) % MAX_PENDING) {</span>
+<span class="fc" id="L119">      var playMessage = getPendingAudio()[i];</span>
+<span class="pc bpc" id="L120" title="1 of 2 branches missed.">      if (playMessage.getStream() == stream) {</span>
+        // Use the larger of the two volumes.
+<span class="nc" id="L122">        playMessage.setVolume(Math.max(volume, playMessage.getVolume()));</span>
+
+        // Don't need to enqueue.
+<span class="nc" id="L125">        return;</span>
+      }
+    }
+<span class="fc" id="L128">    getPendingAudio()[tailIndex] = new PlayMessage(stream, volume);</span>
+<span class="fc" id="L129">    tailIndex = (tailIndex + 1) % MAX_PENDING;</span>
+<span class="fc" id="L130">  }</span>
+
+  /**
+   * This method uses the Update Method pattern. It takes the audio from the queue and plays it
+   */
+  private void update() {
+    // If there are no pending requests, do nothing.
+<span class="fc bfc" id="L137" title="All 2 branches covered.">    if (headIndex == tailIndex) {</span>
+<span class="fc" id="L138">      return;</span>
+    }
+    try {
+<span class="fc" id="L141">      var audioStream = getPendingAudio()[headIndex].getStream();</span>
+<span class="fc" id="L142">      headIndex++;</span>
+<span class="fc" id="L143">      var clip = AudioSystem.getClip();</span>
+<span class="fc" id="L144">      clip.open(audioStream);</span>
+<span class="fc" id="L145">      clip.start();</span>
+<span class="nc" id="L146">    } catch (LineUnavailableException e) {</span>
+<span class="nc" id="L147">      LOGGER.trace(&quot;Error occurred while loading the audio: The line is unavailable&quot;, e);</span>
+<span class="nc" id="L148">    } catch (IOException e) {</span>
+<span class="nc" id="L149">      LOGGER.trace(&quot;Input/Output error while loading the audio&quot;, e);</span>
+<span class="nc" id="L150">    } catch (IllegalArgumentException e) {</span>
+<span class="nc" id="L151">      LOGGER.trace(&quot;The system doesn't support the sound: &quot; + e.getMessage(), e);</span>
+<span class="pc" id="L152">    }</span>
+<span class="fc" id="L153">  }</span>
+
+  /**
+   * Returns the AudioInputStream of a file.
+   *
+   * @param filePath is the path of the audio file
+   * @return AudioInputStream
+   * @throws UnsupportedAudioFileException when the audio file is not supported
+   * @throws IOException                   when the file is not readable
+   */
+  public AudioInputStream getAudioStream(String filePath)
+      throws UnsupportedAudioFileException, IOException {
+<span class="fc" id="L165">    return AudioSystem.getAudioInputStream(new File(filePath).getAbsoluteFile());</span>
+  }
+
+  /**
+   * Returns with the message array of the queue.
+   *
+   * @return PlayMessage[]
+   */
+  public PlayMessage[] getPendingAudio() {
+<span class="fc" id="L174">    return pendingAudio;</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

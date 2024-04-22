@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PropertiesFeatureToggleVersion.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">feature-toggle</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.featuretoggle.pattern.propertiesversion</a> &gt; <span class="el_source">PropertiesFeatureToggleVersion.java</span></div><h1>PropertiesFeatureToggleVersion.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.featuretoggle.pattern.propertiesversion;
+
+import com.iluwatar.featuretoggle.pattern.Service;
+import com.iluwatar.featuretoggle.user.User;
+import java.util.Properties;
+import lombok.Getter;
+
+/**
+ * This example of the Feature Toggle pattern is less dynamic version than {@link
+ * com.iluwatar.featuretoggle.pattern.tieredversion.TieredFeatureToggleVersion} where the feature is
+ * turned on or off at the time of creation of the service. This example uses simple Java {@link
+ * Properties} however it could as easily be done with an external configuration file loaded by
+ * Spring and so on. A good example of when to use this version of the feature toggle is when new
+ * features are being developed. So you could have a configuration property boolean named
+ * development or some sort of system environment variable.
+ *
+ * @see Service
+ * @see com.iluwatar.featuretoggle.pattern.tieredversion.TieredFeatureToggleVersion
+ * @see User
+ */
+@Getter
+public class PropertiesFeatureToggleVersion implements Service {
+
+  /**
+   * True if the welcome message to be returned is the enhanced venison or not. For
+   * this service it will see the value of the boolean that was set in the constructor {@link
+   * PropertiesFeatureToggleVersion#PropertiesFeatureToggleVersion(Properties)}
+   */
+  private final boolean enhanced;
+
+  /**
+   * Creates an instance of {@link PropertiesFeatureToggleVersion} using the passed {@link
+   * Properties} to determine, the status of the feature toggle {@link
+   * PropertiesFeatureToggleVersion#isEnhanced()}. There is also some defensive code to ensure the
+   * {@link Properties} passed are as expected.
+   *
+   * @param properties {@link Properties} used to configure the service and toggle features.
+   * @throws IllegalArgumentException when the passed {@link Properties} is not as expected
+   * @see Properties
+   */
+<span class="fc" id="L65">  public PropertiesFeatureToggleVersion(final Properties properties) {</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">    if (properties == null) {</span>
+<span class="fc" id="L67">      throw new IllegalArgumentException(&quot;No Properties Provided.&quot;);</span>
+    } else {
+      try {
+<span class="fc" id="L70">        enhanced = (boolean) properties.get(&quot;enhancedWelcome&quot;);</span>
+<span class="fc" id="L71">      } catch (Exception e) {</span>
+<span class="fc" id="L72">        throw new IllegalArgumentException(&quot;Invalid Enhancement Settings Provided.&quot;);</span>
+<span class="fc" id="L73">      }</span>
+    }
+<span class="fc" id="L75">  }</span>
+
+  /**
+   * Generate a welcome message based on the user being passed and the status of the feature toggle.
+   * If the enhanced version is enabled, then the message will be personalised with the name of the
+   * passed {@link User}. However if disabled then a generic version fo the message is returned.
+   *
+   * @param user the {@link User} to be displayed in the message if the enhanced version is enabled
+   *             see {@link PropertiesFeatureToggleVersion#isEnhanced()}. If the enhanced version is
+   *             enabled, then the message will be personalised with the name of the passed {@link
+   *             User}. However if disabled then a generic version fo the message is returned.
+   * @return Resulting welcome message.
+   * @see User
+   */
+  @Override
+  public String getWelcomeMessage(final User user) {
+
+<span class="fc bfc" id="L92" title="All 2 branches covered.">    if (isEnhanced()) {</span>
+<span class="fc" id="L93">      return &quot;Welcome &quot; + user + &quot;. You're using the enhanced welcome message.&quot;;</span>
+    }
+
+<span class="fc" id="L96">    return &quot;Welcome to the application.&quot;;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

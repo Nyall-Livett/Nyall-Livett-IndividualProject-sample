@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268934026">
+    <module artifactId="data-locality" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="ADDED"/>
+        <file path="etc/data-locality.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/data/locality/Application.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/data/locality/game/GameEntity.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/data/locality/game/component/AiComponent.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/data/locality/game/component/Component.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/data/locality/game/component/PhysicsComponent.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/data/locality/game/component/RenderComponent.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/data/locality/game/component/manager/AiComponentManager.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/data/locality/game/component/manager/PhysicsComponentManager.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/data/locality/game/component/manager/RenderComponentManager.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/data/locality/ApplicationTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

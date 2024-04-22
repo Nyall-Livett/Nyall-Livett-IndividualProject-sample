@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268710223">
+    <module artifactId="tolerant-reader" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/tolerant-reader.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/tolerantreader/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/tolerantreader/RainbowFish.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/tolerantreader/RainbowFishSerializer.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/tolerantreader/RainbowFishV2.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/tolerantreader/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/tolerantreader/RainbowFishSerializerTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/tolerantreader/RainbowFishTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/tolerantreader/RainbowFishV2Test.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

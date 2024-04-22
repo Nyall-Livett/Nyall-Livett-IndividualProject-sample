@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">repository</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.repository</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.repository;
+
+import java.util.List;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+/**
+ * Repository pattern mediates between the domain and data mapping layers using a collection-like
+ * interface for accessing domain objects. A system with complex domain model often benefits from a
+ * layer that isolates domain objects from the details of the database access code and in such
+ * systems it can be worthwhile to build another layer of abstraction over the mapping layer where
+ * query construction code is concentrated. This becomes more important when there are a large
+ * number of domain classes or heavy querying. In these cases particularly, adding this layer helps
+ * minimize duplicate query logic.
+ *
+ * &lt;p&gt;In this example we utilize Spring Data to automatically generate a repository for us from the
+ * {@link Person} domain object. Using the {@link PersonRepository} we perform CRUD operations on
+ * the entity, moreover, the query by {@link org.springframework.data.jpa.domain.Specification} are
+ * also performed. Underneath we have configured in-memory H2 database for which schema is created
+ * and dropped on each run.
+ */
+<span class="fc" id="L46">@Slf4j</span>
+<span class="nc" id="L47">public class App {</span>
+
+  /**
+   * Program entry point.
+   *
+   * @param args command line args
+   */
+  public static void main(String[] args) {
+
+<span class="fc" id="L56">    var context = new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);</span>
+<span class="fc" id="L57">    var repository = context.getBean(PersonRepository.class);</span>
+
+<span class="fc" id="L59">    var peter = new Person(&quot;Peter&quot;, &quot;Sagan&quot;, 17);</span>
+<span class="fc" id="L60">    var nasta = new Person(&quot;Nasta&quot;, &quot;Kuzminova&quot;, 25);</span>
+<span class="fc" id="L61">    var john = new Person(&quot;John&quot;, &quot;lawrence&quot;, 35);</span>
+<span class="fc" id="L62">    var terry = new Person(&quot;Terry&quot;, &quot;Law&quot;, 36);</span>
+
+    // Add new Person records
+<span class="fc" id="L65">    repository.save(peter);</span>
+<span class="fc" id="L66">    repository.save(nasta);</span>
+<span class="fc" id="L67">    repository.save(john);</span>
+<span class="fc" id="L68">    repository.save(terry);</span>
+
+    // Count Person records
+<span class="fc" id="L71">    LOGGER.info(&quot;Count Person records: {}&quot;, repository.count());</span>
+
+    // Print all records
+<span class="fc" id="L74">    var persons = (List&lt;Person&gt;) repository.findAll();</span>
+<span class="fc" id="L75">    persons.stream().map(Person::toString).forEach(LOGGER::info);</span>
+
+    // Update Person
+<span class="fc" id="L78">    nasta.setName(&quot;Barbora&quot;);</span>
+<span class="fc" id="L79">    nasta.setSurname(&quot;Spotakova&quot;);</span>
+<span class="fc" id="L80">    repository.save(nasta);</span>
+
+<span class="fc" id="L82">    repository.findById(2L).ifPresent(p -&gt; LOGGER.info(&quot;Find by id 2: {}&quot;, p));</span>
+
+    // Remove record from Person
+<span class="fc" id="L85">    repository.deleteById(2L);</span>
+
+    // count records
+<span class="fc" id="L88">    LOGGER.info(&quot;Count Person records: {}&quot;, repository.count());</span>
+
+    // find by name
+<span class="fc" id="L91">    repository</span>
+<span class="fc" id="L92">        .findOne(new PersonSpecifications.NameEqualSpec(&quot;John&quot;))</span>
+<span class="fc" id="L93">        .ifPresent(p -&gt; LOGGER.info(&quot;Find by John is {}&quot;, p));</span>
+
+    // find by age
+<span class="fc" id="L96">    persons = repository.findAll(new PersonSpecifications.AgeBetweenSpec(20, 40));</span>
+
+<span class="fc" id="L98">    LOGGER.info(&quot;Find Person with age between 20,40: &quot;);</span>
+<span class="fc" id="L99">    persons.stream().map(Person::toString).forEach(LOGGER::info);</span>
+
+<span class="fc" id="L101">    repository.deleteAll();</span>
+
+<span class="fc" id="L103">    context.close();</span>
+
+<span class="fc" id="L105">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

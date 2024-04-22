@@ -1,0 +1,8 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+retry,com.iluwatar.retry,Retry,5,65,0,4,2,17,0,7,0,5
+retry,com.iluwatar.retry,RetryExponentialBackoff,5,88,0,4,2,20,0,8,0,6
+retry,com.iluwatar.retry,DatabaseNotAvailableException,0,4,0,0,0,2,0,1,0,1
+retry,com.iluwatar.retry,BusinessException,0,4,0,0,0,2,0,1,0,1
+retry,com.iluwatar.retry,CustomerNotFoundException,0,4,0,0,0,2,0,1,0,1
+retry,com.iluwatar.retry,App,155,0,0,0,31,0,9,0,9,0
+retry,com.iluwatar.retry,FindCustomer,6,25,0,2,2,7,2,3,2,2

@@ -1,0 +1,7 @@
+com/iluwatar/compositeentity/CompositeEntity.class
+com/iluwatar/compositeentity/App.class
+com/iluwatar/compositeentity/DependentObject.class
+com/iluwatar/compositeentity/MessageDependentObject.class
+com/iluwatar/compositeentity/ConsoleCoarseGrainedObject.class
+com/iluwatar/compositeentity/SignalDependentObject.class
+com/iluwatar/compositeentity/CoarseGrainedObject.class

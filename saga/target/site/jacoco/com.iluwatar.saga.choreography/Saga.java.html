@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Saga.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">saga</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.saga.choreography</a> &gt; <span class="el_source">Saga.java</span></div><h1>Saga.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.saga.choreography;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * Saga representation. Saga consists of chapters. Every ChoreographyChapter is executed a certain
+ * service.
+ */
+public class Saga {
+
+  private final List&lt;Chapter&gt; chapters;
+  private int pos;
+  private boolean forward;
+  private boolean finished;
+
+
+  public static Saga create() {
+<span class="fc" id="L44">    return new Saga();</span>
+  }
+
+  /**
+   * get resuzlt of saga.
+   *
+   * @return result of saga @see {@link SagaResult}
+   */
+  public SagaResult getResult() {
+<span class="pc bpc" id="L53" title="1 of 2 branches missed.">    if (finished) {</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">      return forward</span>
+<span class="fc" id="L55">          ? SagaResult.FINISHED</span>
+<span class="fc" id="L56">          : SagaResult.ROLLBACKED;</span>
+    }
+
+<span class="nc" id="L59">    return SagaResult.PROGRESS;</span>
+  }
+
+  /**
+   * add chapter to saga.
+   *
+   * @param name chapter name
+   * @return this
+   */
+  public Saga chapter(String name) {
+<span class="fc" id="L69">    this.chapters.add(new Chapter(name));</span>
+<span class="fc" id="L70">    return this;</span>
+  }
+
+  /**
+   * set value to last chapter.
+   *
+   * @param value invalue
+   * @return this
+   */
+  public Saga setInValue(Object value) {
+<span class="pc bpc" id="L80" title="1 of 2 branches missed.">    if (chapters.isEmpty()) {</span>
+<span class="nc" id="L81">      return this;</span>
+    }
+<span class="fc" id="L83">    chapters.get(chapters.size() - 1).setInValue(value);</span>
+<span class="fc" id="L84">    return this;</span>
+  }
+
+  /**
+   * get value from current chapter.
+   *
+   * @return value
+   */
+  public Object getCurrentValue() {
+<span class="fc" id="L93">    return chapters.get(pos).getInValue();</span>
+  }
+
+  /**
+   * set value to current chapter.
+   *
+   * @param value to set
+   */
+  public void setCurrentValue(Object value) {
+<span class="fc" id="L102">    chapters.get(pos).setInValue(value);</span>
+<span class="fc" id="L103">  }</span>
+
+  /**
+   * set status for current chapter.
+   *
+   * @param result to set
+   */
+  public void setCurrentStatus(ChapterResult result) {
+<span class="fc" id="L111">    chapters.get(pos).setResult(result);</span>
+<span class="fc" id="L112">  }</span>
+
+  void setFinished(boolean finished) {
+<span class="fc" id="L115">    this.finished = finished;</span>
+<span class="fc" id="L116">  }</span>
+
+  boolean isForward() {
+<span class="fc" id="L119">    return forward;</span>
+  }
+
+  int forward() {
+<span class="fc" id="L123">    return ++pos;</span>
+  }
+
+  int back() {
+<span class="fc" id="L127">    this.forward = false;</span>
+<span class="fc" id="L128">    return --pos;</span>
+  }
+
+
+<span class="fc" id="L132">  private Saga() {</span>
+<span class="fc" id="L133">    this.chapters = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L134">    this.pos = 0;</span>
+<span class="fc" id="L135">    this.forward = true;</span>
+<span class="fc" id="L136">    this.finished = false;</span>
+<span class="fc" id="L137">  }</span>
+
+  Chapter getCurrent() {
+<span class="fc" id="L140">    return chapters.get(pos);</span>
+  }
+
+
+  boolean isPresent() {
+<span class="fc bfc" id="L145" title="All 4 branches covered.">    return pos &gt;= 0 &amp;&amp; pos &lt; chapters.size();</span>
+  }
+
+  boolean isCurrentSuccess() {
+<span class="fc" id="L149">    return chapters.get(pos).isSuccess();</span>
+  }
+
+  /**
+   * Class presents a chapter status and incoming parameters(incoming parameter transforms to
+   * outcoming parameter).
+   */
+  public static class Chapter {
+    private final String name;
+    private ChapterResult result;
+    private Object inValue;
+
+
+<span class="fc" id="L162">    public Chapter(String name) {</span>
+<span class="fc" id="L163">      this.name = name;</span>
+<span class="fc" id="L164">      this.result = ChapterResult.INIT;</span>
+<span class="fc" id="L165">    }</span>
+
+    public Object getInValue() {
+<span class="fc" id="L168">      return inValue;</span>
+    }
+
+    public void setInValue(Object object) {
+<span class="fc" id="L172">      this.inValue = object;</span>
+<span class="fc" id="L173">    }</span>
+
+    public String getName() {
+<span class="fc" id="L176">      return name;</span>
+    }
+
+    /**
+     * set result.
+     *
+     * @param result {@link ChapterResult}
+     */
+    public void setResult(ChapterResult result) {
+<span class="fc" id="L185">      this.result = result;</span>
+<span class="fc" id="L186">    }</span>
+
+    /**
+     * the result for chapter is good.
+     *
+     * @return true if is good otherwise bad
+     */
+    public boolean isSuccess() {
+<span class="fc bfc" id="L194" title="All 2 branches covered.">      return result == ChapterResult.SUCCESS;</span>
+    }
+  }
+
+
+  /**
+   * result for chapter.
+   */
+<span class="fc" id="L202">  public enum ChapterResult {</span>
+<span class="fc" id="L203">    INIT, SUCCESS, ROLLBACK</span>
+  }
+
+  /**
+   * result for saga.
+   */
+<span class="fc" id="L209">  public enum SagaResult {</span>
+<span class="fc" id="L210">    PROGRESS, FINISHED, ROLLBACKED</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="nc" id="L215">    return &quot;Saga{&quot;</span>
+        + &quot;chapters=&quot;
+<span class="nc" id="L217">        + Arrays.toString(chapters.toArray())</span>
+        + &quot;, pos=&quot;
+        + pos
+        + &quot;, forward=&quot;
+        + forward
+        + '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

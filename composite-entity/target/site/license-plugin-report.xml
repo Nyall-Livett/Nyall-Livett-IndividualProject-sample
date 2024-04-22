@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268983913">
+    <module artifactId="composite-entity" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="ADDED"/>
+        <file path="etc/composite-entity.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/compositeentity/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/compositeentity/CoarseGrainedObject.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/compositeentity/CompositeEntity.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/compositeentity/ConsoleCoarseGrainedObject.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/compositeentity/DependentObject.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/compositeentity/MessageDependentObject.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/compositeentity/SignalDependentObject.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/compositeentity/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/compositeentity/PersistenceTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

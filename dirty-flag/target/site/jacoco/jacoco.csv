@@ -1,0 +1,5 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+dirty-flag,com.iluwatar.dirtyflag,App.new Runnable() {...},0,32,0,0,0,6,0,3,0,3
+dirty-flag,com.iluwatar.dirtyflag,World,3,26,1,1,0,7,1,2,0,2
+dirty-flag,com.iluwatar.dirtyflag,App,0,27,0,0,0,8,0,4,0,4
+dirty-flag,com.iluwatar.dirtyflag,DataFetcher,3,65,0,4,2,16,0,6,0,4

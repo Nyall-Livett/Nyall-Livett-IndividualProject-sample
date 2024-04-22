@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713269048177">
+    <module artifactId="log-aggregation" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="ADDED"/>
+        <file path="etc/log-aggregation.puml" result="UNKNOWN"/>
+        <file path="etc/log-aggregation.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/logaggregation/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/logaggregation/CentralLogStore.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/logaggregation/LogAggregator.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/logaggregation/LogEntry.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/logaggregation/LogLevel.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/logaggregation/LogProducer.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/logaggregation/LogAggregatorTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">dao</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.dao</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+import javax.sql.DataSource;
+import lombok.extern.slf4j.Slf4j;
+import org.h2.jdbcx.JdbcDataSource;
+
+/**
+ * Data Access Object (DAO) is an object that provides an abstract interface to some type of
+ * database or other persistence mechanism. By mapping application calls to the persistence layer,
+ * DAO provide some specific data operations without exposing details of the database. This
+ * isolation supports the Single responsibility principle. It separates what data accesses the
+ * application needs, in terms of domain-specific objects and data types (the public interface of
+ * the DAO), from how these needs can be satisfied with a specific DBMS.
+ *
+ * &lt;p&gt;With the DAO pattern, we can use various method calls to retrieve/add/delete/update data
+ * without directly interacting with the data source. The below example demonstrates basic CRUD
+ * operations: select, add, update, and delete.
+ */
+<span class="fc" id="L45">@Slf4j</span>
+<span class="nc" id="L46">public class App {</span>
+  private static final String DB_URL = &quot;jdbc:h2:mem:dao;DB_CLOSE_DELAY=-1&quot;;
+  private static final String ALL_CUSTOMERS = &quot;customerDao.getAllCustomers(): &quot;;
+
+  /**
+   * Program entry point.
+   *
+   * @param args command line args.
+   * @throws Exception if any error occurs.
+   */
+  public static void main(final String[] args) throws Exception {
+<span class="fc" id="L57">    final var inMemoryDao = new InMemoryCustomerDao();</span>
+<span class="fc" id="L58">    performOperationsUsing(inMemoryDao);</span>
+
+<span class="fc" id="L60">    final var dataSource = createDataSource();</span>
+<span class="fc" id="L61">    createSchema(dataSource);</span>
+<span class="fc" id="L62">    final var dbDao = new DbCustomerDao(dataSource);</span>
+<span class="fc" id="L63">    performOperationsUsing(dbDao);</span>
+<span class="fc" id="L64">    deleteSchema(dataSource);</span>
+<span class="fc" id="L65">  }</span>
+
+  private static void deleteSchema(DataSource dataSource) throws SQLException {
+<span class="fc" id="L68">    try (var connection = dataSource.getConnection();</span>
+<span class="fc" id="L69">         var statement = connection.createStatement()) {</span>
+<span class="fc" id="L70">      statement.execute(CustomerSchemaSql.DELETE_SCHEMA_SQL);</span>
+    }
+<span class="fc" id="L72">  }</span>
+
+  private static void createSchema(DataSource dataSource) throws SQLException {
+<span class="fc" id="L75">    try (var connection = dataSource.getConnection();</span>
+<span class="fc" id="L76">         var statement = connection.createStatement()) {</span>
+<span class="fc" id="L77">      statement.execute(CustomerSchemaSql.CREATE_SCHEMA_SQL);</span>
+    }
+<span class="fc" id="L79">  }</span>
+
+  private static DataSource createDataSource() {
+<span class="fc" id="L82">    var dataSource = new JdbcDataSource();</span>
+<span class="fc" id="L83">    dataSource.setURL(DB_URL);</span>
+<span class="fc" id="L84">    return dataSource;</span>
+  }
+
+  private static void performOperationsUsing(final CustomerDao customerDao) throws Exception {
+<span class="fc" id="L88">    addCustomers(customerDao);</span>
+<span class="fc" id="L89">    LOGGER.info(ALL_CUSTOMERS);</span>
+<span class="fc" id="L90">    try (var customerStream = customerDao.getAll()) {</span>
+<span class="fc" id="L91">      customerStream.forEach(customer -&gt; LOGGER.info(customer.toString()));</span>
+    }
+<span class="fc" id="L93">    LOGGER.info(&quot;customerDao.getCustomerById(2): &quot; + customerDao.getById(2));</span>
+<span class="fc" id="L94">    final var customer = new Customer(4, &quot;Dan&quot;, &quot;Danson&quot;);</span>
+<span class="fc" id="L95">    customerDao.add(customer);</span>
+<span class="fc" id="L96">    LOGGER.info(ALL_CUSTOMERS + customerDao.getAll());</span>
+<span class="fc" id="L97">    customer.setFirstName(&quot;Daniel&quot;);</span>
+<span class="fc" id="L98">    customer.setLastName(&quot;Danielson&quot;);</span>
+<span class="fc" id="L99">    customerDao.update(customer);</span>
+<span class="fc" id="L100">    LOGGER.info(ALL_CUSTOMERS);</span>
+<span class="fc" id="L101">    try (var customerStream = customerDao.getAll()) {</span>
+<span class="fc" id="L102">      customerStream.forEach(cust -&gt; LOGGER.info(cust.toString()));</span>
+    }
+<span class="fc" id="L104">    customerDao.delete(customer);</span>
+<span class="fc" id="L105">    LOGGER.info(ALL_CUSTOMERS + customerDao.getAll());</span>
+<span class="fc" id="L106">  }</span>
+
+  private static void addCustomers(CustomerDao customerDao) throws Exception {
+<span class="fc bfc" id="L109" title="All 2 branches covered.">    for (var customer : generateSampleCustomers()) {</span>
+<span class="fc" id="L110">      customerDao.add(customer);</span>
+<span class="fc" id="L111">    }</span>
+<span class="fc" id="L112">  }</span>
+
+  /**
+   * Generate customers.
+   *
+   * @return list of customers.
+   */
+  public static List&lt;Customer&gt; generateSampleCustomers() {
+<span class="fc" id="L120">    final var customer1 = new Customer(1, &quot;Adam&quot;, &quot;Adamson&quot;);</span>
+<span class="fc" id="L121">    final var customer2 = new Customer(2, &quot;Bob&quot;, &quot;Bobson&quot;);</span>
+<span class="fc" id="L122">    final var customer3 = new Customer(3, &quot;Carl&quot;, &quot;Carlson&quot;);</span>
+<span class="fc" id="L123">    return List.of(customer1, customer2, customer3);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

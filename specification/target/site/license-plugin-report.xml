@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268708856">
+    <module artifactId="specification" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/specification.ucls" result="UNKNOWN"/>
+        <file path="etc/specification.urm.puml" result="UNKNOWN"/>
+        <file path="evosuite-report/statistics.csv" result="UNKNOWN"/>
+        <file path="evosuite-tests/com/iluwatar/specification/selector/SizeSelector_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/specification/app/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/specification/creature/AbstractCreature.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/specification/creature/Creature.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/specification/creature/Dragon.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/specification/creature/Goblin.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/specification/creature/KillerBee.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/specification/creature/Octopus.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/specification/creature/Shark.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/specification/creature/Troll.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/specification/property/Color.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/specification/property/Mass.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/specification/property/Movement.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/specification/property/Size.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/specification/selector/AbstractSelector.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/specification/selector/ColorSelector.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/specification/selector/ConjunctionSelector.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/specification/selector/DisjunctionSelector.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/specification/selector/MassEqualSelector.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/specification/selector/MassGreaterThanSelector.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/specification/selector/MassSmallerThanOrEqSelector.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/specification/selector/MovementSelector.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/specification/selector/NegationSelector.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/specification/selector/SizeSelector.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/specification/app/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/specification/creature/CreatureTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/specification/selector/ColorSelectorTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/specification/selector/CompositeSelectorsTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/specification/selector/MassSelectorTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/specification/selector/MovementSelectorTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/specification/selector/SizeSelectorTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

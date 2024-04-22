@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductDto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">data-transfer-object</a> &gt; <a href="index.source.html" class="el_package">com.iluwatar.datatransfer.product</a> &gt; <span class="el_source">ProductDto.java</span></div><h1>ProductDto.java</h1><pre class="source lang-java linenums">/*
+ * This project is licensed under the MIT license. Module model-view-viewmodel is using ZK framework licensed under LGPL (see lgpl-3.0.txt).
+ *
+ * The MIT License
+ * Copyright © 2014-2022 Ilkka Seppälä
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.iluwatar.datatransfer.product;
+
+/**
+ * {@link ProductDto} is a data transfer object POJO.
+ * Instead of sending individual information to
+ * client We can send related information together in POJO.
+ *
+ * &lt;p&gt;Dto will not have any business logic in it.
+ */
+<span class="nc" id="L34">public enum ProductDto {</span>
+  ;
+
+  /**
+   * This is Request class which consist of Create or any other request DTO's
+   * you might want to use in your API.
+   */
+<span class="nc" id="L41">  public enum Request {</span>
+    ;
+
+    /**
+     * This is Create dto class for requesting create new product.
+     */
+<span class="fc" id="L47">    public static final class Create implements Name, Price, Cost, Supplier {</span>
+      private String name;
+      private Double price;
+      private Double cost;
+      private String supplier;
+
+      @Override
+      public String getName() {
+<span class="fc" id="L55">        return name;</span>
+      }
+
+      public Create setName(String name) {
+<span class="fc" id="L59">        this.name = name;</span>
+<span class="fc" id="L60">        return this;</span>
+      }
+
+      @Override
+      public Double getPrice() {
+<span class="fc" id="L65">        return price;</span>
+      }
+
+      public Create setPrice(Double price) {
+<span class="fc" id="L69">        this.price = price;</span>
+<span class="fc" id="L70">        return this;</span>
+      }
+
+      @Override
+      public Double getCost() {
+<span class="fc" id="L75">        return cost;</span>
+      }
+
+      public Create setCost(Double cost) {
+<span class="fc" id="L79">        this.cost = cost;</span>
+<span class="fc" id="L80">        return this;</span>
+      }
+
+      @Override
+      public String getSupplier() {
+<span class="fc" id="L85">        return supplier;</span>
+      }
+
+      public Create setSupplier(String supplier) {
+<span class="fc" id="L89">        this.supplier = supplier;</span>
+<span class="fc" id="L90">        return this;</span>
+      }
+    }
+  }
+
+  /**
+   * This is Response class which consist of any response DTO's
+   * you might want to provide to your clients.
+   */
+<span class="nc" id="L99">  public enum Response {</span>
+    ;
+
+    /**
+     * This is Public dto class for API response with the lowest data security.
+     */
+<span class="fc" id="L105">    public static final class Public implements Id, Name, Price {</span>
+      private Long id;
+      private String name;
+      private Double price;
+
+      @Override
+      public Long getId() {
+<span class="nc" id="L112">        return id;</span>
+      }
+
+      public Public setId(Long id) {
+<span class="fc" id="L116">        this.id = id;</span>
+<span class="fc" id="L117">        return this;</span>
+      }
+
+      @Override
+      public String getName() {
+<span class="nc" id="L122">        return name;</span>
+      }
+
+      public Public setName(String name) {
+<span class="fc" id="L126">        this.name = name;</span>
+<span class="fc" id="L127">        return this;</span>
+      }
+
+      @Override
+      public Double getPrice() {
+<span class="nc" id="L132">        return price;</span>
+      }
+
+      public Public setPrice(Double price) {
+<span class="fc" id="L136">        this.price = price;</span>
+<span class="fc" id="L137">        return this;</span>
+      }
+
+      @Override
+      public String toString() {
+<span class="fc" id="L142">        return &quot;Public{&quot;</span>
+            + &quot;id=&quot;
+            + id
+            + &quot;, name='&quot;
+            + name
+            + '\''
+            + &quot;, price=&quot;
+            + price
+            + '}';
+      }
+    }
+
+    /**
+     * This is Private dto class for API response with the highest data security.
+     */
+<span class="fc" id="L157">    public static final class Private implements Id, Name, Price, Cost {</span>
+      private Long id;
+      private String name;
+      private Double price;
+      private Double cost;
+
+      @Override
+      public Long getId() {
+<span class="nc" id="L165">        return id;</span>
+      }
+
+      public Private setId(Long id) {
+<span class="fc" id="L169">        this.id = id;</span>
+<span class="fc" id="L170">        return this;</span>
+      }
+
+      @Override
+      public String getName() {
+<span class="nc" id="L175">        return name;</span>
+      }
+
+      public Private setName(String name) {
+<span class="fc" id="L179">        this.name = name;</span>
+<span class="fc" id="L180">        return this;</span>
+      }
+
+      @Override
+      public Double getPrice() {
+<span class="nc" id="L185">        return price;</span>
+      }
+
+      public Private setPrice(Double price) {
+<span class="fc" id="L189">        this.price = price;</span>
+<span class="fc" id="L190">        return this;</span>
+      }
+
+      @Override
+      public Double getCost() {
+<span class="nc" id="L195">        return cost;</span>
+      }
+
+      public Private setCost(Double cost) {
+<span class="fc" id="L199">        this.cost = cost;</span>
+<span class="fc" id="L200">        return this;</span>
+      }
+
+      @Override
+      public String toString() {
+<span class="fc" id="L205">        return &quot;Private{&quot;</span>
+            +
+            &quot;id=&quot;
+            + id
+            +
+            &quot;, name='&quot;
+            + name
+            + '\''
+            +
+            &quot;, price=&quot;
+            + price
+            +
+            &quot;, cost=&quot;
+            + cost
+            +
+            '}';
+      }
+    }
+  }
+
+  /**
+   * Use this interface whenever you want to provide the product Id in your DTO.
+   */
+  private interface Id {
+    /**
+     * Unique identifier of the product.
+     *
+     * @return : id of the product.
+     */
+    Long getId();
+  }
+
+  /**
+   * Use this interface whenever you want to provide the product Name in your DTO.
+   */
+  private interface Name {
+    /**
+     * The name of the product.
+     *
+     * @return : name of the product.
+     */
+    String getName();
+  }
+
+  /**
+   * Use this interface whenever you want to provide the product Price in your DTO.
+   */
+  private interface Price {
+    /**
+     * The amount we sell a product for.
+     * &lt;b&gt;This data is not confidential&lt;/b&gt;
+     *
+     * @return : price of the product.
+     */
+    Double getPrice();
+  }
+
+  /**
+   * Use this interface whenever you want to provide the product Cost in your DTO.
+   */
+  private interface Cost {
+    /**
+     * The amount that it costs us to purchase this product
+     * For the amount we sell a product for, see the {@link Price Price} parameter.
+     * &lt;b&gt;This data is confidential&lt;/b&gt;
+     *
+     * @return : cost of the product.
+     */
+    Double getCost();
+  }
+
+  /**
+   * Use this interface whenever you want to provide the product Supplier in your DTO.
+   */
+  private interface Supplier {
+    /**
+     * The name of supplier of the product or its manufacturer.
+     * &lt;b&gt;This data is highly confidential&lt;/b&gt;
+     *
+     * @return : supplier of the product.
+     */
+    String getSupplier();
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

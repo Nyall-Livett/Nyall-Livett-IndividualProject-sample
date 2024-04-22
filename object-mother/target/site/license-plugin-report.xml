@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268864003">
+    <module artifactId="object-mother" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/object-mother.ucls" result="UNKNOWN"/>
+        <file path="etc/object-mother.urm.puml" result="UNKNOWN"/>
+        <file path="evosuite-report/statistics.csv" result="UNKNOWN"/>
+        <file path="evosuite-tests/com/iluwatar/objectmother/RoyaltyObjectMother_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/objectmother/King.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/objectmother/Queen.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/objectmother/Royalty.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/objectmother/RoyaltyObjectMother.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/objectmother/test/RoyaltyObjectMotherTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

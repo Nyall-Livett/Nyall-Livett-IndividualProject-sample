@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268646609">
+    <module artifactId="template-method" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/template-method.urm.puml" result="UNKNOWN"/>
+        <file path="evosuite-report/statistics.csv" result="UNKNOWN"/>
+        <file path="evosuite-tests/com/iluwatar/templatemethod/HitAndRunMethod_ESTest_scaffolding.java" result="NOOP"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/templatemethod/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/templatemethod/HalflingThief.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/templatemethod/HitAndRunMethod.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/templatemethod/StealingMethod.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/templatemethod/SubtleMethod.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/templatemethod/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/templatemethod/HalflingThiefTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/templatemethod/HitAndRunMethodTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/templatemethod/StealingMethodTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/templatemethod/SubtleMethodTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268749493">
+    <module artifactId="repository" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/repository.ucls" result="UNKNOWN"/>
+        <file path="etc/repository.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/repository/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/repository/AppConfig.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/repository/Person.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/repository/PersonRepository.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/repository/PersonSpecifications.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/repository/AnnotationBasedRepositoryTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/repository/AppConfigTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/repository/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/repository/RepositoryTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

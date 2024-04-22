@@ -1,0 +1,12 @@
+com/iluwatar/masterworker/ArrayResult.class
+com/iluwatar/masterworker/system/systemmaster/ArrayTransposeMaster.class
+com/iluwatar/masterworker/system/systemmaster/Master.class
+com/iluwatar/masterworker/ArrayInput.class
+com/iluwatar/masterworker/system/systemworkers/ArrayTransposeWorker.class
+com/iluwatar/masterworker/system/systemworkers/Worker.class
+com/iluwatar/masterworker/system/MasterWorker.class
+com/iluwatar/masterworker/Input.class
+com/iluwatar/masterworker/App.class
+com/iluwatar/masterworker/ArrayUtilityMethods.class
+com/iluwatar/masterworker/system/ArrayTransposeMasterWorker.class
+com/iluwatar/masterworker/Result.class

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268711949">
+    <module artifactId="model-view-controller" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/model-view-controller.ucls" result="UNKNOWN"/>
+        <file path="etc/model-view-controller.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/model/view/controller/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/model/view/controller/Fatigue.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/model/view/controller/GiantController.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/model/view/controller/GiantModel.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/model/view/controller/GiantView.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/model/view/controller/Health.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/model/view/controller/Nourishment.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/model/view/controller/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/model/view/controller/GiantControllerTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/model/view/controller/GiantModelTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/model/view/controller/GiantViewTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268797327">
+    <module artifactId="value-object" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/value-object.ucls" result="UNKNOWN"/>
+        <file path="etc/value-object.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/value/object/App.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/value/object/HeroStat.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/value/object/AppTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/value/object/HeroStatTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

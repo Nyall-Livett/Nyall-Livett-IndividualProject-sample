@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1713268605713">
+    <module artifactId="monitor" groupId="com.iluwatar" version="1.26.0-SNAPSHOT"/>
+    <files>
+        <file path="classpath.txt" result="NOOP"/>
+        <file path="etc/monitor.urm.puml" result="UNKNOWN"/>
+        <file path="pom.xml" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/monitor/Bank.java" result="NOOP"/>
+        <file path="src/main/java/com/iluwatar/monitor/Main.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/monitor/BankTest.java" result="NOOP"/>
+        <file path="src/test/java/com/iluwatar/monitor/MainTest.java" result="NOOP"/>
+    </files>
+</licensePluginReport>

@@ -1,0 +1,10 @@
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/event-sourcing/src/main/java/com/iluwatar/event/sourcing/processor/DomainEventProcessor.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/event-sourcing/src/main/java/com/iluwatar/event/sourcing/event/DomainEvent.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/event-sourcing/src/main/java/com/iluwatar/event/sourcing/event/MoneyDepositEvent.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/event-sourcing/src/main/java/com/iluwatar/event/sourcing/app/App.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/event-sourcing/src/main/java/com/iluwatar/event/sourcing/processor/EventJournal.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/event-sourcing/src/main/java/com/iluwatar/event/sourcing/state/AccountAggregate.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/event-sourcing/src/main/java/com/iluwatar/event/sourcing/domain/Account.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/event-sourcing/src/main/java/com/iluwatar/event/sourcing/event/AccountCreateEvent.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/event-sourcing/src/main/java/com/iluwatar/event/sourcing/event/MoneyTransferEvent.java
+/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/event-sourcing/src/main/java/com/iluwatar/event/sourcing/processor/JsonFileJournal.java
