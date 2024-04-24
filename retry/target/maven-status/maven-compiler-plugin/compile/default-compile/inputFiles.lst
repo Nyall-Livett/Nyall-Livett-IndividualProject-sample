@@ -1,8 +1,0 @@
-/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/retry/src/main/java/com/iluwatar/retry/Retry.java
-/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/retry/src/main/java/com/iluwatar/retry/BusinessOperation.java
-/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/retry/src/main/java/com/iluwatar/retry/DatabaseNotAvailableException.java
-/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/retry/src/main/java/com/iluwatar/retry/App.java
-/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/retry/src/main/java/com/iluwatar/retry/FindCustomer.java
-/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/retry/src/main/java/com/iluwatar/retry/RetryExponentialBackoff.java
-/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/retry/src/main/java/com/iluwatar/retry/CustomerNotFoundException.java
-/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/retry/src/main/java/com/iluwatar/retry/BusinessException.java

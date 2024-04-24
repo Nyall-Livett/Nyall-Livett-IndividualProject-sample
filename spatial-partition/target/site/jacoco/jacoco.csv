@@ -1,8 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-spatial-partition,com.iluwatar.spatialpartition,QuadTree,204,76,13,5,28,22,9,4,1,3
-spatial-partition,com.iluwatar.spatialpartition,Bubble,0,155,2,10,0,23,2,10,0,6
-spatial-partition,com.iluwatar.spatialpartition,Rect,0,135,3,13,0,8,3,8,0,3
-spatial-partition,com.iluwatar.spatialpartition,SpatialPartitionGeneric,0,3,0,0,0,1,0,1,0,1
-spatial-partition,com.iluwatar.spatialpartition,App,219,0,10,0,43,0,14,0,9,0
-spatial-partition,com.iluwatar.spatialpartition,SpatialPartitionBubbles,0,45,0,0,0,9,0,2,0,2
-spatial-partition,com.iluwatar.spatialpartition,Point,0,12,0,0,0,5,0,1,0,1

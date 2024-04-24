@@ -1,0 +1,7 @@
+com/iluwatar/sharding/AppTest.class
+com/iluwatar/sharding/RangeShardManagerTest.class
+com/iluwatar/sharding/LookupShardManagerTest.class
+com/iluwatar/sharding/ShardManagerTest$TestShardManager.class
+com/iluwatar/sharding/ShardManagerTest.class
+com/iluwatar/sharding/ShardTest.class
+com/iluwatar/sharding/HashShardManagerTest.class

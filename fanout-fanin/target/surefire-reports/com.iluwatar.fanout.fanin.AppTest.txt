@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.iluwatar.fanout.fanin.AppTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.062 s -- in com.iluwatar.fanout.fanin.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.136 s -- in com.iluwatar.fanout.fanin.AppTest

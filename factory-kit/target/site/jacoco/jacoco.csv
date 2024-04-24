@@ -1,8 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-factory-kit,com.iluwatar.factorykit,Bow,0,5,0,0,0,2,0,2,0,2
-factory-kit,com.iluwatar.factorykit,WeaponType,0,44,0,0,0,5,0,1,0,1
-factory-kit,com.iluwatar.factorykit,Spear,0,5,0,0,0,2,0,2,0,2
-factory-kit,com.iluwatar.factorykit,WeaponFactory,0,21,0,0,0,3,0,2,0,2
-factory-kit,com.iluwatar.factorykit,App,3,62,0,0,1,14,1,4,1,4
-factory-kit,com.iluwatar.factorykit,Axe,0,5,0,0,0,2,0,2,0,2
-factory-kit,com.iluwatar.factorykit,Sword,0,5,0,0,0,2,0,2,0,2

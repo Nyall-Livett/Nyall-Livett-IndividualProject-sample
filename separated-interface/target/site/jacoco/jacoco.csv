@@ -1,5 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-separated-interface,com.iluwatar.separatedinterface.invoice,InvoiceGenerator,6,18,0,0,2,5,2,2,2,2
-separated-interface,com.iluwatar.separatedinterface.taxes,ForeignTaxCalculator,0,9,0,0,0,2,0,2,0,2
-separated-interface,com.iluwatar.separatedinterface.taxes,DomesticTaxCalculator,0,9,0,0,0,2,0,2,0,2
-separated-interface,com.iluwatar.separatedinterface,App,3,33,0,0,1,6,1,2,1,2

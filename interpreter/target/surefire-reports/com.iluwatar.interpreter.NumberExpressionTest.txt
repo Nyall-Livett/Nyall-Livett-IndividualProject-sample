@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.iluwatar.interpreter.NumberExpressionTest
 -------------------------------------------------------------------------------
-Tests run: 1200, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 s -- in com.iluwatar.interpreter.NumberExpressionTest
+Tests run: 1200, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.291 s -- in com.iluwatar.interpreter.NumberExpressionTest

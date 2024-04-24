@@ -1,3 +1,5 @@
-com/iluwatar/roleobject/Role_ESTest.class
+com/iluwatar/roleobject/BorrowerRoleTest.class
 com/iluwatar/roleobject/ApplicationRoleObjectTest.class
-com/iluwatar/roleobject/CustomerCore_ESTest.class
+com/iluwatar/roleobject/RoleTest.class
+com/iluwatar/roleobject/CustomerCoreTest.class
+com/iluwatar/roleobject/InvestorRoleTest.class

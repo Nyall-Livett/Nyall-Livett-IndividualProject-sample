@@ -1,8 +1,0 @@
-#Sun Mar 31 11:42:00 BST 2024
-configuration*?=4843A56D8A0ADB0D720CC6A894D32AE218BB2B11
-module-resource*?\:checkstyle-xpath-suppressions.xml=25A35774496ABC46AE1B2A96E2CBC2A2B7C95F2E
-module-resource*?\:checkstyle-suppressions.xml=5CA59B323FF14A7183C495F63A2BDD30F053EA44
-/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/partial-response/src/main/java/com/iluwatar/partialresponse/VideoResource.java=1707917841854
-/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/partial-response/src/main/java/com/iluwatar/partialresponse/App.java=1707917841854
-/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/partial-response/src/main/java/com/iluwatar/partialresponse/Video.java=1707917841854
-/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/partial-response/src/main/java/com/iluwatar/partialresponse/FieldJsonMapper.java=1707917841854

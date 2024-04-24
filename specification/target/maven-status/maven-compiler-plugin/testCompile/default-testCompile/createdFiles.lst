@@ -1,10 +1,7 @@
 com/iluwatar/specification/selector/CompositeSelectorsTest.class
 com/iluwatar/specification/selector/MassSelectorTest.class
 com/iluwatar/specification/selector/MovementSelectorTest.class
-com/iluwatar/specification/selector/ColorSelector_ESTest_scaffolding.class
-com/iluwatar/specification/selector/ColorSelector_ESTest.class
+com/iluwatar/specification/selector/ColorSelectorTest.class
 com/iluwatar/specification/app/AppTest.class
 com/iluwatar/specification/selector/SizeSelectorTest.class
-com/iluwatar/specification/selector/MovementSelector_ESTest.class
 com/iluwatar/specification/creature/CreatureTest.class
-com/iluwatar/specification/selector/MovementSelector_ESTest_scaffolding.class

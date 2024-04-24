@@ -1,7 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-component,com.iluwatar.component.component.physiccomponent,ObjectPhysicComponent,0,15,0,0,0,5,0,3,0,3
-component,com.iluwatar.component.component.inputcomponent,PlayerInputComponent,0,34,2,1,0,10,2,3,0,3
-component,com.iluwatar.component.component.inputcomponent,DemoInputComponent,0,16,0,0,0,5,0,3,0,3
-component,com.iluwatar.component,GameObject,0,71,0,0,0,14,0,6,0,6
-component,com.iluwatar.component,App,3,20,0,0,1,8,1,2,1,2
-component,com.iluwatar.component.component.graphiccomponent,ObjectGraphicComponent,0,15,0,0,0,4,0,3,0,3

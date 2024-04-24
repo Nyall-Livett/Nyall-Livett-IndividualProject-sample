@@ -1,0 +1,11 @@
+RetryConfigTest.class
+MemoryHealthIndicatorTest.class
+GarbageCollectionHealthIndicatorTest$1.class
+AsynchronousHealthCheckerTest.class
+HealthEndpointIntegrationTest.class
+DatabaseTransactionHealthIndicatorTest.class
+HealthCheckRepositoryTest.class
+CustomHealthIndicatorTest$CacheConfig.class
+CustomHealthIndicatorTest.class
+GarbageCollectionHealthIndicatorTest.class
+AppTest.class

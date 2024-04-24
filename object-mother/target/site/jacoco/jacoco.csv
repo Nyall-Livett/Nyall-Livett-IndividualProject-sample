@@ -1,4 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-object-mother,com.iluwatar.objectmother,Queen,19,29,1,5,9,7,6,5,5,3
-object-mother,com.iluwatar.objectmother,King,4,36,0,2,2,15,1,7,1,6
-object-mother,com.iluwatar.objectmother,RoyaltyObjectMother,3,43,0,0,1,15,1,6,1,6

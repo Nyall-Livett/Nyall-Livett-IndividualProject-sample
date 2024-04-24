@@ -1,9 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-mediator,com.iluwatar.mediator,Hunter,0,5,0,0,0,2,0,2,0,2
-mediator,com.iluwatar.mediator,Rogue,0,5,0,0,0,2,0,2,0,2
-mediator,com.iluwatar.mediator,App,3,45,0,0,1,14,1,1,1,1
-mediator,com.iluwatar.mediator,Wizard,0,5,0,0,0,2,0,2,0,2
-mediator,com.iluwatar.mediator,Hobbit,0,5,0,0,0,2,0,2,0,2
-mediator,com.iluwatar.mediator,Action,0,81,0,0,0,12,0,4,0,4
-mediator,com.iluwatar.mediator,PartyImpl,0,37,0,4,0,11,0,5,0,3
-mediator,com.iluwatar.mediator,PartyMemberBase,0,36,0,2,0,11,0,6,0,5

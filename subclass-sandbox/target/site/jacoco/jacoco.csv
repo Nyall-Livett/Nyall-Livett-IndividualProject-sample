@@ -1,5 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-subclass-sandbox,com.iluwatar.subclasssandbox,GroundDive,0,21,0,0,0,7,0,2,0,2
-subclass-sandbox,com.iluwatar.subclasssandbox,Superpower,0,41,0,0,0,7,0,4,0,4
-subclass-sandbox,com.iluwatar.subclasssandbox,App,3,23,0,0,1,8,1,2,1,2
-subclass-sandbox,com.iluwatar.subclasssandbox,SkyLaunch,0,21,0,0,0,7,0,2,0,2

@@ -1,5 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-monostate,com.iluwatar.monostate,Request,0,6,0,0,0,3,0,1,0,1
-monostate,com.iluwatar.monostate,LoadBalancer,0,93,0,4,0,17,0,8,0,6
-monostate,com.iluwatar.monostate,Server,6,44,0,0,2,9,2,3,2,3
-monostate,com.iluwatar.monostate,App,3,21,0,0,1,5,1,1,1,1

@@ -1,8 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-typeobjectpattern,com.iluwatar.typeobject,Cell,10,117,3,7,3,22,3,6,0,4
-typeobjectpattern,com.iluwatar.typeobject,CellPool,62,133,0,8,8,29,0,9,0,5
-typeobjectpattern,com.iluwatar.typeobject,CandyGame,269,275,26,34,46,39,17,21,4,4
-typeobjectpattern,com.iluwatar.typeobject,JsonParser,4,125,2,10,1,29,2,7,0,3
-typeobjectpattern,com.iluwatar.typeobject,Candy,0,18,0,0,0,7,0,1,0,1
-typeobjectpattern,com.iluwatar.typeobject,Candy.Type,0,24,0,0,0,3,0,1,0,1
-typeobjectpattern,com.iluwatar.typeobject,App,98,0,8,0,29,0,7,0,3,0

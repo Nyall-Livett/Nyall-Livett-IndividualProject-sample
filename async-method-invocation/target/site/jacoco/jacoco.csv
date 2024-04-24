@@ -1,4 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-async-method-invocation,com.iluwatar.async.method.invocation,App,13,128,1,1,2,30,2,7,1,7
-async-method-invocation,com.iluwatar.async.method.invocation,ThreadAsyncExecutor.CompletableResult,0,118,0,8,0,30,0,12,0,8
-async-method-invocation,com.iluwatar.async.method.invocation,ThreadAsyncExecutor,0,50,0,2,0,14,0,6,0,5

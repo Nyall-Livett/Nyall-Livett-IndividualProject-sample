@@ -1,5 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-memento,com.iluwatar.memento,Star,0,114,1,5,0,31,1,9,0,5
-memento,com.iluwatar.memento,StarType,0,70,0,0,0,10,0,3,0,3
-memento,com.iluwatar.memento,Star.StarMementoInternal,0,21,0,0,0,9,0,6,0,6
-memento,com.iluwatar.memento,App,3,77,0,2,1,20,1,3,1,2

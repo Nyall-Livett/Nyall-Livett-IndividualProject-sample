@@ -1,7 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-lazy-loading,com.iluwatar.lazy.loading,Heavy,5,16,0,0,2,7,0,2,0,2
-lazy-loading,com.iluwatar.lazy.loading,Java8Holder.new Supplier() {...},0,14,0,0,0,3,0,2,0,2
-lazy-loading,com.iluwatar.lazy.loading,HolderThreadSafe,0,21,0,2,0,7,0,4,0,3
-lazy-loading,com.iluwatar.lazy.loading,HolderNaive,0,21,0,2,0,7,0,4,0,3
-lazy-loading,com.iluwatar.lazy.loading,Java8Holder,0,34,1,1,0,9,1,4,0,4
-lazy-loading,com.iluwatar.lazy.loading,App,3,38,0,0,1,11,1,2,1,2

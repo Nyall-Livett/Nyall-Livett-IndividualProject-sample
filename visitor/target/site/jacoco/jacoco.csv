@@ -1,9 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-visitor,com.iluwatar.visitor,CommanderVisitor,0,14,0,0,0,6,0,5,0,5
-visitor,com.iluwatar.visitor,SergeantVisitor,0,14,0,0,0,6,0,5,0,5
-visitor,com.iluwatar.visitor,Commander,0,13,0,0,0,6,0,3,0,3
-visitor,com.iluwatar.visitor,Unit,0,17,0,0,0,5,0,3,0,3
-visitor,com.iluwatar.visitor,SoldierVisitor,0,14,0,0,0,6,0,5,0,5
-visitor,com.iluwatar.visitor,Soldier,0,13,0,0,0,6,0,3,0,3
-visitor,com.iluwatar.visitor,App,3,86,0,0,1,5,1,1,1,1
-visitor,com.iluwatar.visitor,Sergeant,0,13,0,0,0,6,0,3,0,3

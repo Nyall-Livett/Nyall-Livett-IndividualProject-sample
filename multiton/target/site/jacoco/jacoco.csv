@@ -1,5 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-multiton,com.iluwatar.multiton,Nazgul,0,91,0,0,0,16,0,4,0,4
-multiton,com.iluwatar.multiton,App,3,92,0,0,1,22,1,2,1,2
-multiton,com.iluwatar.multiton,NazgulEnum,0,94,0,0,0,10,0,1,0,1
-multiton,com.iluwatar.multiton,NazgulName,0,94,0,0,0,10,0,1,0,1

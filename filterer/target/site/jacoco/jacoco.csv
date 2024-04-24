@@ -1,7 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-filterer,com.iluwatar.filterer.threat,ThreatType,0,34,0,0,0,4,0,1,0,1
-filterer,com.iluwatar.filterer.threat,SimpleThreat,6,3,0,0,2,1,2,1,2,1
-filterer,com.iluwatar.filterer.threat,SimpleProbableThreat,0,18,0,0,0,6,0,3,0,3
-filterer,com.iluwatar.filterer.threat,SimpleThreatAwareSystem,3,27,0,0,1,5,1,4,1,4
-filterer,com.iluwatar.filterer.threat,SimpleProbabilisticThreatAwareSystem,3,24,0,0,1,6,1,4,1,4
-filterer,com.iluwatar.filterer,App,3,110,0,4,1,24,1,8,1,6

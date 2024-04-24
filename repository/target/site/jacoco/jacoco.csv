@@ -1,7 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-repository,com.iluwatar.repository,PersonSpecifications.AgeBetweenSpec,0,21,0,0,0,5,0,2,0,2
-repository,com.iluwatar.repository,PersonSpecifications.NameEqualSpec,0,14,0,0,0,4,0,2,0,2
-repository,com.iluwatar.repository,App,3,147,0,0,1,29,1,4,1,4
-repository,com.iluwatar.repository,Person,0,12,0,0,0,5,0,1,0,1
-repository,com.iluwatar.repository,PersonSpecifications,3,0,0,0,1,0,1,0,1,0
-repository,com.iluwatar.repository,AppConfig,146,78,0,0,27,21,3,6,3,6

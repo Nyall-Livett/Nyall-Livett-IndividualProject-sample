@@ -1,9 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-data-locality,com.iluwatar.data.locality.game,GameEntity,0,56,0,0,0,17,0,4,0,4
-data-locality,com.iluwatar.data.locality.game.component,AiComponent,1,11,0,0,1,4,1,3,1,3
-data-locality,com.iluwatar.data.locality.game.component,PhysicsComponent,1,11,0,0,1,4,1,3,1,3
-data-locality,com.iluwatar.data.locality.game.component,RenderComponent,1,11,0,0,1,4,1,3,1,3
-data-locality,com.iluwatar.data.locality.game.component.manager,AiComponentManager,1,66,2,2,0,13,2,7,0,7
-data-locality,com.iluwatar.data.locality.game.component.manager,RenderComponentManager,1,66,2,2,0,13,2,7,0,7
-data-locality,com.iluwatar.data.locality.game.component.manager,PhysicsComponentManager,1,66,2,2,0,13,2,7,0,7
-data-locality,com.iluwatar.data.locality,Application,3,17,0,0,1,6,1,2,1,2

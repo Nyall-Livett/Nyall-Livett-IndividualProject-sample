@@ -1,6 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-model-view-presenter,com.iluwatar.model.view.presenter,FileSelectorPresenter,0,62,1,5,0,21,1,8,0,6
-model-view-presenter,com.iluwatar.model.view.presenter,FileLoader,0,59,0,0,0,15,0,7,0,7
-model-view-presenter,com.iluwatar.model.view.presenter,App,3,19,0,0,1,6,1,1,1,1
-model-view-presenter,com.iluwatar.model.view.presenter,FileSelectorStub,0,60,0,0,0,24,0,12,0,12
-model-view-presenter,com.iluwatar.model.view.presenter,FileSelectorJframe,40,188,2,2,15,43,9,4,7,4

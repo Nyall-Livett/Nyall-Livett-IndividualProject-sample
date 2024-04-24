@@ -1,6 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-property,com.iluwatar.property,Character,0,164,0,12,0,36,0,16,0,10
-property,com.iluwatar.property,Character.Type,0,34,0,0,0,2,0,1,0,1
-property,com.iluwatar.property,App,3,127,0,0,1,26,1,2,1,2
-property,com.iluwatar.property,Character.new Prototype() {...},4,8,0,0,3,2,3,2,3,2
-property,com.iluwatar.property,Stats,0,84,0,0,0,2,0,1,0,1

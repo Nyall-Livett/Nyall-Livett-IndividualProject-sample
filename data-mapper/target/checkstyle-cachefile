@@ -1,9 +1,0 @@
-#Sun Mar 31 11:41:57 BST 2024
-configuration*?=C2E964E001303528E984BE84FBCB4C8F99E2A695
-module-resource*?\:checkstyle-xpath-suppressions.xml=25A35774496ABC46AE1B2A96E2CBC2A2B7C95F2E
-module-resource*?\:checkstyle-suppressions.xml=5CA59B323FF14A7183C495F63A2BDD30F053EA44
-/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/data-mapper/src/main/java/com/iluwatar/datamapper/StudentDataMapper.java=1707917841650
-/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/data-mapper/src/main/java/com/iluwatar/datamapper/DataMapperException.java=1707917841650
-/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/data-mapper/src/main/java/com/iluwatar/datamapper/App.java=1707917841650
-/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/data-mapper/src/main/java/com/iluwatar/datamapper/StudentDataMapperImpl.java=1707917841650
-/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/java-design-patterns/data-mapper/src/main/java/com/iluwatar/datamapper/Student.java=1707917841650

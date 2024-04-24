@@ -1,3 +1,5 @@
-com/iluwatar/identitymap/Person_ESTest.class
-com/iluwatar/identitymap/PersonDbSimulatorImplementation_ESTest_scaffolding.class
-com/iluwatar/identitymap/Person_ESTest_scaffolding.class
+com/iluwatar/identitymap/IdentityMapTest.class
+com/iluwatar/identitymap/PersonDbSimulatorImplementationTest.class
+com/iluwatar/identitymap/AppTest.class
+com/iluwatar/identitymap/PersonTest.class
+com/iluwatar/identitymap/PersonFinderTest.class

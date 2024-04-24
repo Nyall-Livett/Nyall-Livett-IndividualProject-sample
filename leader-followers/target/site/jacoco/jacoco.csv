@@ -1,7 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-leader-followers,com.iluwatar.leaderfollowers,WorkCenter,0,66,0,4,0,18,0,9,0,7
-leader-followers,com.iluwatar.leaderfollowers,TaskSet,0,23,0,0,0,6,0,4,0,4
-leader-followers,com.iluwatar.leaderfollowers,TaskHandler,0,20,0,0,0,7,0,3,0,3
-leader-followers,com.iluwatar.leaderfollowers,App,3,71,0,2,1,19,1,4,1,3
-leader-followers,com.iluwatar.leaderfollowers,Task,0,16,0,0,0,7,0,4,0,4
-leader-followers,com.iluwatar.leaderfollowers,Worker,1,98,2,8,1,28,2,6,0,3
